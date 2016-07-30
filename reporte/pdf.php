@@ -8,8 +8,8 @@ $html.='<table border="1" width="100%">';
 $html.='<tr><td><center><b>Cedula:</b></center></td><td><center><b>Nombre:</b></center></td><td><center><b>Apellido:</b></center></td><td><center><b>Direccion:</b></center></td><td><center><b>Telefono:</b></center></td><td><center><b>Fecha Nac.:</b></center></td><td><center><b>Correo:</b></center></td></tr>';
 if(isset($_SESSION['w'])) $where = $_SESSION['w']; else $where = "";
 $sql = "SELECT * FROM estudiantes ".$where;
-$consulta=mysql_query($sql,$enlace) or die("Error" . mysql_error());
-while($dato=mysql_fetch_array($consulta)){
+$consulta=mysqli_query($enlace, $sql) or die("Error" . mysqli_error());
+while($dato=mysqli_fetch_array($consulta)){
 $html.="<tr><td><center>".$dato['ci_est']."</center></td><td><center>".$dato['nom_est']."</center></td><td><center>".$dato['ape_est']."</center></td><td><center>".$dato['dir_est']."</center></td><td><center>".$dato['tel_est']."</center></td><td><center>".$dato['fec_nac_est']."</center></td><td><center>".$dato['corr_est']."</center></td></tr>";
 }
 $html.="</table>";
@@ -22,5 +22,5 @@ $html.="</table>";
   $dompdf->set_paper(array(0, 0, 700, 700), "portrait");
   $dompdf->render();
   $dompdf->stream("Estudiantes.pdf");
-   exit(0); 
+   exit(0);
 ?>

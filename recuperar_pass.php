@@ -37,13 +37,13 @@ include ("formulario.php");
 	<!-- Header -->
 		<div id="header">
 			<div class="container">
-					
+
 				<!-- Logo -->
 					<div id="logo">
 						<h1 style="font-size:72px">Centro Cristiano</h1>
 						<h1 style="font-size:36px; margin-top:30px; color:#CCC">Restauración Mundial</h1>
 					</div>
-				
+
 				<!-- Nav -->
 					<nav id="nav">
 						<ul>
@@ -58,7 +58,7 @@ include ("formulario.php");
 			</div>
 		</div>
 	<!-- Header -->
-			
+
 	<!-- Main -->
 		<div id="main">
 			<div class="container">
@@ -66,37 +66,37 @@ include ("formulario.php");
 
 					<!-- Content -->
 						<div id="content" class="12u skel-cell-important">
-							
-								
-                                
+
+
+
 						<div class="container">
-            
-            <section>				
+
+            <section>
                 <div id="container_demo" >
                     <!-- hidden anchor to stop jump http://www.css3create.com/Astuce-Empecher-le-scroll-avec-l-utilisation-de-target#wrap4  -->
                     <a class="hiddenanchor" id="toregister"></a>
                     <a class="hiddenanchor" id="tologin"></a>
                     <div id="wrapper">
-                        
+
 <div id="login" class="animate form">
-                            <form method="post" action="?m=1" name="form3" id="form3"> 
-                                <h1>recuperar contraseña</h1>  
+                            <form method="post" action="?m=1" name="form3" id="form3">
+                                <h1>recuperar contraseña</h1>
                                 	<?php echo '<center>'.$mensaje.'</center>' ?>
-                                <p> 
+                                <p>
                                     <label for="username" class="uname" data-icon="u" >Tu nombre de usuario</label>
                                     <input id="usuario" name="usuario" required="required" type="text" placeholder="Ejemplo: MiNombreUsuario"/>
                                 </p>
-                                <p> 
+                                <p>
                                     <label for="password" class="youpasswd" data-icon="p">Tu respuesta secreta</label>
-                                    <input id="resp_preg_seg" name="resp_preg_seg" required="required" type="password" placeholder="Ejemplo: X8df!90EO" /> 
+                                    <input id="resp_preg_seg" name="resp_preg_seg" required="required" type="password" placeholder="Ejemplo: X8df!90EO" />
                                 </p>
-                                <p> 
+                                <p>
                                     <label for="password" class="youpasswd" data-icon="p">Tu nueva clave</label>
-                                    <input id="clave" name="clave" required="required" type="password" placeholder="Ejemplo: X8df!90EO" /> 
+                                    <input id="clave" name="clave" required="required" type="password" placeholder="Ejemplo: X8df!90EO" />
                                 </p>
-                               
-                                <p class="login button"> 
-                                    <input style="width:200px; height:40px; margin-top:-20px; margin-left:-100px;" type="submit" value="Recuperar contraseña" /> 
+
+                                <p class="login button">
+                                    <input style="width:200px; height:40px; margin-top:-20px; margin-left:-100px;" type="submit" value="Recuperar contraseña" />
 								</p>
                                 <p class="change_link">
 									Ya eres miembro ?
@@ -104,24 +104,24 @@ include ("formulario.php");
 								</p>
                             </form>
                         </div>
-                      
+
 
                     </div>
 
-					
 
-                </div>  
+
+                </div>
             </section>
         </div>
 
-  
-                  
-							
+
+
+
 						</div>
 					<!-- /Content -->
-						
+
 				</div>
-			
+
 			</div>
 		</div>
 	<!-- Main -->
@@ -130,9 +130,9 @@ include ("formulario.php");
 		<div id="footer">
 			<div class="container">
 				<div class="row">
-					
+
 					<img src="images/footer.png" width="500" height="350">
-                    
+
 					<div class="6u">
 						<section>
 							<header>

@@ -31,14 +31,14 @@ exit();
 <body>
 <div id="header">
 			<div class="container">
-					
+
 				<!-- Logo -->
 					<div id="logo">
 						<h1 style="font-size:72px">Centro Cristiano</h1>
 						<h1 style="font-size:36px; margin-top:30px; color:#CCC">Restauración Mundial</h1>
-                        
+
 					</div>
-				
+
 				<!-- Nav -->
 					<nav id="nav">
 						<ul>
@@ -59,7 +59,7 @@ exit();
 
 					<!-- Content -->
 						<div id="content" class="12u skel-cell-important">
-							
+
 								<header align="center">
 									<h2>Formulario para datos de los <a style="color: red">Administradores</a></h2>
                   <br><?php echo $mensaje ?>
@@ -99,14 +99,14 @@ if(isset($edita)) echo 'value="'.$datosEditar['cont_usu'].'"'; ?>></td>
     <td>&nbsp;</td>
 
                         <td ><select name="ps" id="ps" id="ps" >
-                        <option value="null">Selecciona una Pregunta</option> 
-                        <option value="Profesor Favorito">Quien fue su profesor favorito?</option> 
-                        <option value="personaje favorito">Quien es su personaje histórico favorito?</option> 
-                        <option value="Mejor Amigo">Quien fue su mejor amigo en la niñez?</option> 
-                        <option value="Lugar Favorito">Cual es su lugar favorito para visitar?</option> 
-                        <option value="Comida Preferida">Cual es su comida preferida?</option> 
-                        <option value="Pelicula Favorita">Cual es su película favorita?</option> 
-                        <option value="Grupo Favorito">Cual es su grupo de música favorito?</option> 
+                        <option value="null">Selecciona una Pregunta</option>
+                        <option value="Profesor Favorito">Quien fue su profesor favorito?</option>
+                        <option value="personaje favorito">Quien es su personaje histórico favorito?</option>
+                        <option value="Mejor Amigo">Quien fue su mejor amigo en la niñez?</option>
+                        <option value="Lugar Favorito">Cual es su lugar favorito para visitar?</option>
+                        <option value="Comida Preferida">Cual es su comida preferida?</option>
+                        <option value="Pelicula Favorita">Cual es su película favorita?</option>
+                        <option value="Grupo Favorito">Cual es su grupo de música favorito?</option>
                         <option value="Nombre de tu Mascota">Cual es el nombre de tu mascota?</option>
                         </select><?php if(isset($edita)) echo'<br><b> ('.$datosEditar['ps_usu'].')</b>'; ?></td>
                         </tr>
@@ -125,7 +125,7 @@ Registro"; else $nom_boton="Enviar Registro"; ?><input name="button" type="submi
   </tr>
 
 </table>
-<a style="margin-left:450px;"><b> (<a style="color:red">*</a>) : Campo Obligatio</b></a>
+<a style="margin-left:450px;"><b> (<a style="color:red">*</a>) : Campos Obligatios</b></a>
 
 </form>
 </div>
@@ -143,13 +143,13 @@ Filtrado:
 <select name="campos">
 <option value="cod_usu" selected="selected">Codigo</option>
 <option value="nom_usu">Nombres</option>
-</select><input name="valor" type="text"><input name="Consultar" type="submit" value="Enviar"><td align="center"><a href="reportes/reportes.php"><img src="images/PDF_Descargar.png" width="50" height="50" alt="" /></a></td>
+</select><input name="valor" type="text"><input name="Consultar" type="submit" value="Enviar"><td align="center"><a href="reporte/pdf.php"><img src="images/PDF_Descargar.png" width="50" height="50" alt="" /></a></td>
 </form></td>
     <td>&nbsp;</td>
   </tr>
-</table>    
-			
-  
+</table>
+
+
   </div>
          <div class="Tablas" >
 <div class="CSSTableGenerator" >
@@ -159,29 +159,29 @@ Filtrado:
 
 if(isset($_REQUEST['valor'])){
 $where = "Where ".$_REQUEST['campos']." like '%".$_REQUEST['valor']."%'";
-$_SESSION['w']= $where;	
+$_SESSION['w']= $where;
 }
 if (!isset($_REQUEST['pg'])) $n_pag = 1; else $n_pag=$_REQUEST['pg'];
 $cantidad=20;
 $inicial = ($n_pag-1) * $cantidad;
 //Fin del Limite
 $sql = "SELECT * FROM usuarios ".$where;
-$consulta = mysql_query($sql,$enlace) or die ("Error");
-$cant_registros =mysql_num_rows($consulta);
+$consulta = mysqli_query($enlace, $sql) or die ("Error");
+$cant_registros =mysqli_num_rows($consulta);
 $paginado = intval($cant_registros / $cantidad);
 //hasta aqui es la consulta total de registros
 $sql = "SELECT * FROM usuarios ".$where." LIMIT $inicial,$cantidad ";
-$consulta = mysql_query($sql,$enlace) or die ("Error");
-$cant_registros2 =mysql_num_rows($consulta);
+$consulta = mysqli_query($enlace, $sql) or die ("Error");
+$cant_registros2 =mysqli_num_rows($consulta);
 //hasta aqui es la consulta limitada
 echo "</br><center>Cantidad de registros: ".$cant_registros." - Límite Mostrado: Del ".($inicial+1)." al ".($inicial + $cant_registros2)."</center><br>";
 $sql="SELECT * FROM usuarios ".$where;
-$cons=mysql_query($sql,$enlace);
+$cons=mysqli_query($enlace, $sql);
 echo '<table>
 <tr>
 <td>Codigo del Administrador</td><td>Usuario</td><td>Pregunta de Seguridad</td><td>Respuesta Pregunta de Seguridad</td><td colspan="2">Opciones</td>
 </tr>';
-while($datos=mysql_fetch_assoc($cons)){
+while($datos=mysqli_fetch_assoc($cons)){
 $primario= $datos['cod_usu'];
 echo "<tr>";
 echo "<td><center>".$datos['cod_usu']."</center></td>";
@@ -201,14 +201,14 @@ echo "</td></tr>";
 ?>
                  </table>
             </div>
-            
-</div>         
-							
+
+</div>
+
 						</div>
 					<!-- /Content -->
-						
+
 				</div>
-			
+
 			</div>
 		</div>
 </div>

@@ -2,11 +2,6 @@
 include ("formulario.php");
 ?>
 <!DOCTYPE HTML>
-<!--
-	Monochromed by TEMPLATED
-    templated.co @templatedco
-    Released for free under the Creative Commons Attribution 3.0 license (templated.co/license)
--->
 <html>
 	<head>
 		<title>Centro Cristiano Restauración Mundial</title>
@@ -36,13 +31,13 @@ include ("formulario.php");
 	<!-- Header -->
 		<div id="header">
 			<div class="container">
-					
+
 				<!-- Logo -->
 					<div id="logo">
 						<h1 style="font-size:72px">Centro Cristiano</h1>
 						<h1 style="font-size:36px; margin-top:30px; color:#CCC">Restauración Mundial</h1>
 					</div>
-				
+
 				<!-- Nav -->
 					<nav id="nav">
 						<ul>
@@ -57,7 +52,7 @@ include ("formulario.php");
 			</div>
 		</div>
 	<!-- Header -->
-			
+
 	<!-- Main -->
 		<div id="main">
 			<div class="container">
@@ -65,39 +60,38 @@ include ("formulario.php");
 
 					<!-- Content -->
 						<div id="content" class="12u skel-cell-important">
-							
-								
-                                
+
+
+
 						<div class="container">
-            
-            <section>				
+
+            <section>
                 <div id="container_demo" >
                     <!-- hidden anchor to stop jump http://www.css3create.com/Astuce-Empecher-le-scroll-avec-l-utilisation-de-target#wrap4  -->
                     <a class="hiddenanchor" id="toregister"></a>
                     <a class="hiddenanchor" id="tologin"></a>
                     <div id="wrapper">
                         <div id="login" class="animate form">
-                            <form method="post" action="autenticar.php" name="form1" id="form1"> 
-                                <h1>iniciar sessión</h1> 
+                            <form method="post" action="autenticar.php" name="form1" id="form1">
+                                <h1>iniciar sessión</h1>
                                 	<?php
 										if(isset($_REQUEST["error"])){
-										if ($_REQUEST["error"]==1)
 										echo '<b><center>Datos incorrectos</center></b>';
 										}
 									?>
-                                <p> 
+                                <p>
                                     <label for="username" class="uname" data-icon="u" >Tu nombre de usuario</label>
                                     <input id="usuario" name="usuario" required="required" type="text" placeholder="Ejemplo: MiNombreUsuario"/>
                                 </p>
-                                <p> 
+                                <p>
                                     <label for="password" class="youpasswd" data-icon="p">Tu contraseña</label>
-                                    <input id="clave" name="clave" required="required" type="password" placeholder="Ejemplo: X8df!90EO" /> 
+                                    <input id="clave" name="clave" required="required" type="password" placeholder="Ejemplo: X8df!90EO" />
                                 </p>
                                 <p class="keeplogin">
 									<a href="recuperar_pass.php">Olvido su clave ?</a>
 								</p>
-                                <p class="login button"> 
-                                    <input style="width:150px; height:40px; margin-top:-20px; margin-left:-50px;" type="submit" value="Ingresar" /> 
+                                <p class="login button">
+                                    <input style="width:150px; height:40px; margin-top:-20px; margin-left:-50px;" type="submit" value="Ingresar" />
 								</p>
                                 <p class="change_link">
 									No eres miembro todavía ?
@@ -107,39 +101,39 @@ include ("formulario.php");
                         </div>
 
                         <div id="register" class="animate form">
-                            <form action="?m=1#toregister" method="post" name="form2" id="form2"> 
-                                <h1>registrarse</h1> 
+                            <form action="?m=1#toregister" method="post" name="form2" id="form2">
+                                <h1>registrarse</h1>
                                 <?php echo '<center>'.$mensaje.'</center>' ?>
-                                <p> 
+                                <p>
                                     <label for="usernamesignup" class="uname" data-icon="u" required pattern="[a-z A-Z 0-9]+">Tu Usuario</label>
                                     <input id="usuario_new" name="usuario_new" required="required" type="text" placeholder="Ejemplo: MiUsuario999" />
                                 </p>
-                                <p> 
+                                <p>
                                     <label for="passwordsignup" class="youpasswd" data-icon="p">Tu Contraseña </label>
                                     <input id="clave_new" name="clave_new" required="required" type="password" placeholder="Ejemplo:  X8df!90EO"/>
                                 </p>
-                                <p> 
+                                <p>
                                     <label for="preg_seg" >Pregunta de seguridad</label>
                                     <select name="preg_seg" id="preg_seg">
-         								<option value="null">Selecciona una Pregunta</option> 
-         								<option value="Profesor Favorito">Quien fue su profesor favorito?</option> 
-         								<option value="personaje favorito">Quien es su personaje histórico favorito?</option> 
-         								<option value="Mejor Amigo">Quien fue su mejor amigo en la niñez?</option> 
-         								<option value="Lugar Favorito">Cual es su lugar favorito para visitar?</option> 
-         								<option value="Comida Preferida">Cual es su comida preferida?</option> 
-         								<option value="Pelicula Favorita">Cual es su película favorita?</option> 
-         								<option value="Grupo Favorito">Cual es su grupo de música favorito?</option> 
+         								<option value="null">Selecciona una Pregunta</option>
+         								<option value="Profesor Favorito">Quien fue su profesor favorito?</option>
+         								<option value="personaje favorito">Quien es su personaje histórico favorito?</option>
+         								<option value="Mejor Amigo">Quien fue su mejor amigo en la niñez?</option>
+         								<option value="Lugar Favorito">Cual es su lugar favorito para visitar?</option>
+         								<option value="Comida Preferida">Cual es su comida preferida?</option>
+         								<option value="Pelicula Favorita">Cual es su película favorita?</option>
+         								<option value="Grupo Favorito">Cual es su grupo de música favorito?</option>
          								<option value="Nombre de tu Mascota">Cual es el nombre de tu mascota?</option>
                 					</select>
                                 </p>
-                                <p> 
+                                <p>
                                     <label for="resp_preg_seg" data-icon="p" required pattern="[a-z A-Z 0-9]+">Respuesta secreta</label>
-                                    <input id="resp_preg_seg" name="resp_preg_seg" required="required" type="password"/> 
+                                    <input id="resp_preg_seg" name="resp_preg_seg" required="required" type="password"/>
                                 </p>
-                                <p class="signin button"> 
-									<input style="width:150px; height:40px; margin-top:-20px; margin-left:-50px;" type="submit" value="Registrar" name="enviar" /> 
+                                <p class="signin button">
+									<input style="width:150px; height:40px; margin-top:-20px; margin-left:-50px;" type="submit" value="Registrar" name="enviar" />
 								</p>
-                                <p class="change_link">  
+                                <p class="change_link">
 									Ya eres miembro ?
 									<a href="#tologin" class="to_register"> Iniciar Sessión </a>
 								</p>
@@ -148,20 +142,20 @@ include ("formulario.php");
 
                     </div>
 
-					
 
-                </div>  
+
+                </div>
             </section>
         </div>
 
-  
-                  
-							
+
+
+
 						</div>
 					<!-- /Content -->
-						
+
 				</div>
-			
+
 			</div>
 		</div>
 	<!-- Main -->
@@ -170,9 +164,9 @@ include ("formulario.php");
 		<div id="footer">
 			<div class="container">
 				<div class="row">
-					
+
 					<img src="images/footer.png" width="500" height="350">
-                    
+
 					<div class="6u">
 						<section>
 							<header>

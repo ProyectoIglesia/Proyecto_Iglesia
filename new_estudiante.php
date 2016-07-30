@@ -31,14 +31,14 @@ exit();
 <body>
 <div id="header">
 			<div class="container">
-					
+
 				<!-- Logo -->
 					<div id="logo">
 						<h1 style="font-size:72px">Centro Cristiano</h1>
 						<h1 style="font-size:36px; margin-top:30px; color:#CCC">Restauración Mundial</h1>
-                        
+
 					</div>
-				
+
 				<!-- Nav -->
 					<nav id="nav">
 						<ul>
@@ -59,12 +59,12 @@ exit();
 
 					<!-- Content -->
 						<div id="content" class="12u skel-cell-important">
-							
+
 								<header align="center">
 									<h2>Formulario para datos de los <a style="color: blue">Estudiantes</a></h2>
                   <br><?php echo $mensaje ?>
 								</header><br>
-                
+
                             <div class="Formularios" >
 <form action="?m=1" method="post" name="form1" id="form1">
  <table width="80%" border="1" align="center" cellpadding="5" cellspacing="5">
@@ -130,7 +130,7 @@ Registro"; else $nom_boton="Enviar Registro"; ?><input style="margin-top:20px;" 
     <td><input name="res" type="reset" value="reestablecer"></td>
   </tr>
 </table>
-<a style="margin-left:440px;"><b> (<a style="color:red">*</a>) : Campo Obligatio</b></a>
+<a style="margin-left:440px;"><b> (<a style="color:red">*</a>) : Campos Obligatios</b></a>
 
 </form>
 </div>
@@ -153,9 +153,9 @@ Filtrado:
 </form></td>
     <td>&nbsp;</td>
   </tr>
-</table>    
-			
-  
+</table>
+
+
   </div>
          <div class="Tablas" >
 <div class="CSSTableGenerator" >
@@ -165,29 +165,29 @@ Filtrado:
 
 if(isset($_REQUEST['valor'])){
 $where = "Where ".$_REQUEST['campos']." like '%".$_REQUEST['valor']."%'";
-$_SESSION['w']= $where;	
+$_SESSION['w']= $where;
 }
 if (!isset($_REQUEST['pg'])) $n_pag = 1; else $n_pag=$_REQUEST['pg'];
 $cantidad=20;
 $inicial = ($n_pag-1) * $cantidad;
 //Fin del Limite
 $sql = "SELECT * FROM estudiantes ".$where;
-$consulta = mysql_query($sql,$enlace) or die ("Error");
-$cant_registros =mysql_num_rows($consulta);
+$consulta = mysqli_query($enlace, $sql) or die ("Error");
+$cant_registros =mysqli_num_rows($consulta);
 $paginado = intval($cant_registros / $cantidad);
 //hasta aqui es la consulta total de registros
 $sql = "SELECT * FROM estudiantes ".$where." LIMIT $inicial,$cantidad ";
-$consulta = mysql_query($sql,$enlace) or die ("Error");
-$cant_registros2 =mysql_num_rows($consulta);
+$consulta = mysqli_query($enlace, $sql) or die ("Error");
+$cant_registros2 =mysqli_num_rows($consulta);
 //hasta aqui es la consulta limitada
 echo "</br><center>Cantidad de registros: ".$cant_registros." - Límite Mostrado: Del ".($inicial+1)." al ".($inicial + $cant_registros2)."</center><br>";
 $sql="Select * from estudiantes ".$where;
-$cons=mysql_query($sql,$enlace);
+$cons=mysqli_query($enlace, $sql);
 echo '<table>
 <tr>
 <td>Cédula</td><td>Nombres</td><td>Apellidos</td><td>Direccion</td><td>Telefono</td><td>Fecha Nac.</td><td>Correo</td><td colspan="2">Opciones</td>
 </tr>';
-while($datos=mysql_fetch_assoc($cons)){
+while($datos=mysqli_fetch_assoc($cons)){
 $primario= $datos['ci_est'];
 echo "<tr>";
 echo "<td><center>".$datos['ci_est']."</center></td>";
@@ -209,14 +209,14 @@ echo "</td></tr>";
 ?>
                  </table>
             </div>
-            
-</div>         
-							
+
+</div>
+
 						</div>
 					<!-- /Content -->
-						
+
 				</div>
-			
+
 			</div>
 		</div>
 </div>

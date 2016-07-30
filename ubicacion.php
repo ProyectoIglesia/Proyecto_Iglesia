@@ -28,13 +28,13 @@
 	<!-- Header -->
 		<div id="header">
 			<div class="container">
-					
+
 				<!-- Logo -->
 					<div id="logo">
 						<h1 style="font-size:72px">Centro Cristiano</h1>
 						<h1 style="font-size:36px; margin-top:30px; color:#CCC">Restauración Mundial</h1>
 					</div>
-				
+
 				<!-- Nav -->
 					<nav id="nav">
 						<ul>
@@ -49,7 +49,7 @@
 			</div>
 		</div>
 	<!-- Header -->
-			
+
 	<!-- Main -->
 		<div id="main">
 			<div class="container">
@@ -57,20 +57,20 @@
 
 					<!-- Content -->
 						<div id="content" class="12u skel-cell-important">
-							
+
 								<header align="center">
 									<h2>Ubicación</h2>
 									<span class="byline">Calle Sánchez Carrero, entre Miranda y Páez<br>al frente de los Almacenes Generales de la Ovejita,Maracay</span>
 								</header>
-			
+
   <div align="center"><iframe src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d1963.0672161956315!2d-67.6072883!3d10.2507401!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x8e803c9cc9e279b1%3A0x8b154dc686d45070!2sIglesia+Centro+Cristiano+de+Restauraci%C3%B3n+Mundial!5e0!3m2!1ses-419!2sve!4v1461602416848" width="900" height="450" frameborder="0" style="border:0" allowfullscreen></iframe></div>
-                  
-							
+
+
 						</div>
 					<!-- /Content -->
-						
+
 				</div>
-			
+
 			</div>
 		</div>
 	<!-- Main -->
@@ -79,9 +79,9 @@
 		<div id="footer">
 			<div class="container">
 				<div class="row">
-					
+
 					<img src="images/footer.png" width="500" height="350">
-                    
+
 					<div class="6u">
 						<section>
 							<header>

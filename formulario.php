@@ -58,7 +58,7 @@ $datosAuditoria=$usuario.", ".$resp_preg_seg.", ".$clave;
 if(isset($_REQUEST['eliminar'])){
 $sql= "DELETE FROM estudiantes WHERE
 ci_est=".$_REQUEST['eliminar'];
-if(mysqli_query($sql)) {
+if(mysqli_query($enlace, $sql)) {
 $mensaje= '<b>Registro Eliminado Satisfactoramente.</b>';
 $accion="Eliminar";
 $datosAuditoria=$_REQUEST['eliminar'];

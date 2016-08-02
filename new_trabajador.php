@@ -154,7 +154,7 @@ Filtrado:
 <option value="ci_tra" selected="selected">Cedula</option>
 <option value="nom_tra">Nombres</option>
 <option value="ape_tra">Apellidos</option>
-</select><input name="valor" type="text"><input name="Consultar" type="submit" value="Enviar"><td align="center"><a href="reporte/pdf.php"><img src="images/PDF_Descargar.png" width="50" height="50" alt="" /></a></td>
+</select><input name="valor" type="text"><input name="Consultar" type="submit" value="Enviar"><td align="center"><a href="reporte/pdf.php?tipo_de_reporte=trabajadores"><img src="images/PDF_Descargar.png" width="50" height="50" alt="" /></a></td>
 </form></td>
     <td>&nbsp;</td>
   </tr>

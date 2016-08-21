@@ -1,44 +1,43 @@
 <?php
+	//SE LLAMAN LOS ARCHIVOS NECESARIOS//
   session_start();
   include ("../conex.php");
-  require_once("dompdf/dompdf_config.inc.php");
-  $html='<h1 align="center" style="color:#0096ff;">CENTRO CRISTIANO RESTAURACIÓN MUNDIAL</h1>';
-  $html.='<h2 align="center">Datos completos de los '. $_GET["tipo_de_reporte"].'</h2>';
-  $html.='<table border="1" width="100%">';
-  $html.='<tr><td><center><b>Cedula:</b></center></td><td><center><b>Nombre:</b></center></td><td><center><b>Apellido:</b></center></td><td><center><b>Direccion:</b></center></td><td><center><b>Telefono:</b></center></td><td><center><b>Fecha Nac.:</b></center></td><td><center><b>Correo:</b></center></td></tr>';
-  //if(isset($_SESSION['w'])) $where = $_SESSION['w'];
-  //else $where = "";
-  $tipo = $_GET["tipo_de_reporte"];
-  $sql = "SELECT * FROM". $tipo ;
-  //." ". $where;
-  $consulta=mysqli_query($enlace, $sql);
-  //$dato=mysqli_fetch_array($consulta, MYSQLI_ASSOC);
-    if ($tipo == "estudiantes") {
-      $html.='Texto de prueba 0';
-      while ($dato = mysqli_fetch_assoc($consulta)) {
-        $html.="<tr><td><center>".$dato['ci_est']."</center></td><td><center>".$dato['nom_est']."</center></td><td><center>".$dato['ape_est']."</center></td><td><center>".$dato['dir_est']."</center></td><td><center>".$dato['tel_est']."</center></td><td><center>".$dato['fec_nac_est']."</center></td><td><center>".$dato['corr_est']."</center></td></tr>";
-      }
-    };
-    if ($tipo == "trabajadores") {
-      $html.='Texto de prueba 1';
-      $dato = mysqli_fetch_assoc($consulta);
-        $html.= $dato;
-      while ($dato = mysqli_fetch_assoc($consulta)){
-          $html.='Texto de prueba 2';
-          $html.="<tr><td><center>".$dato['ci_tra']."</center></td><td><center>".$dato['nom_tra']."</center></td><td><center>".$dato['apetra']."</center></td><td><center>".$dato['dir_tra']."</center></td><td><center>".$dato['tel_tra']."</center></td><td><center>".$dato['fec_nac_tra']."</center></td><td><center>".$dato['corr_tra']."</center></td></tr>";
-        }
-    };
-  /*  if ($tipo =='administrador') {
-        while($dato=mysqli_fetch_array($consulta)){
-            $html.="<tr><td><center>".$dato['ci_est']."</center></td><td><center>".$dato['nom_est']."</center></td><td><center>".$dato['ape_est']."</center></td><td><center>".$dato['dir_est']."</center></td><td><center>".$dato['tel_est']."</center></td><td><center>".$dato['fec_nac_est']."</center></td><td><center>".$dato['corr_est']."</center></td></tr>";
-        };
-    };*/
-  $html.="</table>";
-  $html = stripslashes($html);
-  $dompdf = new DOMPDF();
-  $dompdf->load_html(utf8_decode($html));
-  $dompdf->set_paper(array(0, 0, 700, 700), "portrait");
-  $dompdf->render();
-  $dompdf->stream("Reporte_".$tipo.".pdf");
-    exit(0);
+  require_once("fpdf/fpdf.php");
+ //CREACION CLASE PDF//
+ $pdf = new FPDF();
+ //AÑADE LA PAGINA//
+$pdf->AddPage();
+//CARACTERISTICAS DEL ENCABEZADO, TIPO DE LETRA, CELDAS Y TODO ESO//
+$pdf->SetFont('Arial', '', 10);
+$pdf->Cell(18, 10, '', 0);
+$pdf->Cell(150, 10, '"Centro Cristiano Restauracion Mundial"', 0);
+$pdf->SetFont('Arial', '', 9);
+$pdf->Cell(50, 10, 'Fecha: '.date('d-m-Y').'', 0);
+$pdf->Ln(15);
+$pdf->SetFont('Arial', 'B', 11);
+$pdf->Cell(70, 8, '', 0);
+$pdf->Cell(100, 8, 'LISTADO DE ESTUDIANTES', 0);
+$pdf->Ln(23);
+$pdf->SetFont('Arial', 'B', 8);
+$pdf->Cell(30, 8, 'Cedula', 1);
+$pdf->Cell(40, 8, 'Nombres', 1);
+$pdf->Cell(40, 8, 'Apellidos', 1);
+$pdf->Cell(30, 8, 'Telefono', 1);
+$pdf->Cell(35, 8, 'Fecha nac.', 1);
+$pdf->Ln(8);
+$pdf->SetFont('Arial', '', 8);
+//CONSULTA
+$sql = 'SELECT * FROM estudiantes';
+$rec=mysqli_query($enlace,$sql);
+//SE MUESTRAN EN LA TABLA LOS DATOS CONSULTADOS DE LA BASE DE DATOS//
+while($row=mysqli_fetch_assoc($rec)){
+	$pdf->Cell(30, 8,$row['ci_est'],1);
+	$pdf->Cell(40, 8,$row['nom_est'],1, 0, 'C');
+	$pdf->Cell(40, 8,$row['ape_est'],1, 0, 'C');
+	$pdf->Cell(30, 8,$row['tel_est'],1, 0, 'C');
+	$pdf->Cell(35, 8,$row['fec_nac_est'],1, 0, 'C');
+	$pdf->Ln(8);
+}
+//MUESTRA EL PDF//
+$pdf->Output();
 ?>

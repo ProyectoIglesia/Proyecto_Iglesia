@@ -2,6 +2,7 @@
 <html>
 	<head>
 		<title>Centro Cristiano Restauración Mundial</title>
+		<!--[if lte IE 8]><script src="js/html5shiv.js"></script><![endif]-->
 		<meta http-equiv="content-type" content="text/html; charset=utf-8" />
 		<meta name="description" content="" />
 		<meta name="keywords" content="" />
@@ -116,7 +117,6 @@
 						<div id="video1">
 							<a href="#"><iframe src="https://player.vimeo.com/video/162526152?color=ffffff&title=0&byline=0&portrait=0" width="264" height="161" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe></a>
 							<p><b>DOCUMENTAL G12</b></p>
-
 
 					</div>
 

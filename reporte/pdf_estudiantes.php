@@ -18,7 +18,7 @@ $pdf->Ln(15);
 $pdf->SetFont('Arial', 'B', 11);
 $pdf->Cell(70, 8, '', 0);
 $pdf->Cell(100, 8, 'LISTADO DE ESTUDIANTES', 0);
-$pdf->Ln(23);
+$pdf->Ln(20);
 $pdf->SetFont('Arial', 'B', 8);
 $pdf->Cell(30, 8, 'Cedula', 1);
 $pdf->Cell(40, 8, 'Nombres', 1);

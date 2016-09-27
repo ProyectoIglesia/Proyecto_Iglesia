@@ -6,6 +6,13 @@ if (empty($_SESSION["autentificado"])) {
 header("Location: index.php");
 exit();
 }
+
+switch( $_SESSION['nivel'] ) {
+case '1':
+header( 'Location: estudiante.php' );
+break;
+}
+
 ?>
 
 <!DOCTYPE HTML>
@@ -28,31 +35,27 @@ exit();
 	</head>
 	<body class="homepage">
 
-	<!-- Header -->
-		<div id="header">
-			<div class="container">
 
-				<!-- Logo -->
-					<div id="logo">
-						<h1 style="font-size:72px">Centro Cristiano</h1>
-						<h1 style="font-size:36px; margin-top:30px; color:#CCC">Restauración Mundial</h1>
+	<!-- Header2 -->
+		<header2>
+     		
+		<div class="logo">
+        	<img src="images/logo.png" width="230" height="50">
+        </div>
+        
+	<nav>
+		<ul>
+						<li><a href="index.php">Inicio</a></li>
+						<li><a href="inscribir.php">Revisar Notas C. Destino</a></li>
+						<li><a href="notas.php">Cargar Notas C. Destino</a></li>
+						<li><a href="descargar_notas">Ver Datos de Estudiantes</a></li>
+						<li><a href="cierre.php">Salir</a></li>
+		</ul>
+	</nav>
 
-					</div>
-
-				<!-- Nav -->
-					<nav id="nav">
-						<ul>
-							<li><a href="new_admin.php">Registrar Administrador</a></li>
-							<li><a href="new_trabajador.php">Registrar Trabajador</a></li>
-							<li><a href="new_estudiante.php">Registrar Estudiante</a></li>
-							<li><a href="reporte/pdf.php">Reportes PDF</a></li>
-							<li><a href="cierre.php">Salir</a></li>
-						</ul>
-					</nav>
-
-			</div>
-		</div>
-	<!-- Header -->
+		</header2>
+	<!-- Fin Header 2 -->
+    <div><img src="images/header/welcome_tra.jpg" width="100%" height="450"></div>
 
 	<!-- Main -->
 		<div id="main">

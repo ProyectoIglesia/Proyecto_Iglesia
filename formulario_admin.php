@@ -1,4 +1,5 @@
 <?php
+
 //codigo de inserción de datos//
 include("conex.php");
 $mensaje="";

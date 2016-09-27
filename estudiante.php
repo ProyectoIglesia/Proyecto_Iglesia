@@ -5,6 +5,7 @@ session_start();
 if (empty($_SESSION["autentificado"])) {
 header("Location: index.php");
 exit();
+
 }?>
 <!DOCTYPE HTML>
 <html>
@@ -14,7 +15,8 @@ exit();
 		<meta name="description" content="" />
 		<meta name="keywords" content="" />
 		<link href='http://fonts.googleapis.com/css?family=Oxygen:400,300,700' rel='stylesheet' type='text/css'>
-		<!--[if lte IE 8]><script src="js/html5shiv.js"></script><![endif]-->
+		<link rel="shortcut icon" href="images/favicon.png">
+    	<link rel="stylesheet" href="css/fonts.css" />
         <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
 		<script src="js/skel.min.js"></script>
 		<script src="js/skel-panels.min.js"></script>
@@ -26,31 +28,50 @@ exit();
 	</head>
 	<body class="homepage">
 
-	<!-- Header -->
-		<div id="header">
-			<div class="container">
+<!-- Redes sociales - Barra lateral -->
+<div class="social">
+    <ul>
+      <li><a href="https://www.facebook.com/restauramundial" target="_blank" class="icon-facebook"></a></li>
+      <li><a href="http://www.twitter.com/" target="_blank" class="icon-twitter"></a></li>
+      <li><a href="http://www.youtube.com/" target="_blank" class="icon-youtube"></a></li>
+      <li><a href="http://www.instagram.com/" target="_blank" class="icon-instagram"></a></li>
+      <li><a href="mailto:restauracionmundial@gmail.com" class="icon-mail"></a></li>
+    </ul>
+  </div>
+<!-- Fin Redes sociales - Barra lateral -->
 
-				<!-- Logo -->
-					<div id="logo">
-						<h1 style="font-size:72px">Centro Cristiano</h1>
-						<h1 style="font-size:36px; margin-top:30px; color:#CCC">Restauración Mundial</h1>
+<!-- Redes sociales - Barra lateral -->
+<div class="social">
+		<ul>
+			<li><a href="https://www.facebook.com/restauramundial" target="_blank" class="icon-facebook"></a></li>
+			<li><a href="http://www.twitter.com/" target="_blank" class="icon-twitter"></a></li>
+			<li><a href="http://www.youtube.com/" target="_blank" class="icon-youtube"></a></li>
+			<li><a href="http://www.instagram.com/" target="_blank" class="icon-instagram"></a></li>
+			<li><a href="mailto:restauracionmundial@gmail.com" class="icon-mail"></a></li>
+		</ul>
+	</div>
+<!-- Fin Redes sociales - Barra lateral -->
 
-					</div>
+	<!-- Header2 -->
+		<header2>
+     		
+		<div class="logo">
+        	<img src="images/logo.png" width="230" height="50">
+        </div>
+        
+	<nav>
+		<ul>
+						<li><a href="index.php">Inicio</a></li>
+						<li><a href="inscribir.php">Inscribir capacitación destino</a></li>
+						<li><a href="notas.php">Ver notas capacitación destino</a></li>
+						<li><a href="descargar_notas">Descargar Notas</a></li>
+						<li><a href="cierre.php">Salir</a></li>
+		</ul>
+	</nav>
 
-				<!-- Nav -->
-					<nav id="nav">
-						<ul>
-							<li><a href="new_admin.php">Registrar Administrador</a></li>
-							<li><a href="new_trabajador.php">Registrar Trabajador</a></li>
-							<li><a href="new_estudiante.php">Registrar Estudiante</a></li>
-							<li><a href="reporte/pdf.php">Reportes PDF</a></li>
-							<li><a href="cierre.php">Salir</a></li>
-						</ul>
-					</nav>
-
-			</div>
-		</div>
-	<!-- Header -->
+		</header2>
+	<!-- Fin Header 2 -->
+    <div><img src="images/header/welcome_est.jpg" width="100%" height="450"></div>
 
 	<!-- Main -->
 		<div id="main">

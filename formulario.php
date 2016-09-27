@@ -1,4 +1,5 @@
 <?php
+
 //codigo de inserción de datos//
 $mensaje ="";
 include("conex.php");
@@ -6,17 +7,15 @@ if(isset($_POST['ci'])){
 $nombre = $_POST['nom'];
 $apellido = $_POST['ape'];
 $cedula = $_POST['ci'];
-$direccion = $_POST['dir'];
-$telefono = $_POST['tel'];
-$fn = $_POST['fec_nac'];
+$nivelcp = $_POST['niv_cap_dest'];
 $email = $_POST['email'];
-$sql = "INSERT INTO estudiantes(ci_est,nom_est,ape_est,dir_est,tel_est,fec_nac_est,corr_est) VALUES
-($cedula, '$nombre','$apellido', '$direccion', '$telefono', '$fn', '$email')";
+$sql = "INSERT INTO estudiantes(ci_est,nom_est,ape_est,niv_cap_dest,corr_est) VALUES
+($cedula, '$nombre','$apellido', '$nivelcp', '$email')";
 if(mysqli_query($enlace, $sql)){
 $mensaje= '<b>Registro Satisfactorio.</b>';
 $accion="Inserta";
 $datosAuditoria= $cedula.", ".$nombre.", ".$apellido.",
-".$direccion.", ".$telefono.", ".$fn.", ".$email;
+".$nivelcp.", ".$email;
 }else $mensaje= '<b>Error al registrar</b>';
 }
 //fin del código//

@@ -3,9 +3,9 @@
 -- http://www.phpmyadmin.net
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 22-07-2016 a las 04:18:16
--- Versión del servidor: 10.1.10-MariaDB
--- Versión de PHP: 5.6.19
+-- Tiempo de generación: 23-09-2016 a las 02:34:14
+-- Versión del servidor: 10.1.13-MariaDB
+-- Versión de PHP: 5.6.23
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 SET time_zone = "+00:00";
@@ -87,11 +87,20 @@ CREATE TABLE `estudiantes` (
   `ci_est` int(11) NOT NULL,
   `nom_est` varchar(100) NOT NULL,
   `ape_est` varchar(100) NOT NULL,
-  `dir_est` text NOT NULL,
-  `tel_est` varchar(12) NOT NULL,
-  `fec_nac_est` date NOT NULL,
+  `niv_cap_dest` int(1) NOT NULL,
+  `mod_cd_1` int(1) NOT NULL,
+  `mod_cd_2` int(1) NOT NULL,
   `corr_est` varchar(100) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Volcado de datos para la tabla `estudiantes`
+--
+
+INSERT INTO `estudiantes` (`ci_est`, `nom_est`, `ape_est`, `niv_cap_dest`, `mod_cd_1`, `mod_cd_2`, `corr_est`) VALUES
+(213213, 'qwas', 'dasd', 3, 5, 6, 'wqeqwewq@qwr.com'),
+(1234567, 'estudiante', 'uno', 2, 3, 4, 'estudianteuno@gmail.com'),
+(123654987, 'Eduardo Jose', 'Camacho Hernandez', 1, 1, 2, 'solopacomercio@gmail.com');
 
 -- --------------------------------------------------------
 
@@ -112,10 +121,10 @@ CREATE TABLE `horario` (
 --
 
 CREATE TABLE `inscripcion` (
-  `cod_ins` int(11) NOT NULL,
   `ci_est` int(11) NOT NULL,
-  `cod_asig` int(11) NOT NULL,
-  `cod_not` int(11) NOT NULL
+  `nom_est` text NOT NULL,
+  `ape_est` text NOT NULL,
+  `niv_cap_des` int(1) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 -- --------------------------------------------------------
@@ -146,19 +155,25 @@ CREATE TABLE `planificacion` (
 -- --------------------------------------------------------
 
 --
--- Estructura de tabla para la tabla `trabajadores`
+-- Estructura de tabla para la tabla `profesores`
 --
 
-CREATE TABLE `trabajadores` (
-  `ci_tra` int(11) NOT NULL,
-  `nom_tra` varchar(100) NOT NULL,
-  `ape_tra` varchar(100) NOT NULL,
-  `fec_nac_tra` date NOT NULL,
-  `dir_tra` text NOT NULL,
-  `tel_tra` varchar(12) NOT NULL,
-  `corr_tra` varchar(150) NOT NULL,
-  `car_tra` varchar(100) NOT NULL
+CREATE TABLE `profesores` (
+  `ci_pro` int(11) NOT NULL,
+  `nom_pro` varchar(100) NOT NULL,
+  `ape_pro` varchar(100) NOT NULL,
+  `tel_pro` varchar(12) NOT NULL,
+  `corr_pro` varchar(150) NOT NULL,
+  `car_pro` varchar(100) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Volcado de datos para la tabla `profesores`
+--
+
+INSERT INTO `profesores` (`ci_pro`, `nom_pro`, `ape_pro`, `tel_pro`, `corr_pro`, `car_pro`) VALUES
+(123456, 'Andrea', 'Camacho', '123456789', 'trabajador1@gmail.com', 'PCDN2M4'),
+(123456789, 'Cesar', 'Galipoli', '0416123456', 'cesar@gmail.com', 'PCDN2M3');
 
 -- --------------------------------------------------------
 
@@ -174,6 +189,15 @@ CREATE TABLE `usuarios` (
   `ps_usu` varchar(100) NOT NULL,
   `rps_usu` varchar(50) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Volcado de datos para la tabla `usuarios`
+--
+
+INSERT INTO `usuarios` (`cod_usu`, `nom_usu`, `cont_usu`, `niv_usu`, `ps_usu`, `rps_usu`) VALUES
+(1, 'admin', '23790951', 255, 'edad', '22'),
+(39, 'Admin2', '23790951', 10, 'Profesor Favorito', '22'),
+(40, 'estudiante1', '23790951', 1, 'Profesor Favorito', '22');
 
 -- --------------------------------------------------------
 
@@ -233,7 +257,7 @@ ALTER TABLE `horario`
 -- Indices de la tabla `inscripcion`
 --
 ALTER TABLE `inscripcion`
-  ADD PRIMARY KEY (`cod_ins`);
+  ADD PRIMARY KEY (`ci_est`);
 
 --
 -- Indices de la tabla `notas`
@@ -248,10 +272,10 @@ ALTER TABLE `planificacion`
   ADD PRIMARY KEY (`cod_pla`);
 
 --
--- Indices de la tabla `trabajadores`
+-- Indices de la tabla `profesores`
 --
-ALTER TABLE `trabajadores`
-  ADD PRIMARY KEY (`ci_tra`);
+ALTER TABLE `profesores`
+  ADD PRIMARY KEY (`ci_pro`);
 
 --
 -- Indices de la tabla `usuarios`
@@ -268,7 +292,7 @@ ALTER TABLE `usuarios`
 -- AUTO_INCREMENT de la tabla `usuarios`
 --
 ALTER TABLE `usuarios`
-  MODIFY `cod_usu` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=39;
+  MODIFY `cod_usu` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=41;
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;

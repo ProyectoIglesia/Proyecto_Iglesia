@@ -88,10 +88,6 @@
 		margin-bottom: 1em;
 	}
 
-	header
-	{
-	}
-	
 		header h2
 		{
 			letter-spacing: -1px;
@@ -105,6 +101,40 @@
 		}
 		
 	
+
+		.social {
+	position: fixed; /* Hacemos que la posición en pantalla sea fija para que siempre se muestre en pantalla*/
+	left: 0; /* Establecemos la barra en la izquierda */
+	top: 200px; /* Bajamos la barra 200px de arriba a abajo */
+	z-index: 2000; /* Utilizamos la propiedad z-index para que no se superponga algún otro elemento como sliders, galerías, etc */
+}
+
+	.social ul {
+		list-style: none;
+	}
+
+	.social ul li a {
+		display: inline-block;
+		color:#fff;
+		background: #000;
+		padding: 10px 15px;
+		text-decoration: none;
+		-webkit-transition:all 500ms ease;
+		-o-transition:all 500ms ease;
+		transition:all 500ms ease; /* Establecemos una transición a todas las propiedades */
+	}
+
+	.social ul li .icon-facebook {background:#3b5998;} /* Establecemos los colores de cada red social, aprovechando su class */
+	.social ul li .icon-twitter {background: #00abf0;}
+	.social ul li .icon-youtube {background: #ae181f;}
+	.social ul li .icon-instagram {background: #442A0E;}
+	.social ul li .icon-mail {background: #666666;}
+
+	.social ul li a:hover {
+		background: #000; /* Cambiamos el fondo cuando el usuario pase el mouse */
+		padding: 10px 25px; /* Hacemos mas grande el espacio cuando el usuario pase el mouse */
+	}
+
 		
 	footer
 	{
@@ -493,27 +523,47 @@ background-repeat: no-repeat;
 /*********************************************************************************/
 /* Header                                                                        */
 /*********************************************************************************/
+header2 {
+  background: rgba(0,0,0,0.7);
+  width: 100%;
+  position: fixed;
+  z-index: 100;
+  height:69px;
+}
 
-	#header
-	{
-		position: relative;
-		background: #ddd url(../images/pics02.jpg) no-repeat center;
-		background-size: cover;
-	}
+nav {
+  margin-left:7.1%;
+  float: left; /* Desplazamos el nav hacia la izquierda */
+}
 
-	#logo
-	{
-		color:#FFF;
-	}
-	
-	#nav
-	{
-	}
+nav ul {
+  list-style: none;
+  overflow: hidden; /* Limpiamos errores de float */
+}
 
-		#nav ul
-		{
-			margin: 0;
-		}
+nav ul li {
+  float: left;
+  font-family:"Trebuchet MS", Arial, Helvetica, sans-serif;
+  font-size: 18px;
+}
+
+nav ul li a {
+  display: block; /* Convertimos los elementos a en elementos bloque para manipular el padding */
+  padding: 20px;
+  color: #fff;
+  text-decoration: none;
+}
+
+nav ul li :hover {
+  color: #FF8221;
+  
+}
+
+.logo {
+	margin-top:0.75%;
+	margin-left:2%;
+	float:left;
+}
 	
 /*********************************************************************************/
 /* Banner                                                                        */

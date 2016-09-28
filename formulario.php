@@ -29,7 +29,7 @@ $clave = $_POST['clave_new'];
 $preg_seg = $_POST['preg_seg'];
 $resp_preg_seg = $_POST['resp_preg_seg'];
 $sql = "INSERT INTO usuarios (cod_usu,nom_usu,cont_usu,niv_usu,ps_usu,rps_usu) VALUES
-('','$usuario', '$clave', 1, '$preg_seg', '$resp_preg_seg')";
+('','$usuario', '$clave', 'estudiante', '$preg_seg', '$resp_preg_seg')";
 if(mysqli_query($enlace, $sql)){
 $mensaje= '<b>Registro Satisfactorio.</b>';
 $accion="Inserta";

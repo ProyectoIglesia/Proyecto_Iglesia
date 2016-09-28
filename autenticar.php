@@ -11,13 +11,13 @@ $_SESSION["nivel"]= $datos['niv_usu'] ;
 
 
 switch( $_SESSION['nivel'] ) {
-case '255':
+case 'administrador':
 header( 'Location: administrador.php' );
 break;
-case '10':
+case 'profesor':
 header( 'Location: trabajador.php' );
 break;
-case '1';
+case 'estudiante';
 header('Location: estudiante.php');
 break;
 }

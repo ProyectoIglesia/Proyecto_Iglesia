@@ -29,28 +29,23 @@ include ("formulario.php");
 	<body>
 
 	<!-- Header -->
-		<div id="header">
-			<div class="container">
+		<header2>
+     		
+		<div class="logo">
+        	<img src="images/logo.png" width="230" height="50">
+        </div>
+        
+	<nav>
+		<ul>
+			<li><a href="index.php">INICIO</a></li>
+			<li><a href="index.php#Videos">VIDEOS</a></li>
+			<li><a href="index.php#Predicas">PREDICAS</a></li>
+			<li><a href="index.php#Ubicacion">UBICACIÓN</a></li>
+			<li><a href="#">ACCEDER/REGISTRARSE</a></li>
+		</ul>
+	</nav>
 
-				<!-- Logo -->
-					<div id="logo">
-						<h1 style="font-size:72px">Centro Cristiano</h1>
-						<h1 style="font-size:36px; margin-top:30px; color:#CCC">Restauración Mundial</h1>
-					</div>
-
-				<!-- Nav -->
-					<nav id="nav">
-						<ul>
-							<li><a href="index.php">Inicio</a></li>
-							<li><a href="index.php#Videos">Videos</a></li>
-							<li><a href="index.php#Predicas">Predicas</a></li>
-							<li><a href="ubicacion.php">Ubicación</a></li>
-							<li><a href="Acceder.php">Acceder/Registrarse</a></li>
-						</ul>
-					</nav>
-
-			</div>
-		</div>
+		</header2>
 	<!-- Header -->
 
 	<!-- Main -->
@@ -109,8 +104,8 @@ include ("formulario.php");
                                     <input id="usuario_new" name="usuario_new" required="required" type="text" placeholder="Ejemplo: MiUsuario999" />
                                 </p>
                                 <p>
-                                    <label for="passwordsignup" class="youpasswd" data-icon="p">Tu Contraseña </label>
-                                    <input id="clave_new" name="clave_new" required="required" type="password" placeholder="Ejemplo:  X8df!90EO"/>
+                                    <label for="passwordsignup" class="youpasswd" data-icon="p" required pattern="[0-9 a-z]+">Tu Contraseña </label>
+                                    <input id="clave_new" name="clave_new" required="required" type="password" placeholder="Debe contener al menos una letra"/>
                                 </p>
                                 <p>
                                     <label for="preg_seg" >Pregunta de seguridad</label>

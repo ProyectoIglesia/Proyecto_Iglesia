@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 22-07-2016 a las 04:18:16
+-- Tiempo de generación: 29-09-2016 a las 01:31:20
 -- Versión del servidor: 10.1.10-MariaDB
 -- Versión de PHP: 5.6.19
 
@@ -19,23 +19,6 @@ SET time_zone = "+00:00";
 --
 -- Base de datos: `iglesia`
 --
-
--- --------------------------------------------------------
-
---
--- Estructura de tabla para la tabla `asignaciones_del_curso`
---
-
-CREATE TABLE `asignaciones_del_curso` (
-  `cod_asig` int(11) NOT NULL,
-  `cod_cur` int(11) NOT NULL,
-  `cod_hor` int(11) NOT NULL,
-  `ci_lid` int(11) NOT NULL,
-  `fec_ini_cur` date NOT NULL,
-  `fec_fin_cur` date NOT NULL,
-  `can_est` int(11) NOT NULL,
-  `disponibilidad` varchar(50) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 -- --------------------------------------------------------
 
@@ -69,6 +52,23 @@ INSERT INTO `auditoria` (`cod_aud`, `fecha`, `hora`, `accion`, `datos`, `usuario
 -- --------------------------------------------------------
 
 --
+-- Estructura de tabla para la tabla `capacitacion_destino`
+--
+
+CREATE TABLE `capacitacion_destino` (
+  `cod_asig` int(11) NOT NULL,
+  `cod_cur` int(11) NOT NULL,
+  `cod_hor` int(11) NOT NULL,
+  `ci_lid` int(11) NOT NULL,
+  `fec_ini_cur` date NOT NULL,
+  `fec_fin_cur` date NOT NULL,
+  `can_est` int(11) NOT NULL,
+  `disponibilidad` varchar(50) CHARACTER SET latin1 NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+
+-- --------------------------------------------------------
+
+--
 -- Estructura de tabla para la tabla `curso`
 --
 
@@ -93,6 +93,14 @@ CREATE TABLE `estudiantes` (
   `corr_est` varchar(100) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
+--
+-- Volcado de datos para la tabla `estudiantes`
+--
+
+INSERT INTO `estudiantes` (`ci_est`, `nom_est`, `ape_est`, `dir_est`, `tel_est`, `fec_nac_est`, `corr_est`) VALUES
+(23919228, 'Nestor David', 'Velasquez Lopez', 'lllll', '04121495961', '1995-10-12', 'nestorsox35@gmail.com'),
+(25314781, 'Maria Guadalupe', 'Escalante Barrios', 'asdasda', '04164444930', '1996-12-20', 'mariaescalantegb@hotmail.com');
+
 -- --------------------------------------------------------
 
 --
@@ -102,7 +110,7 @@ CREATE TABLE `estudiantes` (
 CREATE TABLE `horario` (
   `cod_hor` int(11) NOT NULL,
   `ci_tra` int(11) NOT NULL,
-  `disponivilidad` text NOT NULL
+  `disponibilidad` text NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 -- --------------------------------------------------------
@@ -160,6 +168,13 @@ CREATE TABLE `trabajadores` (
   `car_tra` varchar(100) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
+--
+-- Volcado de datos para la tabla `trabajadores`
+--
+
+INSERT INTO `trabajadores` (`ci_tra`, `nom_tra`, `ape_tra`, `fec_nac_tra`, `dir_tra`, `tel_tra`, `corr_tra`, `car_tra`) VALUES
+(10834829, 'Nestor Delfin', 'Velasquez', '1970-07-09', 'aaaaa', '04124384389', 'nestorsox21@hotmail.com', 'profesor');
+
 -- --------------------------------------------------------
 
 --
@@ -170,10 +185,17 @@ CREATE TABLE `usuarios` (
   `cod_usu` int(10) NOT NULL,
   `nom_usu` varchar(50) NOT NULL,
   `cont_usu` varchar(50) NOT NULL,
-  `niv_usu` int(11) NOT NULL,
+  `niv_usu` enum('administrador','estudiante','profesor') NOT NULL DEFAULT 'estudiante',
   `ps_usu` varchar(100) NOT NULL,
   `rps_usu` varchar(50) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Volcado de datos para la tabla `usuarios`
+--
+
+INSERT INTO `usuarios` (`cod_usu`, `nom_usu`, `cont_usu`, `niv_usu`, `ps_usu`, `rps_usu`) VALUES
+(39, 'nestor', '123456', 'administrador', 'personaje favorito', 'goku');
 
 -- --------------------------------------------------------
 
@@ -185,7 +207,7 @@ CREATE TABLE `usuarios_estudiantes` (
   `nom_usu` varchar(50) NOT NULL,
   `ci_est` int(11) NOT NULL,
   `cont_usu` varchar(100) NOT NULL,
-  `niv_usu` int(11) NOT NULL
+  `niv_usu` enum('administrador','estudiante','profesor') NOT NULL DEFAULT 'estudiante'
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 -- --------------------------------------------------------
@@ -198,7 +220,7 @@ CREATE TABLE `usuarios_trabajador` (
   `nom_usu` varchar(50) NOT NULL,
   `ci_tra` int(11) NOT NULL,
   `cont_usu` varchar(100) NOT NULL,
-  `niv_usu` int(11) NOT NULL
+  `niv_usu` enum('administrador','estudiante','profesor') NOT NULL DEFAULT 'profesor'
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
@@ -206,9 +228,9 @@ CREATE TABLE `usuarios_trabajador` (
 --
 
 --
--- Indices de la tabla `asignaciones_del_curso`
+-- Indices de la tabla `capacitacion_destino`
 --
-ALTER TABLE `asignaciones_del_curso`
+ALTER TABLE `capacitacion_destino`
   ADD PRIMARY KEY (`cod_asig`);
 
 --
@@ -233,7 +255,8 @@ ALTER TABLE `horario`
 -- Indices de la tabla `inscripcion`
 --
 ALTER TABLE `inscripcion`
-  ADD PRIMARY KEY (`cod_ins`);
+  ADD PRIMARY KEY (`cod_ins`),
+  ADD KEY `ci_est` (`ci_est`);
 
 --
 -- Indices de la tabla `notas`
@@ -258,7 +281,23 @@ ALTER TABLE `trabajadores`
 --
 ALTER TABLE `usuarios`
   ADD PRIMARY KEY (`cod_usu`),
-  ADD UNIQUE KEY `nom_usu` (`nom_usu`);
+  ADD UNIQUE KEY `nom_usu` (`nom_usu`),
+  ADD KEY `niv_usu` (`niv_usu`);
+
+--
+-- Indices de la tabla `usuarios_estudiantes`
+--
+ALTER TABLE `usuarios_estudiantes`
+  ADD PRIMARY KEY (`ci_est`),
+  ADD KEY `nom_usu` (`nom_usu`),
+  ADD KEY `niv_usu` (`niv_usu`);
+
+--
+-- Indices de la tabla `usuarios_trabajador`
+--
+ALTER TABLE `usuarios_trabajador`
+  ADD PRIMARY KEY (`ci_tra`),
+  ADD KEY `nom_usu` (`nom_usu`);
 
 --
 -- AUTO_INCREMENT de las tablas volcadas
@@ -268,7 +307,7 @@ ALTER TABLE `usuarios`
 -- AUTO_INCREMENT de la tabla `usuarios`
 --
 ALTER TABLE `usuarios`
-  MODIFY `cod_usu` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=39;
+  MODIFY `cod_usu` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=42;
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;

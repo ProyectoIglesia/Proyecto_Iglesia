@@ -100,16 +100,45 @@ include ("formulario.php");
                                 <h1>registrarse</h1>
                                 <?php echo '<center>'.$mensaje.'</center>' ?>
                                 <p>
-                                    <label for="usernamesignup" class="uname" data-icon="u" required pattern="[a-z A-Z 0-9]+">Tu Usuario</label>
+                                    <label for="Usuario" required pattern="[a-z A-Z 0-9]+">Tu Usuario</label>
                                     <input id="usuario_new" name="usuario_new" required="required" type="text" placeholder="Ejemplo: MiUsuario999" />
                                 </p>
                                 <p>
-                                    <label for="passwordsignup" class="youpasswd" data-icon="p" required pattern="[0-9 a-z]+">Tu Contraseña </label>
+                                	<label for="Correo">Correo</label>
+                                	<input type="email" name="email" required="\w+" placeholder="Ejemplo: Ejemplo@dominio.com"/>
+                                </p>
+                                <p>
+                                    <label for="Contrasena" required pattern="[0-9 a-z]+">Tu Contraseña </label>
                                     <input id="clave_new" name="clave_new" required="required" type="password" placeholder="Debe contener al menos una letra"/>
                                 </p>
                                 <p>
+                                	<label for="Nombre">Nombre</label>
+                                	<input type="text" name="nom" required pattern="[a-z A-Z]+" placeholder="Tu nombre"/>
+                                </p>
+                                <p> 
+                                <label for="Apellido">Apellido</label> 
+								<input type="text" name="ape" required pattern="[a-z A-Z]+" placeholder="Tu apellido"/>
+                                </p>
+                                <p>
+                                	<label for="CI">C.I</label>
+                                	<input type="number" name="ci" required pattern="[0-9]+" placeholder="Ejemplo: 178078777"/>
+                                </p>
+                                <p>
+                                	<label for="Direccion">Dirección</label>
+                                	<input type="text" name="dir" required pattern="[a-z A-Z 0-9]+" placeholder="Estado, ciudad, zona, calle, residencia"/>
+                                </p>
+                                <p>
+                                	<label for="Telefono">Teléfono</label>
+                                	<input type="number" name="tel" required pattern="[0-9]+" placeholder="Ejemplo: 024325555555"/>
+                                </p>
+                                <p>
+                                	<label for="Fecha">Fecha de Nacimiento</label>
+                                	<input type="date" name="fec_nac" required pattern="[0-9]+"s/>
+                                </p>
+
+                                <p>
                                     <label for="preg_seg" >Pregunta de seguridad</label>
-                                    <select name="preg_seg" id="preg_seg">
+                                    <select name="preg_seg" id="preg_seg" required>
          								<option value="null">Selecciona una Pregunta</option>
          								<option value="Profesor Favorito">Quien fue su profesor favorito?</option>
          								<option value="personaje favorito">Quien es su personaje histórico favorito?</option>
@@ -122,8 +151,8 @@ include ("formulario.php");
                 					</select>
                                 </p>
                                 <p>
-                                    <label for="resp_preg_seg" data-icon="p" required pattern="[a-z A-Z 0-9]+">Respuesta secreta</label>
-                                    <input id="resp_preg_seg" name="resp_preg_seg" required="required" type="password"/>
+                                    <label for="Respuesta" required pattern="[a-z A-Z 0-9]+">Respuesta secreta</label>
+                                    <input name="resp_preg_seg" required="required" type="password"/>
                                 </p>
                                 <p class="signin button">
 									<input style="width:150px; height:40px; margin-top:-20px; margin-left:-50px;" type="submit" value="Registrar" name="enviar" />

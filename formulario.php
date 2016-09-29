@@ -2,6 +2,7 @@
 //codigo de inserción de datos//
 $mensaje ="";
 include("conex.php");
+
 if(isset($_POST['ci'])){
 $nombre = $_POST['nom'];
 $apellido = $_POST['ape'];
@@ -38,6 +39,21 @@ $datosAuditoria= $usuario.", ".$clave.", ".$preg_seg.",
 }else $mensaje= '<b>Error al registrar</b>';
 }
 //fin del código//
+
+if (isset($_POST['ci']) && isset($_POST['usuario_new'])) {
+$cedula = $_POST['ci'];
+$usuario= $_POST['usuario_new'];
+$clave= $_POST['clave_new'];
+$nivel="estudiante";
+$sql = "INSERT INTO usuarios_estudiantes(nom_usu,ci_est,cont_usu,niv_usu) VALUES
+('$usuario', '$cedula', '$clave', '$nivel')";
+if(mysqli_query($enlace, $sql)){
+$mensaje= '<b>Registro Satisfactorio.</b>';
+$accion="Inserta";
+$datosAuditoria= "$usuario, $cedula, $clave, $nivel";
+}else $mensaje= '<b>Error al registrar</b>';
+	
+}
 
 //código recuperar contraseña//
 if(isset($_POST['usuario'])){

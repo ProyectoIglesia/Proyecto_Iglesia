@@ -1,14 +1,5 @@
-/*
-	Monochromed by TEMPLATED
-    templated.co @templatedco
-    Released for free under the Creative Commons Attribution 3.0 license (templated.co/license)
-*/
 
 @charset 'UTF-8';
-
-/*********************************************************************************/
-/* Basic                                                                         */
-/*********************************************************************************/
 
 	body
 	{
@@ -33,7 +24,6 @@
 			text-decoration: none;
 		}
 		
-	/* Change this to whatever font weight/color pairing is most suitable */
 	strong, b
 	{
 	font-weight: bold;
@@ -45,7 +35,6 @@
 		font-style: italic;
 	}
 
-	/* Don't forget to set this to something that matches the design */
 	a
 	{
 		color: #FF0000;
@@ -146,8 +135,6 @@
 		clear: both;
 	}
 	
-	/* Buttons */
-		
 		.button
 		{
 			position: relative;
@@ -173,9 +160,6 @@
 				background: #141414;
 				color: #FFF !important;
 			}
-	
-
-	/* Sections/Articles */
 	
 		section,
 		article
@@ -519,10 +503,6 @@ background-repeat: no-repeat;
 				margin-top: 1em;
 				padding: 0.50em 0em;
 			}
-
-/*********************************************************************************/
-/* Header                                                                        */
-/*********************************************************************************/
 header2 {
   background: rgba(0,0,0,0.7);
   width: 100%;
@@ -564,10 +544,6 @@ nav ul li :hover {
 	margin-left:2%;
 	float:left;
 }
-	
-/*********************************************************************************/
-/* Banner                                                                        */
-/*********************************************************************************/
 
 	#banner
 	{
@@ -575,10 +551,6 @@ nav ul li :hover {
 		background: #333;
 		color: #fff;
 	}
-
-/*********************************************************************************/
-/* Main                                                                          */
-/*********************************************************************************/
 
 	#main
 	{
@@ -591,10 +563,6 @@ nav ul li :hover {
 		overflow: hidden;
 		border-top: 1px solid #dbdbdb;
 	}
-
-/*********************************************************************************/
-/* Footer                                                                        */
-/*********************************************************************************/
 	
 	#footer
 	{
@@ -607,25 +575,3 @@ nav ul li :hover {
 	{
 		color: #FFF;
 	}
-	
-/*********************************************************************************/
-/* Copyright                                                                     */
-/*********************************************************************************/
-	
-	#copyright
-	{
-		position: relative;
-		padding: 3em 0em;
-		text-align: center;
-		color: rgba(255,255,255,.2);
-	}
-	
-	#copyright .container
-	{
-	}
-	
-	#copyright a
-	{
-		text-decoration: none;
-		color: rgba(255,255,255,.3);
-	}		

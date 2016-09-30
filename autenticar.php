@@ -5,16 +5,15 @@ $sql = "Select * From usuarios Where nom_usu='".$_POST['usuario']."' and cont_us
 $consulta = mysqli_query($enlace, $sql);
 if ($datos=mysqli_fetch_assoc($consulta)){
 $_SESSION["autentificado"] = "SI";
-$_SESSION["nombre"]= $datos['nom_usu'] ;
-$_SESSION["nombre "].=", ".$datos['ape_usu'] ;
-$_SESSION["nivel"]= $datos['niv_usu'] ;
+$_SESSION["nombre"]= $datos['nom_usu'];
+$_SESSION["nivel"]= $datos['niv_usu'];
 
 
 switch( $_SESSION['nivel'] ) {
 case 'administrador':
 header( 'Location: administrador.php' );
 break;
-case 'profesor':
+case 'lider':
 header( 'Location: lider.php' );
 break;
 case 'estudiante';

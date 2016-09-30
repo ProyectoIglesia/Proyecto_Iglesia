@@ -42,10 +42,8 @@ exit();
 				<!-- Nav -->
 					<nav id="nav">
 						<ul>
-							<li><a href="new_admin.php">Registrar Administrador</a></li>
-							<li><a href="new_lider.php">Registrar Líder</a></li>
-							<li><a href="new_estudiante.php">Registrar Estudiante</a></li>
-							<li><a href="reporte/pdf.php">Reportes PDF</a></li>
+							<li><a href="lider.php">Inicio</a></li>
+							<li><a href="subir_notas.php">Cargar notas</a></li>
 							<li><a href="cierre.php">Salir</a></li>
 						</ul>
 					</nav>

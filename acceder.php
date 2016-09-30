@@ -30,11 +30,11 @@ include ("formulario.php");
 
 	<!-- Header -->
 		<header2>
-     		
+
 		<div class="logo">
         	<img src="images/logo.png" width="230" height="50">
         </div>
-        
+
 	<nav>
 		<ul>
 			<li><a href="index.php">INICIO</a></li>
@@ -114,8 +114,8 @@ include ("formulario.php");
                                 	<label for="Nombre">Nombre</label>
                                 	<input type="text" name="nom" required pattern="[a-z A-Z]+" placeholder="Tu nombre"/>
                                 </p>
-                                <p> 
-                                <label for="Apellido">Apellido</label> 
+                                <p>
+                                <label for="Apellido">Apellido</label>
 								<input type="text" name="ape" required pattern="[a-z A-Z]+" placeholder="Tu apellido"/>
                                 </p>
                                 <p>

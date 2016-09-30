@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 30-09-2016 a las 03:40:37
+-- Tiempo de generación: 30-09-2016 a las 05:38:28
 -- Versión del servidor: 10.1.13-MariaDB
 -- Versión de PHP: 7.0.8
 
@@ -17,7 +17,7 @@ SET time_zone = "+00:00";
 /*!40101 SET NAMES utf8mb4 */;
 
 --
--- Base de datos: `iglesia2`
+-- Base de datos: `iglesia`
 --
 
 -- --------------------------------------------------------
@@ -145,7 +145,7 @@ CREATE TABLE `usuarios` (
   `cod_usu` int(10) NOT NULL,
   `nom_usu` varchar(50) NOT NULL,
   `cont_usu` varchar(50) NOT NULL,
-  `niv_usu` enum('administrador','estudiante','profesor') NOT NULL DEFAULT 'estudiante',
+  `niv_usu` enum('administrador','estudiante','lider') NOT NULL DEFAULT 'estudiante',
   `ps_usu` varchar(100) NOT NULL,
   `rps_usu` varchar(50) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;

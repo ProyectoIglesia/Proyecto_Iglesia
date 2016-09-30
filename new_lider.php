@@ -1,5 +1,5 @@
 <?php
-include ("formulario_trabajador.php");
+include ("formulario_lider.php");
 session_start();
 // Valida si accede de forma indebida.
 if (empty($_SESSION["autentificado"])) {
@@ -43,7 +43,7 @@ exit();
 					<nav id="nav">
 						<ul>
               <li><a href="new_admin.php">Registrar Administrador</a></li>
-              <li><a href="new_trabajador">Registrar Trabajador</a></li>
+              <li><a href="new_lider">Registrar Líder</a></li>
               <li><a href="new_estudiante.php">Registrar Estudiante</a></li>
               <li><a href="reporte/pdf.php">Reportes PDF</a></li>
               <li><a href="cierre.php">Salir</a></li>
@@ -61,7 +61,7 @@ exit();
 						<div id="content" class="12u skel-cell-important">
 
 								<header align="center">
-									<h2>Formulario para datos de los <a style="color: green">Trabajadores</a></h2>
+									<h2>Formulario para datos de los <a style="color: green">lideres</a></h2>
                   <br><?php echo $mensaje ?>
 								</header><br>
                 <div class="Formularios" >
@@ -76,57 +76,57 @@ exit();
     <td width="50%" align="right"><b>Cedula (<a style="color:red">*</a>)</b></td>
     <td width="8%">&nbsp;</td>
     <td width="60%"><input style="width:85%; border-radius:5px" required pattern="[0-9]+" type="text"
-name="ci" id="ci" placeholder="Cedula del trabajador" <?php if(isset($edita)){
-echo 'value="'.$datosEditar['ci_tra'].'"'; echo " disabled ";} ?>>
+name="ci" id="ci" placeholder="Cedula del líder" <?php if(isset($edita)){
+echo 'value="'.$datosEditar['ci_lider'].'"'; echo " disabled ";} ?>>
 <?php if(isset($edita)) echo '<input name="cedM" type="hidden"
-value="'.$datosEditar['ci_tra'].'" />'; ?></td>
+value="'.$datosEditar['ci_lider'].'" />'; ?></td>
   </tr>
   <tr>
     <td align="right"><b>Nombres (<a style="color:red">*</a>)</td>
     <td>&nbsp;</td>
     <td><input style="width:95%; border-radius:5px" type="text" required pattern="[a-z A-Z]+"
-name="nom" id="nom" placeholder="Nombres completos del trabajador" <?php
-if(isset($edita)) echo 'value="'.$datosEditar['nom_tra'].'"'; ?>></td>
+name="nom" id="nom" placeholder="Nombres completos del líder" <?php
+if(isset($edita)) echo 'value="'.$datosEditar['nom_lider'].'"'; ?>></td>
   </tr>
   <tr>
     <td align="right"><b>Apellidos (<a style="color:red">*</a>)</b></td>
     <td>&nbsp;</td>
     <td><input style="width:95%; border-radius:5px" required pattern="[a-z A-Z]+" type="text"
-name="ape" id="ape" placeholder="Apellidos completos del trabajador" <?php
-if(isset($edita)) echo 'value="'.$datosEditar['ape_tra'].'"'; ?>></td>
+name="ape" id="ape" placeholder="Apellidos completos del líder" <?php
+if(isset($edita)) echo 'value="'.$datosEditar['ape_lider'].'"'; ?>></td>
   </tr>
   <tr>
     <td align="right"><b>Fecha de nacimiento (<a style="color:red">*</a>)</b></td>
     <td>&nbsp;</td>
     <td><input style="width:55%; border-radius:5px" required type="date" name="fec_nac"
 id="fec_nac" <?php if(isset($edita)) echo
-'value="'.$datosEditar['fec_nac_tra'].'"'; ?>></td>
+'value="'.$datosEditar['fec_nac_lider'].'"'; ?>></td>
   </tr>
   <tr>
     <td align="right"><b>Direccion (<a style="color:red">*</a>)</b></td>
     <td>&nbsp;</td>
-    <td><input style="width:95%; border-radius:5px" type="text" required name="dir" id="dir" placeholder="Direccion completa del trabajador" <?php
-if(isset($edita)) echo 'value="'.$datosEditar['dir_tra'].'"'; ?>></td>
+    <td><input style="width:95%; border-radius:5px" type="text" required name="dir" id="dir" placeholder="Direccion completa del líder" <?php
+if(isset($edita)) echo 'value="'.$datosEditar['dir_lider'].'"'; ?>></td>
   </tr>
   <tr>
     <td align="right"><b>Telefono (<a style="color:red">*</a>)</b></td>
     <td>&nbsp;</td>
-    <td><input style="width:55%; border-radius:5px" required pattern="[0-9]+" type="text" name="tel" id="tel" placeholder="Telefono del trabajador" <?php if(isset($edita)) echo
-'value="'.$datosEditar['tel_tra'].'"'; ?>></td>
+    <td><input style="width:55%; border-radius:5px" required pattern="[0-9]+" type="text" name="tel" id="tel" placeholder="Telefono del líder" <?php if(isset($edita)) echo
+'value="'.$datosEditar['tel_lider'].'"'; ?>></td>
   </tr>
     <tr>
     <td align="right"><b>Correo (<a style="color:red">*</a>)</b></td>
     <td>&nbsp;</td>
     <td><input style="width:55%; border-radius:5px;" required type="email" name="email"
-id="email" placeholder="Correo del trabajador" <?php if(isset($edita)) echo
-'value="'.$datosEditar['corr_tra'].'"'; ?>></td>
+id="email" placeholder="Correo del líder" <?php if(isset($edita)) echo
+'value="'.$datosEditar['corr_lider'].'"'; ?>></td>
   </tr>
   <tr>
     <td align="right"><b>Cargo (<a style="color:red">*</a>)</b></td>
     <td>&nbsp;</td>
     <td><input style="width:55%; border-radius:5px;" required type="text" name="cargo"
-id="cargo" placeholder="Cargo del trabajador" <?php if(isset($edita)) echo
-'value="'.$datosEditar['car_tra'].'"'; ?>></td>
+id="cargo" placeholder="Cargo del líder" <?php if(isset($edita)) echo
+'value="'.$datosEditar['car_lider'].'"'; ?>></td>
   </tr>
   <tr>
     <td align="right"><?php if(isset($edita)) $nom_boton="Modificar
@@ -151,10 +151,10 @@ Registro"; else $nom_boton="Enviar Registro"; ?><input style="margin-top:20px;" 
     <td align="center"><form action="?m=1" method="post" name="form2">
 Filtrado:
 <select name="campos">
-<option value="ci_tra" selected="selected">Cedula</option>
-<option value="nom_tra">Nombres</option>
-<option value="ape_tra">Apellidos</option>
-</select><input name="valor" type="text"><input name="Consultar" type="submit" value="Enviar"><td align="center"><a href="reporte/pdf_trabajadores.php"><img src="images/PDF_Descargar.png" width="50" height="50" alt="" /></a></td>
+<option value="ci_lider" selected="selected">Cedula</option>
+<option value="nom_lider">Nombres</option>
+<option value="ape_lider">Apellidos</option>
+</select><input name="valor" type="text"><input name="Consultar" type="submit" value="Enviar"><td align="center"><a href="reporte/pdf_lideres.php"><img src="images/PDF_Descargar.png" width="50" height="50" alt="" /></a></td>
 </form></td>
     <td>&nbsp;</td>
   </tr>
@@ -176,33 +176,33 @@ if (!isset($_REQUEST['pg'])) $n_pag = 1; else $n_pag=$_REQUEST['pg'];
 $cantidad=20;
 $inicial = ($n_pag-1) * $cantidad;
 //Fin del Limite
-$sql = "SELECT * FROM trabajadores ".$where;
+$sql = "SELECT * FROM lideress ".$where;
 $consulta = mysqli_query($enlace, $sql) or die ("Error");
 $cant_registros =mysqli_num_rows($consulta);
 $paginado = intval($cant_registros / $cantidad);
 //hasta aqui es la consulta total de registros
-$sql = "SELECT * FROM trabajadores ".$where." LIMIT $inicial,$cantidad ";
+$sql = "SELECT * FROM lideres ".$where." LIMIT $inicial,$cantidad ";
 $consulta = mysqli_query($enlace, $sql) or die ("Error");
 $cant_registros2 =mysqli_num_rows($consulta);
 //hasta aqui es la consulta limitada
 echo "</br><center>Cantidad de registros: ".$cant_registros." - Límite Mostrado: Del ".($inicial+1)." al ".($inicial + $cant_registros2)."</center><br>";
-$sql="Select * from trabajadores ".$where;
+$sql="Select * from lideres ".$where;
 $cons=mysqli_query($enlace, $sql);
 echo '<table>
 <tr>
 <td>Cédula</td><td>Nombres</td><td>Apellidos</td><td>Fecha Nac.</td><td>Direccion</td><td>Telefono</td><td>Correo</td><td>Cargo</td><td colspan="2">Opciones</td>
 </tr>';
 while($datos=mysqli_fetch_assoc($cons)){
-$primario= $datos['ci_tra'];
+$primario= $datos['ci_lider'];
 echo "<tr>";
-echo "<td><center>".$datos['ci_tra']."</center></td>";
-echo "<td><center>".$datos['nom_tra']."</center></td>";
-echo "<td><center>".$datos['ape_tra']."</center></td>";
-echo "<td><center>".$datos['fec_nac_tra']."</center></td>";
-echo "<td><center>".$datos['dir_tra']."</center></td>";
-echo "<td><center>".$datos['tel_tra']."</center></td>";
-echo "<td><center>".$datos['corr_tra']."</center></td>";
-echo "<td><center>".$datos['car_tra']."</center></td>";
+echo "<td><center>".$datos['ci_lider']."</center></td>";
+echo "<td><center>".$datos['nom_lider']."</center></td>";
+echo "<td><center>".$datos['ape_lider']."</center></td>";
+echo "<td><center>".$datos['fec_nac_lider']."</center></td>";
+echo "<td><center>".$datos['dir_lider']."</center></td>";
+echo "<td><center>".$datos['tel_lider']."</center></td>";
+echo "<td><center>".$datos['corr_lider']."</center></td>";
+echo "<td><center>".$datos['car_lider']."</center></td>";
 echo "<td><center><a class='tooltip' alt='Eliminar Registro' href='?m=1&eliminar=$primario'><img src='images/eliminar.png'></a></center></td>";
 echo "<td><center><a class='tooltip' alt='Editar Registro ' href='?m=1&editar=$primario'><img src='images/editar.png'></a></center></td>";
 echo "</tr>";

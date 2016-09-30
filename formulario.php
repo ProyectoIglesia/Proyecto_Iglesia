@@ -52,7 +52,7 @@ $mensaje= '<b>Registro Satisfactorio.</b>';
 $accion="Inserta";
 $datosAuditoria= "$usuario, $cedula, $clave, $nivel";
 }else $mensaje= '<b>Error al registrar</b>';
-	
+
 }
 
 //código recuperar contraseña//

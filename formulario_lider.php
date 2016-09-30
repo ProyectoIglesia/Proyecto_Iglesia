@@ -11,7 +11,7 @@ $direccion = $_POST['dir'];
 $telefono = $_POST['tel'];
 $email = $_POST['email'];
 $cargo = $_POST['cargo'];
-$sql = "INSERT INTO trabajadores(ci_tra,nom_tra,ape_tra,fec_nac_tra,dir_tra,tel_tra,corr_tra,car_tra) VALUES
+$sql = "INSERT INTO lideres(ci_lider,nom_lider,ape_lider,fec_nac_lider,dir_lider,tel_lider,corr_lider,car_lider) VALUES
 ($cedula, '$nombre','$apellido', '$fn', '$direccion', '$telefono', '$email', '$cargo')";
 if(mysqli_query($enlace, $sql)){
 $mensaje= '<b>Registro Satisfactorio.</b>';
@@ -23,8 +23,8 @@ $datosAuditoria= $cedula.", ".$nombre.", ".$apellido.", ".$fn.", ".$direccion.",
 
 //código de eliminación//
 if(isset($_REQUEST['eliminar'])){
-$sql= "DELETE FROM trabajadores WHERE
-ci_tra=".$_REQUEST['eliminar'];
+$sql= "DELETE FROM lideres WHERE
+ci_lider=".$_REQUEST['eliminar'];
 if(mysqli_query($enlace, $sql)) {
 $mensaje= '<b>Registro Eliminado Satisfactoramente.</b>';
 $accion="Eliminar";
@@ -43,7 +43,7 @@ $direccion = $_POST['dir'];
 $telefono = $_POST['tel'];
 $email = $_POST['email'];
 $cargo = $_POST['cargo'];
-$sql= "UPDATE trabajadores SET nom_tra='$nombre', ape_tra='$apellido', fec_nac_tra='$fn', dir_tra='$direccion', tel_tra='$telefono', corr_tra='$email', car_tra='$cargo' where ci_tra=$cedula";
+$sql= "UPDATE lideres SET nom_lider='$nombre', ape_lider='$apellido', fec_nac_lider='$fn', dir_lider='$direccion', tel_lider='$telefono', corr_lider='$email', car_lider='$cargo' where ci_lider=$cedula";
 if(mysqli_query($enlace, $sql)){
 $mensaje= '<b>Registro Modificado Satisfactoramente.</b>';
 $accion="Modificar";
@@ -54,8 +54,8 @@ $datosAuditoria=$cedula.", ".$nombre.", ".$apellido.", ".$fn.", ".$direccion.", 
 
 //Código para mostrar datos a Modificar//
 if(isset($_REQUEST['editar'])){
-$sql= "SELECT * FROM trabajadores WHERE
-ci_tra=".$_REQUEST['editar'];
+$sql= "SELECT * FROM lideres WHERE
+ci_lider=".$_REQUEST['editar'];
 $consultaDatos= mysqli_query($enlace, $sql);
 $datosEditar=mysqli_fetch_assoc($consultaDatos);
 $edita="si";

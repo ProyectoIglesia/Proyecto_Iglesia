@@ -94,7 +94,6 @@ include ("formulario.php");
 								</p>
                             </form>
                         </div>
-
                         <div id="register" class="animate form">
                             <form action="?m=1#toregister" method="post" name="form2" id="form2">
                                 <h1>registrarse</h1>

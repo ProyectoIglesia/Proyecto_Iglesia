@@ -15,7 +15,7 @@ case 'administrador':
 header( 'Location: administrador.php' );
 break;
 case 'profesor':
-header( 'Location: trabajador.php' );
+header( 'Location: lider.php' );
 break;
 case 'estudiante';
 header('Location: estudiante.php');

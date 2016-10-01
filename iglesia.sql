@@ -3,9 +3,9 @@
 -- http://www.phpmyadmin.net
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 01-10-2016 a las 01:53:58
--- Versión del servidor: 10.1.13-MariaDB
--- Versión de PHP: 7.0.8
+-- Tiempo de generación: 01-10-2016 a las 19:09:11
+-- Versión del servidor: 10.1.10-MariaDB
+-- Versión de PHP: 5.6.19
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 SET time_zone = "+00:00";
@@ -48,8 +48,33 @@ CREATE TABLE `estudiantes` (
   `dir_est` text NOT NULL,
   `tel_est` varchar(12) NOT NULL,
   `fec_nac_est` date NOT NULL,
-  `corr_est` varchar(100) NOT NULL
+  `corr_est` varchar(100) NOT NULL,
+  `ultimo_nivel_aprobado` enum('0','1','2','3') NOT NULL DEFAULT '0'
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Volcado de datos para la tabla `estudiantes`
+--
+
+INSERT INTO `estudiantes` (`ci_est`, `nom_est`, `ape_est`, `dir_est`, `tel_est`, `fec_nac_est`, `corr_est`, `ultimo_nivel_aprobado`) VALUES
+(1, 'estudiante', 'apellido', 'mi casa', '5555555', '2016-09-30', 'prueba@test.com', '0');
+
+-- --------------------------------------------------------
+
+--
+-- Estructura de tabla para la tabla `inscripcion`
+--
+
+CREATE TABLE `inscripcion` (
+  `cod_inscripcion` int(11) NOT NULL,
+  `ci_est` int(11) NOT NULL,
+  `cod_nivel` int(11) NOT NULL,
+  `trimestre` enum('trimestre_1','trimestre_2','trimestre_3') COLLATE utf8_unicode_ci NOT NULL,
+  `cod_lider` int(11) NOT NULL,
+  `fech_inicio` date NOT NULL,
+  `fech_final` date NOT NULL,
+  `estatus_nivel` enum('En_curso','Abierto','Cerrado') COLLATE utf8_unicode_ci NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 -- --------------------------------------------------------
 
@@ -81,7 +106,8 @@ CREATE TABLE `nivel` (
   `cantidad_estudiantes` int(11) NOT NULL,
   `fech_inicio` date NOT NULL,
   `fech_final` date NOT NULL,
-  `estatus_nivel` enum('En_curso','Abierto','Cerrado') NOT NULL
+  `estatus_nivel` enum('En_curso','Abierto','Cerrado') NOT NULL,
+  `horario` enum('horario 1','horario 2') NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 -- --------------------------------------------------------
@@ -130,7 +156,6 @@ CREATE TABLE `tareas` (
   `cod_nivel` int(11) NOT NULL,
   `ci_est` int(11) NOT NULL,
   `ci_lider` int(11) NOT NULL,
-  `actividad` text NOT NULL,
   `fecha_tarea` date NOT NULL,
   `estado` enum('Entregada','pendiente') NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
@@ -150,6 +175,14 @@ CREATE TABLE `usuarios` (
   `rps_usu` varchar(50) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
+--
+-- Volcado de datos para la tabla `usuarios`
+--
+
+INSERT INTO `usuarios` (`cod_usu`, `nom_usu`, `cont_usu`, `niv_usu`, `ps_usu`, `rps_usu`) VALUES
+(1, 'nestor', '123456', 'administrador', '', ''),
+(2, 'prueba', '123456', 'estudiante', 'Profesor Favorito', 'tu mama');
+
 -- --------------------------------------------------------
 
 --
@@ -162,6 +195,13 @@ CREATE TABLE `usuarios_estudiantes` (
   `cont_usu` varchar(100) NOT NULL,
   `niv_usu` enum('administrador','estudiante','profesor') NOT NULL DEFAULT 'estudiante'
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Volcado de datos para la tabla `usuarios_estudiantes`
+--
+
+INSERT INTO `usuarios_estudiantes` (`nom_usu`, `ci_est`, `cont_usu`, `niv_usu`) VALUES
+('prueba', 1, '123456', 'estudiante');
 
 -- --------------------------------------------------------
 
@@ -191,6 +231,12 @@ ALTER TABLE `auditoria`
 --
 ALTER TABLE `estudiantes`
   ADD PRIMARY KEY (`ci_est`);
+
+--
+-- Indices de la tabla `inscripcion`
+--
+ALTER TABLE `inscripcion`
+  ADD PRIMARY KEY (`cod_inscripcion`);
 
 --
 -- Indices de la tabla `lideres`
@@ -255,6 +301,11 @@ ALTER TABLE `usuarios_lideres`
 ALTER TABLE `auditoria`
   MODIFY `cod_aud` int(11) NOT NULL AUTO_INCREMENT;
 --
+-- AUTO_INCREMENT de la tabla `inscripcion`
+--
+ALTER TABLE `inscripcion`
+  MODIFY `cod_inscripcion` int(11) NOT NULL AUTO_INCREMENT;
+--
 -- AUTO_INCREMENT de la tabla `nivel`
 --
 ALTER TABLE `nivel`
@@ -278,7 +329,7 @@ ALTER TABLE `tareas`
 -- AUTO_INCREMENT de la tabla `usuarios`
 --
 ALTER TABLE `usuarios`
-  MODIFY `cod_usu` int(10) NOT NULL AUTO_INCREMENT;
+  MODIFY `cod_usu` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;

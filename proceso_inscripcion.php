@@ -12,47 +12,27 @@ $sql_estudiante = "SELECT * FROM estudiantes where ci_est = '".$ci."'";
 $consulta_estudiante = mysqli_query($enlace, $sql_estudiante);
 $estudiante = mysqli_fetch_assoc($consulta_estudiante);
 $ultimo_nivel_aprobado = $estudiante['ultimo_nivel_aprobado'];
-if ($ultimo_nivel_aprobado == 0) {
-	if ($nivel > 1) {
-		# codigo que lo rebote
-	}
-	else{
-		# codigo que permite registrarse
-		$nivel = 'trimestre_1';
-		$sql_nivel = "SELECT * FROM nivel where trimestre = '".$nivel."'";
-		$consulta_nivel = mysqli_query($enlace, $sql_nivel);
-		while ($trimestres = mysqli_fetch_assoc($consulta_nivel)) {
-			if ($trimestres['estatus_nivel'] == 'Abierto') {
-				
-				
-
+for ($i=0; $i < 3; $i++) {
+	if ($ultimo_nivel_aprobado == $i) {
+		$x= $i + 1;
+		if ($nivel == $x) {
+			# codigo que permite registrarse
+			$nivel = "trimestre_".$x;
+			$sql_nivel = "SELECT * FROM nivel where trimestre = '".$nivel."'";
+			$consulta_nivel = mysqli_query($enlace, $sql_nivel);
+			while ($trimestres = mysqli_fetch_assoc($consulta_nivel)) {
+				if ($trimestres['estatus_nivel'] == 'Abierto') {
+					$codigo = $trimestres['cod_nivel'];
+					$cantidad_estuantes = $trimestres['cantidad_estuantes'] + 1;
+					$sql_actualiza_cantidad_estudiantes = "UPDATE nivel SET cantidad_estuantes+'".$cantidad_estuantes."' WHERE cod_nivel=".$codigo;
+					mysqli_query($enlace, $sql_actualiza_cantidad_estudiantes);
+				}
 			}
-		};
 
+		}
+		else {
+			# codigo que lo rebote
+		}
 	}
-
-}
-elseif ($ultimo_nivel_aprobado == 1) {
-	if ($nivel == 2) {
-		# te deja registrarte
-		$nivel = 'trimestre_2';
-	}
-	else{
-		#te jodes
-	}
-}
-elseif ($ultimo_nivel_aprobado == 2) {
-	if ($nivel == 3) {
-		# te deja registrarte
-		$nivel = 'trimestre_3';
-	}
-	else{
-		#te jodes
-	}
-}
-else {
-
-	echo "no se que haces aqui todavia!";
-
 }
 ?>

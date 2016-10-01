@@ -67,70 +67,64 @@ exit();
 
                             <div class="Formularios" >
 <form action="?m=1" method="post" name="form1" id="form1">
- <table width="80%" border="1" align="center" cellpadding="5" cellspacing="5">
+ <table>
   <tr>
-    </tr>
-  <tr>
-    <td colspan="3" align="center"></td>
-    </tr>
-  <tr>
-    <td width="50%" align="right"><b>Cedula (<a style="color:red">*</a>)</b></td>
-    <td width="8%">&nbsp;</td>
-    <td width="60%"><input style="width:85%; border-radius:5px" required pattern="[0-9]+" type="text"
+    <td align="right"><b>Cedula (<a>*</a>)</b></td>
+    <td>&nbsp;</td>
+    <td width="60%"><input class="entrada_grande" required pattern="[0-9]+" type="text"
 name="ci" id="ci" placeholder="Cedula del Estudiante" <?php if(isset($edita)){
 echo 'value="'.$datosEditar['ci_est'].'"'; echo " disabled ";} ?>>
 <?php if(isset($edita)) echo '<input name="cedM" type="hidden"
 value="'.$datosEditar['ci_est'].'" />'; ?></td>
   </tr>
   <tr>
-    <td align="right"><b>Nombres (<a style="color:red">*</a>)</b></td>
+    <td align="right"><b>Nombres (<a>*</a>)</b></td>
     <td>&nbsp;</td>
-    <td><input style="width:95%; border-radius:5px" type="text" required pattern="[a-z A-Z]+"
+    <td><input class="entrada_grande" type="text" required pattern="[a-z A-Z]+"
 name="nom" id="nom" placeholder="Nombre completo del Estudiante" <?php
 if(isset($edita)) echo 'value="'.$datosEditar['nom_est'].'"'; ?>></td>
   </tr>
   <tr>
-    <td align="right"><b>Apellidos (<a style="color:red">*</a>)</b></td>
+    <td align="right"><b>Apellidos (<a>*</a>)</b></td>
     <td>&nbsp;</td>
-    <td><input style="width:95%; border-radius:5px" required pattern="[a-z A-Z]+" type="text"
+    <td><input class="entrada_grande" required pattern="[a-z A-Z]+" type="text"
 name="ape" id="ape" placeholder="Apellido completo del Estudiante" <?php
 if(isset($edita)) echo 'value="'.$datosEditar['ape_est'].'"'; ?>></td>
   </tr>
   <tr>
-    <td align="right"><b>Direccion (<a style="color:red">*</a>)</b></td>
+    <td align="right"><b>Direccion (<a>*</a>)</b></td>
     <td>&nbsp;</td>
-    <td><input style="width:95%; border-radius:5px" type="text" required name="dir" id="dir" placeholder="Direccion completa del Estudiante" <?php
+    <td><input class="entrada_grande" type="text" required name="dir" id="dir" placeholder="Direccion completa del Estudiante" <?php
 if(isset($edita)) echo 'value="'.$datosEditar['dir_est'].'"'; ?>></td>
   </tr>
   <tr>
-    <td align="right"><b>Telefono (<a style="color:red">*</a>)</b></td>
+    <td align="right"><b>Telefono (<a>*</a>)</b></td>
     <td>&nbsp;</td>
-    <td><input style="width:55%; border-radius:5px" required pattern="[0-9]+" type="text" name="tel"
+    <td><input class="entrada_grande" required pattern="[0-9]+" type="text" name="tel"
 id="tel" placeholder="Telefono del estudiante" <?php if(isset($edita)) echo
 'value="'.$datosEditar['tel_est'].'"'; ?>></td>
   </tr>
     <tr>
-    <td align="right"><b>Fecha de nacimiento (<a style="color:red">*</a>)</b></td>
+    <td align="right"><b>Fecha de nacimiento (<a>*</a>)</b></td>
     <td>&nbsp;</td>
-    <td><input style="width:55%; border-radius:5px" required type="date" name="fec_nac"
+    <td><input class="entrada_grande" required type="date" name="fec_nac"
 id="fec_nac" <?php if(isset($edita)) echo
 'value="'.$datosEditar['fec_nac_est'].'"'; ?>></td>
   </tr>
     <tr>
-    <td align="right"><b>Correo (<a style="color:red">*</a>)</b></td>
+    <td align="right"><b>Correo (<a>*</a>)</b></td>
     <td>&nbsp;</td>
-    <td><input style="width:55%; border-radius:5px;" required type="email" name="email"
+    <td><input class="entrada_grande" required type="email" name="email"
 id="email" placeholder="Correo del estudiante" <?php if(isset($edita)) echo
 'value="'.$datosEditar['corr_est'].'"'; ?>></td>
   </tr>
   <tr>
-    <td align="right"><?php if(isset($edita)) $nom_boton="Modificar
-Registro"; else $nom_boton="Enviar Registro"; ?><input style="margin-top:20px;" name="button" type="submit" value="<?php echo $nom_boton ?>"></td>
-    <td>&nbsp;</td>
-    <td><input name="res" type="reset" value="reestablecer"></td>
+    <td><?php if(isset($edita)) $nom_boton="Modificar
+Registro"; else $nom_boton="Enviar Registro"; ?><input class="boton" name="button" type="submit" value="<?php echo $nom_boton ?>">
+&nbsp;<input class="boton" name="res" type="reset" value="reestablecer"></td>
   </tr>
 </table>
-<a style="margin-left:440px;"><b> (<a style="color:red">*</a>) : Campos Obligatios</b></a>
+<a style="margin-left:440px;"><b> (<a>*</a>) : Campos Obligatios</b></a>
 
 </form>
 </div>

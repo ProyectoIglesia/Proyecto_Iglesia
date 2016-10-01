@@ -21,17 +21,17 @@
 
 <link rel="stylesheet" type="text/css" href="engine1/style_slider.css" />
 <script type="text/javascript" src="engine1/jquery.js"></script>
-    
+
 	</head>
 	<body class="homepage">
 
 	<!-- Header2 -->
 		<header2>
-        
+
 		<div class="logo">
         	<img src="images/logo.png" width="230" height="50">
         </div>
-        
+
 	<nav>
 		<ul>
 			<li><a href="#">INICIO</a></li>
@@ -44,7 +44,7 @@
 
 		</header2>
 	<!-- Fin Header 2 -->
-    
+
         <!-- Slider -->
 <div id="wowslider-container1">
 <div class="ws_images"><ul>
@@ -53,7 +53,7 @@
 		<li><img src="data1/images/image1.png" alt="" title="" id="wows1_2"/></li>
 		<li><img src="data1/images/image4.png" alt="" title="" id="wows1_3"/></li>
 	</ul></div>
-</div>	
+</div>
 <script type="text/javascript" src="engine1/wowslider.js"></script>
 <script type="text/javascript" src="engine1/script.js"></script>
 <!-- FIN Slider -->
@@ -73,7 +73,7 @@
 
 		<!-- Main -->
 		<div id="main">
-        
+
         	<!-- Container -->
 			<div class="container">
 
@@ -174,49 +174,49 @@
 							<p><b>RESUMEN MANDA TU LLUVIA 2016</b></p>
 						</div>
 						<!-- Fin Video 2 -->
-						
+
 						<!-- Video 3 -->
 						<div id="video3">
 							<a href="#"><iframe src="https://player.vimeo.com/video/154373236?color=ffffff&title=0&byline=0&portrait=0" width="264" height="161" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe></a>
 							<p><b>RESUMEN CAMP PRE 2016</b></p>
 						</div>
 						<!-- Fin Video 3 -->
-						
+
 						<!-- Video 4 -->
 						<div id="video4">
 							<a href="#"><iframe src="https://player.vimeo.com/video/133648958?color=ffffff&title=0&byline=0&portrait=0" width="264" height="161" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe></a>
 							<p><b>CONVENCIÓN SOMOS UNO 2015</b></p>
 						</div>
 						<!-- Fin Video 4 -->
-						
+
 						<!-- Video 5 -->
                         <div id="video5">
 							<a href="#"><iframe src="https://player.vimeo.com/video/119021325?color=ffffff&title=0&byline=0&portrait=0" width="264" height="161" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe></a>
 							<p><b>UN NUEVO COMIENZO</b></p>
 						</div>
 						<!-- Fin Video 5 -->
-						
+
 						<!-- Video 6 -->
 						<div id="video6">
 							<a href="#"><iframe width="264" height="161" src="https://www.youtube.com/embed/4Gfg6zjA8QY" frameborder="0" allowfullscreen></iframe></a>
 							<p><b>AFILA TU HACHA</b></p>
 						</div>
 						<!-- Fin Video 6 -->
-						
+
 						<!-- Video 7 -->
 						<div id="video7">
 							<a href="#"><iframe width="264" height="161" src="https://www.youtube.com/embed/1ZNXBZHMjps" frameborder="0" allowfullscreen></iframe></a>
 							<p><b>AMOR POR LA CASA DE DIOS</b></p>
 						</div>
 						<!-- Fin Video 7 -->
-						
+
 						<!-- Video 8 -->
 						<div id="video8">
 							<a href="#"><iframe src="https://player.vimeo.com/video/108640914?color=ffffff&title=0&byline=0&portrait=0" width="264" height="161" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe></a>
 							<p><b>RESUMÉN CONVENCIÓN G12 PERÚ 2014</b></p>
 						</div>
 						<!-- Fin Video 8 -->
-						
+
 					</div>
 				</div>
 				<!-- Fin Row y Videos -->
@@ -252,14 +252,16 @@
   				<!-- Div e Iframe -->
 				<div align="center">
   						<iframe src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d1963.0672161956315!2d-67.6072883!3d10.2507401!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x8e803c9cc9e279b1%3A0x8b154dc686d45070!2sIglesia+Centro+Cristiano+de+Restauraci%C3%B3n+Mundial!5e0!3m2!1ses-419!2sve!4v1461602416848" width="900" height="450" frameborder="0" style="border:0" allowfullscreen></iframe>
-  					
+
   				</div>
   				<!-- Fin Div e Iframe -->
 
 		</div>
 		<!-- Fin Main -->
-  				
+
 		<br><br><br>
+	</div>
+</div>
 	<!-- Footer -->
 		<div id="footer">
 			<div class="container">

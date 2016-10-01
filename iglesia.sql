@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 30-09-2016 a las 05:38:28
+-- Tiempo de generación: 01-10-2016 a las 01:53:58
 -- Versión del servidor: 10.1.13-MariaDB
 -- Versión de PHP: 7.0.8
 
@@ -76,12 +76,12 @@ CREATE TABLE `lideres` (
 
 CREATE TABLE `nivel` (
   `cod_nivel` int(11) NOT NULL,
-  `trimestre` int(11) NOT NULL,
+  `trimestre` enum('trimestre_1','trimestre_2','trimestre_3') NOT NULL,
   `cod_lider` int(11) NOT NULL,
   `cantidad_estudiantes` int(11) NOT NULL,
   `fech_inicio` date NOT NULL,
   `fech_final` date NOT NULL,
-  `estatus_nivel` varchar(50) NOT NULL
+  `estatus_nivel` enum('En_curso','Abierto','Cerrado') NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 -- --------------------------------------------------------
@@ -116,7 +116,7 @@ CREATE TABLE `notas_totales` (
   `ci_est` int(11) NOT NULL,
   `ci_lid` int(11) NOT NULL,
   `cod_nivel` int(11) NOT NULL,
-  `estatus` varchar(50) NOT NULL
+  `estatus` enum('Aprobado','Reprobado') NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 -- --------------------------------------------------------
@@ -132,7 +132,7 @@ CREATE TABLE `tareas` (
   `ci_lider` int(11) NOT NULL,
   `actividad` text NOT NULL,
   `fecha_tarea` date NOT NULL,
-  `estado` varchar(50) NOT NULL
+  `estado` enum('Entregada','pendiente') NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 -- --------------------------------------------------------

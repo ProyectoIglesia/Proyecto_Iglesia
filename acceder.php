@@ -107,8 +107,8 @@ include ("formulario.php");
                                 	<input type="email" name="email" required="\w+" placeholder="Ejemplo: Ejemplo@dominio.com"/>
                                 </p>
                                 <p>
-                                    <label for="Contrasena" required pattern="[0-9 a-z]+">Tu Contraseña </label>
-                                    <input id="clave_new" name="clave_new" required="required" type="password" placeholder="Debe contener al menos una letra"/>
+                                    <label for="Contrasena">Tu Contraseña </label>
+                                    <input id="clave_new" name="clave_new"  required pattern="[0-9 a-z]{6,}" type="password" placeholder="Debe contener al menos una letra"/>
                                 </p>
                                 <p>
                                 	<label for="Nombre">Nombre</label>
@@ -138,7 +138,6 @@ include ("formulario.php");
                                 <p>
                                     <label for="preg_seg" >Pregunta de seguridad</label>
                                     <select name="preg_seg" id="preg_seg" required>
-         								<option value="null">Selecciona una Pregunta</option>
          								<option value="Profesor Favorito">Quien fue su profesor favorito?</option>
          								<option value="personaje favorito">Quien es su personaje histórico favorito?</option>
          								<option value="Mejor Amigo">Quien fue su mejor amigo en la niñez?</option>

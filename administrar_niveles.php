@@ -1,17 +1,12 @@
 <?php
 include("conex.php");
+include("agregar_nivel.php");
 session_start();
-include("formulario.php");
-include("proceso_notas.php");
 // Valida si accede de forma indebida.
 if (empty($_SESSION["autentificado"])) {
 header("Location: index.php");
 exit();
 }
-$sql = "SELECT * FROM usuarios_lideres where nom_usu = '".$_SESSION['nombre']."'";
-$consulta_usuario = mysqli_query($enlace, $sql);
-$usuario = mysqli_fetch_assoc($consulta_usuario);
-$ci = $usuario['ci_lider'];
 ?>
 <!doctype html>
 <html>
@@ -48,8 +43,11 @@ $ci = $usuario['ci_lider'];
 				<!-- Nav -->
 					<nav id="nav">
 						<ul>
-              				<li><a href="lider.php">Inicio</a></li>
-							<li><a href="cierre.php">Salir</a></li>
+              <li><a href="administrador.php">Inicio</a></li>
+              <li><a href="new_lider.php">Registrar Líder</a></li>
+              <li><a href="new_estudiante.php">Registrar Estudiante</a></li>
+              <li><a href="reporte/pdf.php">Reportes PDF</a></li>
+              <li><a href="cierre.php">Salir</a></li>
             </ul>
 					</nav>
 
@@ -64,66 +62,54 @@ $ci = $usuario['ci_lider'];
 						<div id="content" class="12u skel-cell-important">
 
 								<header align="center">
-									<h2>        <?php echo "<b>$mensaje</b>"; ?> </h2>
+									<h2></h2>
 								</header><br>
 
                             <div class="Formularios" >
+                            <?php echo "<b>$mensaje</b>"; ?>
 <form action="?m=1" method="post" name="form1" id="form1">
 <table>
+
 <tr>
-<td align="right"><b>Seleccionar nivel(<a>*</a>)</b></td>
+<td align="right"><b>Nivel a aperturar(<a>*</a>)</b></td>
 <td>&nbsp;</td>
-<td>
-<?php 
-$sql_nivel = "SELECT * FROM nivel WHERE ci_lider='$ci'";
-$consulta_nivel = mysqli_query($enlace, $sql_nivel);
-echo "<select name='codigo_nivel'>";
-while ($nivel = mysqli_fetch_assoc($consulta_nivel)) {
-	echo "<option value='".$nivel['cod_nivel']."'> ".$nivel['trimestre']." ".$nivel['horario']." </option>";
-}
-  echo "</select>";
-?>
-</td>
-</tr>
-<tr>
-<td align="right"><b>Módulo(<a>*</a>)</b></td>
-<td>&nbsp;</td>
-<td><select name="modulo" required>
-                        <option value="1">módulo 1</option>
-                        <option value="2">módulo 2</option>
+<td><select name="niveles" id="niveles" required>
+                        <option value="trimestre_1">Nivel 1</option>
+                        <option value="trimestre_2">Nivel 2</option>
+                        <option value="trimestre_3">Nivel 3</option>
                           </select></td>
 </tr>
 <tr>
-<td align="right"><b>Evaluación(<a>*</a>)</b></td>
+<td align="right"><b>Horario (<a>*</a>)</b></td>
 <td>&nbsp;</td>
-<td><select name="evaluacion" id="niveles" required>
-                        <option value="evaluacion_1">Evaluación 1</option>
-                        <option value="evaluacion_2">Evaluación 2</option>
-                        <option value="evaluacion_3">Evaluación 3</option>
-                        <option value="evaluacion_4">Evaluación 4</option>
-                        <option value="evaluacion_5">Evaluación 5</option>
-                        <option value="evaluacion_6">Evaluación 6</option>
-                        <option value="evaluacion_7">Evaluación 7</option>
-                        <option value="evaluacion_8">Evaluación 8</option>
-                        <option value="evaluacion_9">Evaluación 9</option>
-                        <option value="evaluacion_10">Evaluación 10</option>
+<td><select name="horarios" id="horarios" required>
+                        <option value="horario 1">turno 8:00 a 10:00 am</option>
+                        <option value="horario 2">turno 10:00 am a 12:00 pm</option>
                           </select></td>
 </tr>
 <tr>
-<!-- CODIGO TEMPORAL HACE FALTA REEMPLAZARLO POR UN SELECT -->
-<td align="right"><b>Indique la cédula del estudiante (<a>*</a>)</b></td>
+<td align="right"><b>fecha de inicio(<a>*</a>)</b></td>
 <td>&nbsp;</td>
-<td><input type="number" name="ci_estudiante" required pattern="[0-9]+">
-                          </td>
+<td><input type="date" name="fecha_inicio" id="fecha_inicio" required></td>
 </tr>
 <tr>
-<td align="right"><b>Indique la nota del estudiante(<a>*</a>)</b></td>
+<td align="right"><b>Selecciona lider (<a>*</a>)</b></td>
 <td>&nbsp;</td>
-<td><input type="number" min="0" max="100" name="nota" required>
-                          </td>
+<td><select name="ci_lider" required>
+                          <?php
+                          $sql_lider = "SELECT * FROM lideres";
+                          $consulta_lideres =  mysqli_query($enlace,$sql_lider);
+                          while($lideres = mysqli_fetch_assoc($consulta_lideres)){
+                            $seleccionar_ci= $lideres['ci_lider'];
+                            $seleccionar_nombre= $lideres['nom_lider'];
+                            $seleccionar_apellido= $lideres['ape_lider'];
+                              echo "<option value='".$seleccionar_ci."'> ".$seleccionar_nombre." ".$seleccionar_apellido."</option>";
+                           }
+                          ?>
+                          </select></td>
 </tr>
 <tr>
-    <td align="right"><input type="submit" name="cargar_nota" value="cargar nota"></td>
+    <td align="right"><input type="submit" name="agregar" value="enviar"></td>
     <td width="5%">&nbsp;</td>
     <td><input name="res" type="reset" value="reestablecer"></td>
   </tr>

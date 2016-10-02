@@ -124,7 +124,7 @@ include ("formulario.php");
                                 </p>
                                 <p>
                                 	<label for="Direccion">Dirección</label>
-                                	<input type="text" name="dir" required pattern="[a-z A-Z 0-9]+" placeholder="Estado, ciudad, zona, calle, residencia"/>
+                                	<input type="text" name="dir" required placeholder="Estado, ciudad, zona, calle, residencia"/>
                                 </p>
                                 <p>
                                 	<label for="Telefono">Teléfono</label>
@@ -150,7 +150,7 @@ include ("formulario.php");
                                 </p>
                                 <p>
                                     <label for="Respuesta" required pattern="[a-z A-Z 0-9]+">Respuesta secreta</label>
-                                    <input name="resp_preg_seg" required="required" type="password"/>
+                                    <input name="resp_preg_seg" required="required" type="text"/>
                                 </p>
                                 <p class="signin button">
 									<input style="width:150px; height:40px; margin-top:-20px; margin-left:-50px;" type="submit" value="Registrar" name="enviar" />

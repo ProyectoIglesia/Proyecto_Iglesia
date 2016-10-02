@@ -40,7 +40,7 @@ exit();
 				<!-- Nav -->
 					<nav id="nav">
 						<ul>
-							<li><a href="new_admin.php">Registrar Administrador</a></li>
+							<li><a href="administrar_niveles.php">Administrar niveles</a></li>
 							<li><a href="new_lider.php">Registrar Líder</a></li>
 							<li><a href="new_estudiante.php">Registrar Estudiante</a></li>
 							<li><a href="reporte/pdf.php">Reportes PDF</a></li>

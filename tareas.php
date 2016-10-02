@@ -2,7 +2,7 @@
 include("conex.php");
 session_start();
 include("formulario.php");
-include("proceso_notas.php");
+include("proceso_tareas.php");
 // Valida si accede de forma indebida.
 if (empty($_SESSION["autentificado"])) {
 header("Location: index.php");
@@ -86,30 +86,6 @@ while ($nivel = mysqli_fetch_assoc($consulta_nivel)) {
 </td>
 </tr>
 <tr>
-<td align="right"><b>Módulo(<a>*</a>)</b></td>
-<td>&nbsp;</td>
-<td><select name="modulo" required>
-                        <option value="1">módulo 1</option>
-                        <option value="2">módulo 2</option>
-                          </select></td>
-</tr>
-<tr>
-<td align="right"><b>Evaluación(<a>*</a>)</b></td>
-<td>&nbsp;</td>
-<td><select name="evaluacion" id="niveles" required>
-                        <option value="evaluacion_1">Evaluación 1</option>
-                        <option value="evaluacion_2">Evaluación 2</option>
-                        <option value="evaluacion_3">Evaluación 3</option>
-                        <option value="evaluacion_4">Evaluación 4</option>
-                        <option value="evaluacion_5">Evaluación 5</option>
-                        <option value="evaluacion_6">Evaluación 6</option>
-                        <option value="evaluacion_7">Evaluación 7</option>
-                        <option value="evaluacion_8">Evaluación 8</option>
-                        <option value="evaluacion_9">Evaluación 9</option>
-                        <option value="evaluacion_10">Evaluación 10</option>
-                          </select></td>
-</tr>
-<tr>
 <!-- CODIGO TEMPORAL HACE FALTA REEMPLAZARLO POR UN SELECT -->
 <td align="right"><b>Indique la cédula del estudiante (<a>*</a>)</b></td>
 <td>&nbsp;</td>
@@ -117,13 +93,13 @@ while ($nivel = mysqli_fetch_assoc($consulta_nivel)) {
                           </td>
 </tr>
 <tr>
-<td align="right"><b>Indique la nota del estudiante(<a>*</a>)</b></td>
+<td align="right"><b>Tareas entregadas(<a>*</a>)</b></td>
 <td>&nbsp;</td>
-<td><input type="number" min="0" max="100" name="nota" required>
+<td><input type="number" min="0" max="7" name="tareas_entregadas" required>
                           </td>
 </tr>
 <tr>
-    <td align="right"><input type="submit" name="cargar_nota" value="cargar nota"></td>
+    <td align="right"><input type="submit" name="cargar_tarea" value="cargar nota"></td>
     <td width="5%">&nbsp;</td>
     <td><input name="res" type="reset" value="reestablecer"></td>
   </tr>

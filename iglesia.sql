@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 01-10-2016 a las 19:09:11
+-- Tiempo de generación: 02-10-2016 a las 05:12:33
 -- Versión del servidor: 10.1.10-MariaDB
 -- Versión de PHP: 5.6.19
 
@@ -52,13 +52,6 @@ CREATE TABLE `estudiantes` (
   `ultimo_nivel_aprobado` enum('0','1','2','3') NOT NULL DEFAULT '0'
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
---
--- Volcado de datos para la tabla `estudiantes`
---
-
-INSERT INTO `estudiantes` (`ci_est`, `nom_est`, `ape_est`, `dir_est`, `tel_est`, `fec_nac_est`, `corr_est`, `ultimo_nivel_aprobado`) VALUES
-(1, 'estudiante', 'apellido', 'mi casa', '5555555', '2016-09-30', 'prueba@test.com', '0');
-
 -- --------------------------------------------------------
 
 --
@@ -70,10 +63,11 @@ CREATE TABLE `inscripcion` (
   `ci_est` int(11) NOT NULL,
   `cod_nivel` int(11) NOT NULL,
   `trimestre` enum('trimestre_1','trimestre_2','trimestre_3') COLLATE utf8_unicode_ci NOT NULL,
-  `cod_lider` int(11) NOT NULL,
+  `ci_lider` int(11) NOT NULL,
   `fech_inicio` date NOT NULL,
   `fech_final` date NOT NULL,
-  `estatus_nivel` enum('En_curso','Abierto','Cerrado') COLLATE utf8_unicode_ci NOT NULL
+  `estatus_nivel` enum('En_curso','Abierto','Cerrado') COLLATE utf8_unicode_ci NOT NULL,
+  `horario` enum('horario 1','horario 2') COLLATE utf8_unicode_ci NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 -- --------------------------------------------------------
@@ -89,8 +83,7 @@ CREATE TABLE `lideres` (
   `fec_nac_lider` date NOT NULL,
   `dir_lider` text NOT NULL,
   `tel_lider` varchar(12) NOT NULL,
-  `corr_lider` varchar(150) NOT NULL,
-  `car_lider` varchar(100) NOT NULL
+  `corr_lider` varchar(150) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 -- --------------------------------------------------------
@@ -102,7 +95,7 @@ CREATE TABLE `lideres` (
 CREATE TABLE `nivel` (
   `cod_nivel` int(11) NOT NULL,
   `trimestre` enum('trimestre_1','trimestre_2','trimestre_3') NOT NULL,
-  `cod_lider` int(11) NOT NULL,
+  `ci_lider` int(11) NOT NULL,
   `cantidad_estudiantes` int(11) NOT NULL,
   `fech_inicio` date NOT NULL,
   `fech_final` date NOT NULL,
@@ -118,11 +111,11 @@ CREATE TABLE `nivel` (
 
 CREATE TABLE `notas_evaluaciones` (
   `cod_nota` int(11) NOT NULL,
-  `asignatura` varchar(100) NOT NULL,
+  `asignatura` enum('modulo_1','modulo_2','modulo_3','modulo_4','modulo_5','modulo_6') NOT NULL,
   `ci_est` int(11) NOT NULL,
   `ci_lider` int(11) NOT NULL,
   `cod_nivel` int(11) NOT NULL,
-  `evaluacion` text NOT NULL,
+  `evaluacion` enum('evaluacion_1','evaluacion_2','evaluacion_3','evaluacion_4','evaluacion_5','evaluacion_6','evaluacion_7','evaluacion_8','evaluacion_9','evaluacion_10') NOT NULL,
   `nota` int(11) NOT NULL,
   `fecha` date NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
@@ -156,8 +149,8 @@ CREATE TABLE `tareas` (
   `cod_nivel` int(11) NOT NULL,
   `ci_est` int(11) NOT NULL,
   `ci_lider` int(11) NOT NULL,
-  `fecha_tarea` date NOT NULL,
-  `estado` enum('Entregada','pendiente') NOT NULL
+  `semana` varchar(20) NOT NULL,
+  `tareas_entregadas` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 -- --------------------------------------------------------
@@ -175,14 +168,6 @@ CREATE TABLE `usuarios` (
   `rps_usu` varchar(50) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
---
--- Volcado de datos para la tabla `usuarios`
---
-
-INSERT INTO `usuarios` (`cod_usu`, `nom_usu`, `cont_usu`, `niv_usu`, `ps_usu`, `rps_usu`) VALUES
-(1, 'nestor', '123456', 'administrador', '', ''),
-(2, 'prueba', '123456', 'estudiante', 'Profesor Favorito', 'tu mama');
-
 -- --------------------------------------------------------
 
 --
@@ -196,13 +181,6 @@ CREATE TABLE `usuarios_estudiantes` (
   `niv_usu` enum('administrador','estudiante','profesor') NOT NULL DEFAULT 'estudiante'
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
---
--- Volcado de datos para la tabla `usuarios_estudiantes`
---
-
-INSERT INTO `usuarios_estudiantes` (`nom_usu`, `ci_est`, `cont_usu`, `niv_usu`) VALUES
-('prueba', 1, '123456', 'estudiante');
-
 -- --------------------------------------------------------
 
 --
@@ -213,7 +191,7 @@ CREATE TABLE `usuarios_lideres` (
   `nom_usu` varchar(50) NOT NULL,
   `ci_lider` int(11) NOT NULL,
   `cont_usu` varchar(100) NOT NULL,
-  `niv_usu` enum('administrador','estudiante','profesor') NOT NULL DEFAULT 'profesor'
+  `niv_usu` enum('administrador','estudiante','lider') NOT NULL DEFAULT 'lider'
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
@@ -329,7 +307,7 @@ ALTER TABLE `tareas`
 -- AUTO_INCREMENT de la tabla `usuarios`
 --
 ALTER TABLE `usuarios`
-  MODIFY `cod_usu` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `cod_usu` int(10) NOT NULL AUTO_INCREMENT;
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;

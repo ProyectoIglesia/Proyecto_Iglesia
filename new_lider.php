@@ -42,7 +42,7 @@ exit();
 				<!-- Nav -->
 					<nav id="nav">
 						<ul>
-              <li><a href="new_admin.php">Registrar Administrador</a></li>
+              <li><a href="administrador.php">Inicio</a></li>
               <li><a href="new_lider">Registrar Líder</a></li>
               <li><a href="new_estudiante.php">Registrar Estudiante</a></li>
               <li><a href="reporte/pdf.php">Reportes PDF</a></li>
@@ -121,14 +121,7 @@ if(isset($edita)) echo 'value="'.$datosEditar['dir_lider'].'"'; ?>></td>
 id="email" placeholder="Correo del líder" <?php if(isset($edita)) echo
 'value="'.$datosEditar['corr_lider'].'"'; ?>></td>
   </tr>
-  <tr>
-    <td align="right"><b>Cargo (<a style="color:red">*</a>)</b></td>
-    <td>&nbsp;</td>
-    <td><input style="width:55%; border-radius:5px;" required type="text" name="cargo"
-id="cargo" placeholder="Cargo del líder" <?php if(isset($edita)) echo
-'value="'.$datosEditar['car_lider'].'"'; ?>></td>
-  </tr>
-  <tr>
+  
     <td align="right"><?php if(isset($edita)) $nom_boton="Modificar
 Registro"; else $nom_boton="Enviar Registro"; ?><input style="margin-top:20px;" name="button" type="submit" value="<?php echo $nom_boton ?>"></td>
     <td width="5%">&nbsp;</td>
@@ -154,7 +147,7 @@ Filtrado:
 <option value="ci_lider" selected="selected">Cedula</option>
 <option value="nom_lider">Nombres</option>
 <option value="ape_lider">Apellidos</option>
-</select><input name="valor" type="text"><input name="Consultar" type="submit" value="Enviar"><td align="center"><a href="reporte/pdf_lideres.php"><img src="images/PDF_Descargar.png" width="50" height="50" alt="" /></a></td>
+</select><input name="valor" type="text"><input name="Consultar" type="submit" value="Enviar"><td align="center"><a href="reporte/pdf_lideres.php" target="_blank"><img src="images/PDF_Descargar.png" width="50" height="50" alt="" /></a></td>
 </form></td>
     <td>&nbsp;</td>
   </tr>
@@ -176,7 +169,7 @@ if (!isset($_REQUEST['pg'])) $n_pag = 1; else $n_pag=$_REQUEST['pg'];
 $cantidad=20;
 $inicial = ($n_pag-1) * $cantidad;
 //Fin del Limite
-$sql = "SELECT * FROM lideress ".$where;
+$sql = "SELECT * FROM lideres ".$where;
 $consulta = mysqli_query($enlace, $sql) or die ("Error");
 $cant_registros =mysqli_num_rows($consulta);
 $paginado = intval($cant_registros / $cantidad);
@@ -190,7 +183,7 @@ $sql="Select * from lideres ".$where;
 $cons=mysqli_query($enlace, $sql);
 echo '<table>
 <tr>
-<td>Cédula</td><td>Nombres</td><td>Apellidos</td><td>Fecha Nac.</td><td>Direccion</td><td>Telefono</td><td>Correo</td><td>Cargo</td><td colspan="2">Opciones</td>
+<td>Cédula</td><td>Nombres</td><td>Apellidos</td><td>Direccion</td><td>Telefono</td><td>Fecha Nac.</td><td>Correo</td><td colspan="2">Opciones</td>
 </tr>';
 while($datos=mysqli_fetch_assoc($cons)){
 $primario= $datos['ci_lider'];
@@ -198,16 +191,15 @@ echo "<tr>";
 echo "<td><center>".$datos['ci_lider']."</center></td>";
 echo "<td><center>".$datos['nom_lider']."</center></td>";
 echo "<td><center>".$datos['ape_lider']."</center></td>";
-echo "<td><center>".$datos['fec_nac_lider']."</center></td>";
 echo "<td><center>".$datos['dir_lider']."</center></td>";
 echo "<td><center>".$datos['tel_lider']."</center></td>";
+echo "<td><center>".$datos['fec_nac_lider']."</center></td>";
 echo "<td><center>".$datos['corr_lider']."</center></td>";
-echo "<td><center>".$datos['car_lider']."</center></td>";
 echo "<td><center><a class='tooltip' alt='Eliminar Registro' href='?m=1&eliminar=$primario'><img src='images/eliminar.png'></a></center></td>";
 echo "<td><center><a class='tooltip' alt='Editar Registro ' href='?m=1&editar=$primario'><img src='images/editar.png'></a></center></td>";
 echo "</tr>";
 }
-echo "<tr align='center'><td colspan=10>";
+echo "<tr align='center'><td colspan=9>";
 for ($a=0;$a<($paginado+1);$a++){
 echo '<a href="?pg='.($a+1).'">'.($a+1).'<a/>&nbsp;';
 }

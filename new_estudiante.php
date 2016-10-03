@@ -143,7 +143,7 @@ Filtrado:
 <option value="ci_est" selected="selected">Cedula</option>
 <option value="nom_est">Nombres</option>
 <option value="ape_est">Apellidos</option>
-</select><input name="valor" type="text"><input name="Consultar" type="submit" value="Enviar"><td align="center"><a href="reporte/pdf_estudiantes.php"><img src="images/PDF_Descargar.png" width="50" height="50" alt="" /></a></td>
+</select><input name="valor" type="text"><input name="Consultar" type="submit" value="Enviar"><td align="center"><a href="reporte/pdf_estudiantes.php" target="_blank"><img src="images/PDF_Descargar.png" width="50" height="50" alt="" /></a></td>
 </form></td>
     <td>&nbsp;</td>
   </tr>

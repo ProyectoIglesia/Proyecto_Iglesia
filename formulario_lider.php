@@ -10,13 +10,12 @@ $fn = $_POST['fec_nac'];
 $direccion = $_POST['dir'];
 $telefono = $_POST['tel'];
 $email = $_POST['email'];
-$cargo = $_POST['cargo'];
-$sql = "INSERT INTO lideres(ci_lider,nom_lider,ape_lider,fec_nac_lider,dir_lider,tel_lider,corr_lider,car_lider) VALUES
-($cedula, '$nombre','$apellido', '$fn', '$direccion', '$telefono', '$email', '$cargo')";
+$sql = "INSERT INTO lideres(ci_lider,nom_lider,ape_lider,fec_nac_lider,dir_lider,tel_lider,corr_lider) VALUES
+($cedula, '$nombre','$apellido', '$fn', '$direccion', '$telefono', '$email')";
 if(mysqli_query($enlace, $sql)){
 $mensaje= '<b>Registro Satisfactorio.</b>';
 $accion="Inserta";
-$datosAuditoria= $cedula.", ".$nombre.", ".$apellido.", ".$fn.", ".$direccion.", ".$telefono.", ".$email.", ".$cargo;
+$datosAuditoria= $cedula.", ".$nombre.", ".$apellido.", ".$fn.", ".$direccion.", ".$telefono.", ".$email."";
 }else $mensaje= '<b>Error al registrar</b>';
 }
 //fin del código//
@@ -42,12 +41,11 @@ $fn = $_POST['fec_nac'];
 $direccion = $_POST['dir'];
 $telefono = $_POST['tel'];
 $email = $_POST['email'];
-$cargo = $_POST['cargo'];
-$sql= "UPDATE lideres SET nom_lider='$nombre', ape_lider='$apellido', fec_nac_lider='$fn', dir_lider='$direccion', tel_lider='$telefono', corr_lider='$email', car_lider='$cargo' where ci_lider=$cedula";
+$sql= "UPDATE lideres SET nom_lider='$nombre', ape_lider='$apellido', fec_nac_lider='$fn', dir_lider='$direccion', tel_lider='$telefono', corr_lider='$email' where ci_lider=$cedula";
 if(mysqli_query($enlace, $sql)){
 $mensaje= '<b>Registro Modificado Satisfactoramente.</b>';
 $accion="Modificar";
-$datosAuditoria=$cedula.", ".$nombre.", ".$apellido.", ".$fn.", ".$direccion.", ".$telefono.", ".$email.", ".$cargo;
+$datosAuditoria=$cedula.", ".$nombre.", ".$apellido.", ".$fn.", ".$direccion.", ".$telefono.", ".$email."";
 }else $mensaje= '<b>Error al Modificar</b>';
 }
 //fin del código//

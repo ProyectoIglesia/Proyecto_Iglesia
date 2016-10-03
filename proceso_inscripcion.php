@@ -40,7 +40,6 @@ for ($i=0; $i < 3; $i++) {
 		else {
 			# codigo que lo rebote
 		}
-		echo "<META HTTP-EQUIV='REFRESH' CONTENT='0.1;URL=inscripcion.php'>";
 	}
 }
 }?>

@@ -43,7 +43,7 @@ exit();
 							<li><a href="administrar_niveles.php">Administrar niveles</a></li>
 							<li><a href="new_lider.php">Registrar Líder</a></li>
 							<li><a href="new_estudiante.php">Registrar Estudiante</a></li>
-							<li><a href="reporte/pdf.php">Reportes PDF</a></li>
+							<li><a href="reporte/pdf.php" target="_blank">Reportes PDF</a></li>
 							<li><a href="cierre.php">Salir</a></li>
 						</ul>
 					</nav>

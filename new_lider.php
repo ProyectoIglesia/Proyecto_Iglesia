@@ -15,10 +15,9 @@ exit();
 		<meta name="description" content="" />
 		<meta name="keywords" content="" />
 		<link href='http://fonts.googleapis.com/css?family=Oxygen:400,300,700' rel='stylesheet' type='text/css'>
-		<!--[if lte IE 8]><script src="js/html5shiv.js"></script><![endif]-->
-        <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
+    <link rel="stylesheet" href="css/fonts.css" />
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
 		<script src="js/skel.min.js"></script>
-		<script src="js/skel-panels.min.js"></script>
 		<script src="js/init.js"></script>
 		<noscript>
 			<link rel="stylesheet" href="css/skel-noscript.css" />
@@ -29,6 +28,19 @@ exit();
 	</head>
 
 <body>
+
+<!-- Redes sociales - Barra lateral -->
+<div class="social">
+    <ul>
+      <li><a href="https://www.facebook.com/restauramundial" target="_blank" class="icon-facebook"></a></li>
+      <li><a href="http://www.twitter.com/" target="_blank" class="icon-twitter"></a></li>
+      <li><a href="http://www.youtube.com/" target="_blank" class="icon-youtube"></a></li>
+      <li><a href="http://www.instagram.com/" target="_blank" class="icon-instagram"></a></li>
+      <li><a href="mailto:restauracionmundial@gmail.com" class="icon-mail"></a></li>
+    </ul>
+  </div>
+<!-- Fin Redes sociales - Barra lateral -->
+
 <div id="header">
 			<div class="container">
 
@@ -43,7 +55,7 @@ exit();
 					<nav id="nav">
 						<ul>
               <li><a href="administrador.php">Inicio</a></li>
-              <li><a href="new_lider">Registrar Líder</a></li>
+              <li><a href="administrar_niveles.php">Aperturar niveles Cap. Dest.</a></li>
               <li><a href="new_estudiante.php">Registrar Estudiante</a></li>
               <li><a href="reporte/pdf.php">Reportes PDF</a></li>
               <li><a href="cierre.php">Salir</a></li>
@@ -59,88 +71,82 @@ exit();
 
 					<!-- Content -->
 						<div id="content" class="12u skel-cell-important">
-
-								<header align="center">
-									<h2>Formulario para datos de los <a style="color: green">lideres</a></h2>
-                  <br><?php echo $mensaje ?>
-								</header><br>
+								
                 <div class="Formularios" >
+                <?php echo "<b><center>$mensaje</center></b>"; ?>
 <form action="?m=1" method="post" name="form1" id="form1">
- <table width="75%" border="1" align="center" cellpadding="5" cellspacing="5">
+ <table>
   <tr>
-    </tr>
-  <tr>
-    <td colspan="3" align="center"></td>
-    </tr>
-  <tr>
-    <td width="50%" align="right"><b>Cedula (<a style="color:red">*</a>)</b></td>
-    <td width="8%">&nbsp;</td>
-    <td width="60%"><input style="width:85%; border-radius:5px" required pattern="[0-9]+" type="text"
+    <td align="right"><b>Cedula (<a style="color:red">*</a>)</b></td>
+    <td>&nbsp;</td>
+    <td><input style="border-radius:5px" class="entrada_grande" required pattern="[0-9]+" type="text"
 name="ci" id="ci" placeholder="Cedula del líder" <?php if(isset($edita)){
 echo 'value="'.$datosEditar['ci_lider'].'"'; echo " disabled ";} ?>>
 <?php if(isset($edita)) echo '<input name="cedM" type="hidden"
 value="'.$datosEditar['ci_lider'].'" />'; ?></td>
   </tr>
   <tr>
-    <td align="right"><b>Nombres (<a style="color:red">*</a>)</td>
+    <td align="right"><b>Nombres (<a style="color:red">*</a>)</b></td>
     <td>&nbsp;</td>
-    <td><input style="width:95%; border-radius:5px" type="text" required pattern="[a-z A-Z]+"
+    <td><input style="border-radius:5px" class="entrada_grande" type="text" required pattern="[a-z A-Z]+"
 name="nom" id="nom" placeholder="Nombres completos del líder" <?php
 if(isset($edita)) echo 'value="'.$datosEditar['nom_lider'].'"'; ?>></td>
   </tr>
   <tr>
     <td align="right"><b>Apellidos (<a style="color:red">*</a>)</b></td>
     <td>&nbsp;</td>
-    <td><input style="width:95%; border-radius:5px" required pattern="[a-z A-Z]+" type="text"
+    <td><input style="border-radius:5px" class="entrada_grande" required pattern="[a-z A-Z]+" type="text"
 name="ape" id="ape" placeholder="Apellidos completos del líder" <?php
 if(isset($edita)) echo 'value="'.$datosEditar['ape_lider'].'"'; ?>></td>
   </tr>
   <tr>
-    <td align="right"><b>Fecha de nacimiento (<a style="color:red">*</a>)</b></td>
-    <td>&nbsp;</td>
-    <td><input style="width:55%; border-radius:5px" required type="date" name="fec_nac"
-id="fec_nac" <?php if(isset($edita)) echo
-'value="'.$datosEditar['fec_nac_lider'].'"'; ?>></td>
-  </tr>
-  <tr>
     <td align="right"><b>Direccion (<a style="color:red">*</a>)</b></td>
     <td>&nbsp;</td>
-    <td><input style="width:95%; border-radius:5px" type="text" required name="dir" id="dir" placeholder="Direccion completa del líder" <?php
+    <td><input style="border-radius:5px" class="entrada_grande" type="text" required name="dir" id="dir" placeholder="Direccion completa del líder" <?php
 if(isset($edita)) echo 'value="'.$datosEditar['dir_lider'].'"'; ?>></td>
   </tr>
   <tr>
     <td align="right"><b>Telefono (<a style="color:red">*</a>)</b></td>
     <td>&nbsp;</td>
-    <td><input style="width:55%; border-radius:5px" required pattern="[0-9]+" type="text" name="tel" id="tel" placeholder="Telefono del líder" <?php if(isset($edita)) echo
+    <td><input style="border-radius:5px" class="entrada_grande" required pattern="[0-9]+" type="text" name="tel" id="tel" placeholder="Telefono del líder" <?php if(isset($edita)) echo
 'value="'.$datosEditar['tel_lider'].'"'; ?>></td>
+  </tr>
+    <tr>
+    <td align="right"><b>Fecha de nacimiento (<a style="color:red">*</a>)</b></td>
+    <td>&nbsp;</td>
+    <td><input style="border-radius:5px" class="entrada_grande" required type="date" name="fec_nac"
+id="fec_nac" <?php if(isset($edita)) echo
+'value="'.$datosEditar['fec_nac_lider'].'"'; ?>></td>
   </tr>
     <tr>
     <td align="right"><b>Correo (<a style="color:red">*</a>)</b></td>
     <td>&nbsp;</td>
-    <td><input style="width:55%; border-radius:5px;" required type="email" name="email"
+    <td><input style="border-radius:5px;" class="entrada_grande" required type="email" name="email"
 id="email" placeholder="Correo del líder" <?php if(isset($edita)) echo
 'value="'.$datosEditar['corr_lider'].'"'; ?>></td>
   </tr>
-    <td align="right"><b>Nombre de usuario (<a style="color:red">*</a>)</td>
+    <td align="right"><b>Nombre de usuario (<a style="color:red">*</a>)</b></td>
     <td>&nbsp;</td>
-    <td><input style="width:95%; border-radius:5px" type="text" required pattern="[0-9 a-z A-Z]+"
+    <td><input style="border-radius:5px" class="entrada_grande" type="text" required pattern="[0-9 a-z A-Z]+"
 name="usuario_new" id="nom" placeholder="Nombre de usuario del líder" <?php
 if(isset($edita)) echo 'value="'.$datosEditar['nom_usu'].'"'; ?>></td>
   </tr>
-    <td align="right"><b>Contraseña (<a style="color:red">*</a>)</td>
+    <td align="right"><b>Contraseña (<a style="color:red">*</a>)</b></td>
     <td>&nbsp;</td>
-    <td><input style="width:95%; border-radius:5px" type="password" required pattern="[0-9 a-z A-Z]{6,}"
+    <td><input style="border-radius:5px" class="entrada_grande" type="password" required pattern="[0-9 a-z A-Z]{6,}"
 name="clave_new" id="nom" placeholder="Contraseña del líder (6 caracteres mínimo)" <?php
 if(isset($edita)) echo 'value="'.$datosEditar['cont_usu'].'"'; ?>></td>
   </tr>
-  
-    <td align="right"><?php if(isset($edita)) $nom_boton="Modificar
-Registro"; else $nom_boton="Enviar Registro"; ?><input style="margin-top:20px;" name="button" type="submit" value="<?php echo $nom_boton ?>"></td>
-    <td width="5%">&nbsp;</td>
-    <td><input name="res" type="reset" value="reestablecer"></td>
-  </tr>
-</table>
-<a style="margin-left:430px;"><b> (<a style="color:red">*</a>) : Campos Obligatios</b></a>
+  </table>
+
+<center>
+    <?php if(isset($edita)) $nom_boton="Modificar
+Registro"; else $nom_boton="Enviar Registro"; ?><input style="margin-right: 20px;" class="boton" name="button" type="submit" value="<?php echo $nom_boton ?>">
+
+<input style="margin-left:20px;" class="boton" name="res" type="reset" value="Reestablecer"></center>
+<br>
+<center><a><b> (<a style="color:red">*</a>) : Campos Obligatios</b></a></center>
+
 
 </form>
 </div>

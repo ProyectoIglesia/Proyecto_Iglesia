@@ -1,0 +1,44 @@
+Capeta Raíz
+
+* Eliminar la carpeta Data, ya que las imagenes que estaban dentro las coloque en la carpeta 
+  images/slider y cambie la direccion en el php
+
+administrar_niveles.php
+
+* Agregar barra social
+* Centrar el mensaje y el formulario
+* Cambiar botones
+* Cambiar mayusculas en algunas partes
+* Cambiar horarios que estaba de ultimo y colocarlo de segundo en la tabla de html
+* Agregar Fecha de fin, ya que solo tenía fecha inicial y se registraba esa misma fecha tanto
+  para el inicio como para el fin del nivel
+* Dar border-radius al formulario para vista mas agradable
+
+agregar_nivel.php
+
+* Moficiar 2 lineas para que agregue correctamente la fecha de fin del nivel.
+
+
+new_lider.php
+
+* Agregar barra social
+* Quitar el el H2 "Formulario para datos de los lideres" ya que esa fue una de las 
+  correcciones que leidys nos mando a hacer.
+* Cambiar mayusculas en algunas partes
+* Cambiar botones
+* Centrar el mensaje y el formulario
+* Carmbiar medidas de los input con class="entrada_grande" para que quede centrado
+* Cambiar menú, cuando estas en registrar lider, en el mune te seguía apareciendo registrar
+  lider, y estaba sin su extensión .php, ahora cuando estas en registrar lider te sale
+  aperturar nivel que es donde se estaba anteriormente.
+  
+
+new_estudiante.php
+
+* Agregar barra social
+* Quitar el el H2 "Formulario para datos de los Estudiantes"
+* Cambiar mayusculas en algunas partes
+* Carmbiar medidas de los input con class="entrada_grande" para que quede centrado
+* Centrar botones y formulario
+* Dar border-radius al formulario para vista mas agradable
+* Cambiar menú igual que new_lider.php

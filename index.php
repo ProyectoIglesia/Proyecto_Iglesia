@@ -48,10 +48,10 @@
         <!-- Slider -->
 <div id="wowslider-container1">
 <div class="ws_images"><ul>
-		<li><img src="data1/images/image3.png" alt="" title="" id="wows1_0"/></li>
-		<li><img src="data1/images/image2.png" alt="" title="" id="wows1_1"/></li>
-		<li><img src="data1/images/image1.png" alt="" title="" id="wows1_2"/></li>
-		<li><img src="data1/images/image4.png" alt="" title="" id="wows1_3"/></li>
+		<li><img src="images/slider/image3.png" alt="" title="" id="wows1_0"/></li>
+		<li><img src="images/slider/image2.png" alt="" title="" id="wows1_1"/></li>
+		<li><img src="images/slider/image1.png" alt="" title="" id="wows1_2"/></li>
+		<li><img src="images/slider/image4.png" alt="" title="" id="wows1_3"/></li>
 	</ul></div>
 </div>
 <script type="text/javascript" src="engine1/wowslider.js"></script>

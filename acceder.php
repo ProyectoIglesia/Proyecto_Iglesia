@@ -95,7 +95,7 @@ include ("formulario.php");
                             </form>
                         </div>
                         <div id="register" class="animate form">
-                            <form action="?m=1#toregister" method="post" name="form2" id="form2">
+                            <form action="?m=1#tologin" method="post" name="form2" id="form2">
                                 <h1>registrarse</h1>
                                 <?php echo '<center>'.$mensaje.'</center>' ?>
                                 <p>

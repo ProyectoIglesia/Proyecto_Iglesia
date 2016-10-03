@@ -40,6 +40,21 @@ $datosAuditoria= $usuario.", ".$clave.", ".$preg_seg.",
 }
 //fin del código//
 
+//código de inserción de usuario estudiante//
+$mensaje ="";
+if(isset($_POST['usuario_new'])){
+$usuario = $_POST['usuario_new'];
+$clave = $_POST['clave_new'];
+$sql = "INSERT INTO usuarios (cod_usu,nom_usu,cont_usu,niv_usu,ps_usu,rps_usu) VALUES
+('','$usuario', '$clave', 'estudiante', '', '')";
+if(mysqli_query($enlace, $sql)){
+$mensaje= '<b>Registro Satisfactorio.</b>';
+$accion="Inserta";
+$datosAuditoria= $usuario.", ".$clave;
+}else $mensaje= '<b>Error al registrar</b>';
+}
+//fin del código//
+
 if (isset($_POST['ci']) && isset($_POST['usuario_new'])) {
 $cedula = $_POST['ci'];
 $usuario= $_POST['usuario_new'];

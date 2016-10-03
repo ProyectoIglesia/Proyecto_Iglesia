@@ -3,9 +3,9 @@
 -- http://www.phpmyadmin.net
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 02-10-2016 a las 21:24:36
--- Versión del servidor: 10.1.13-MariaDB
--- Versión de PHP: 7.0.8
+-- Tiempo de generación: 03-10-2016 a las 06:04:14
+-- Versión del servidor: 10.1.10-MariaDB
+-- Versión de PHP: 5.6.19
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 SET time_zone = "+00:00";
@@ -128,10 +128,10 @@ CREATE TABLE `notas_evaluaciones` (
 
 CREATE TABLE `notas_totales` (
   `cod_nota` int(11) NOT NULL,
-  `total_materia1` int(11) NOT NULL,
-  `total_materia2` int(11) NOT NULL,
-  `total_materias` int(11) NOT NULL,
-  `tareas_entregadas` int(11) NOT NULL,
+  `total_materia1` float NOT NULL,
+  `total_materia2` float NOT NULL,
+  `total_materias` float NOT NULL,
+  `tareas_entregadas_total` int(11) NOT NULL,
   `ci_est` int(11) NOT NULL,
   `ci_lider` int(11) NOT NULL,
   `cod_nivel` int(11) NOT NULL,

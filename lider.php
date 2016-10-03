@@ -44,6 +44,7 @@ exit();
 						<ul>
 							<li><a href="lider.php">Inicio</a></li>
 							<li><a href="subir_notas.php">Cargar notas</a></li>
+							<li><a href="tareas.php">Cargar devocional</a></li>
 							<li><a href="cierre.php">Salir</a></li>
 						</ul>
 					</nav>

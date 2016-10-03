@@ -29,7 +29,7 @@ for ($i=0; $i < 3; $i++) {
 					mysqli_query($enlace, $sql_actualiza_cantidad_estudiantes);
 					$sql_inscripcion = "INSERT INTO inscripcion (cod_inscripcion,ci_est,cod_nivel,trimestre,ci_lider,fech_inicio,fech_final,estatus_nivel, horario) VALUES ('','$ci','$codigo','$nivel','$lider','$fecha_inicio','$fecha_final','$estatus_nivel','$horario_inscrito')";
 					if(mysqli_query($enlace, $sql_inscripcion)){
-						$sql_notas_totales = "INSERT INTO notas_totales (cod_nota,total_materia1,total_materia2,total_materias,tareas_entregadas,ci_est,ci_lider,cod_nivel,estatus) VALUES ('','0','0','0','0','$ci','$lider','$codigo','Reprobado')";
+						$sql_notas_totales = "INSERT INTO notas_totales (cod_nota,total_materia1,total_materia2,total_materias,tareas_entregadas_total,ci_est,ci_lider,cod_nivel,estatus) VALUES ('','0','0','0','0','$ci','$lider','$codigo','Reprobado')";
 						if (mysqli_query($enlace, $sql_notas_totales)) {
 							$mensaje= '<b>Registro Satisfactorio.</b>';
 						}

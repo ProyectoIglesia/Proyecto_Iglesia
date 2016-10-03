@@ -96,6 +96,7 @@ while ($nivel = mysqli_fetch_assoc($consulta_nivel)) {
 <tr>
 <td align="right"><b>Evaluación(<a>*</a>)</b></td>
 <td>&nbsp;</td>
+<!-- CODIGO TEMPORAL HACE FALTA VALIDAR EVALUACIONES DE FORMA AUTOMATICA  -->
 <td><select name="evaluacion" id="niveles" required>
                         <option value="evaluacion_1">Evaluación 1</option>
                         <option value="evaluacion_2">Evaluación 2</option>
@@ -109,6 +110,7 @@ while ($nivel = mysqli_fetch_assoc($consulta_nivel)) {
                         <option value="evaluacion_10">Evaluación 10</option>
                           </select></td>
 </tr>
+<!-- FIN DEL CODIGO TEMPORAL -->
 <tr>
 <!-- CODIGO TEMPORAL HACE FALTA REEMPLAZARLO POR UN SELECT -->
 <td align="right"><b>Indique la cédula del estudiante (<a>*</a>)</b></td>

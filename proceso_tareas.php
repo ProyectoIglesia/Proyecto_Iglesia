@@ -19,6 +19,13 @@ $semana = "semana ".$cantidad_semana;
 $sql_tarea = "INSERT INTO tareas(cod_tarea,cod_nivel,ci_est,ci_lider,semana,tareas_entregadas) VALUES ('','$codigo_nivel','$ci_estudiante','$ci_lider','$semana','$tareas_entregadas')";
 if (mysqli_query($enlace,$sql_tarea)) {
 	$mensaje = "Tarea cargada exitosamente";
+	$sql_total_tareas = "SELECT * FROM notas_totales WHERE ci_est='$ci_estudiante' and cod_nivel='$codigo_nivel'";
+	$consulta_total_tareas = mysqli_query($enlace, $sql_total_tareas);
+	$total_tareas = mysqli_fetch_assoc($consulta_total_tareas);
+	$cantidad_tareas = $total_tareas['tareas_entregadas_total'] + $tareas_entregadas;
+	$sql_actualizacion_tareas = "UPDATE notas_totales SET tareas_entregadas_total='".$cantidad_tareas."' WHERE ci_est='$ci_estudiante' and cod_nivel='$codigo_nivel'";
+	mysqli_query($enlace, $sql_actualizacion_tareas);
 } else $mensaje = "Error de carga";
+include("comprobacion_estatus.php");
 }
 ?>

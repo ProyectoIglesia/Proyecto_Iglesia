@@ -119,6 +119,20 @@ id="email" placeholder="Correo del estudiante" <?php if(isset($edita)) echo
 'value="'.$datosEditar['corr_est'].'"'; ?>></td>
   </tr>
   <tr>
+    <td align="right"><b>Nombre de usuario (<a style="color:red">*</a>)</td>
+    <td>&nbsp;</td>
+    <td><input style="width:95%; border-radius:5px" type="text" required pattern="[a-z A-Z]+"
+name="usuario_new" id="nom" placeholder="Usuario del estudiante" <?php
+if(isset($edita)) echo 'value="'.$datosEditar['nom_usu'].'"'; ?>></td>
+  </tr>
+  <tr>
+    <td align="right"><b>Contraseña (<a style="color:red">*</a>)</td>
+    <td>&nbsp;</td>
+    <td><input style="width:95%; border-radius:5px" type="password" required pattern="[0-9 a-z A-Z]{6,}"
+name="clave_new" id="nom" placeholder="Contraseña del estudiante(mínimo 6 caracteres)" <?php
+if(isset($edita)) echo 'value="'.$datosEditar['cont_usu'].'"'; ?>></td>
+  </tr>
+  <tr>
     <td><?php if(isset($edita)) $nom_boton="Modificar
 Registro"; else $nom_boton="Enviar Registro"; ?><input class="boton" name="button" type="submit" value="<?php echo $nom_boton ?>">
 &nbsp;<input class="boton" name="res" type="reset" value="reestablecer"></td>

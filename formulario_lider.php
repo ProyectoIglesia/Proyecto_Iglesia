@@ -20,6 +20,38 @@ $datosAuditoria= $cedula.", ".$nombre.", ".$apellido.", ".$fn.", ".$direccion.",
 }
 //fin del código//
 
+//código de inserción de usuario//
+$mensaje ="";
+if(isset($_POST['usuario_new'])){
+$usuario = $_POST['usuario_new'];
+$clave = $_POST['clave_new'];
+$sql_usuario = "INSERT INTO usuarios(cod_usu,nom_usu,cont_usu,niv_usu,ps_usu,rps_usu) VALUES
+('','$usuario', '$clave', 'lider', '', '')";
+if(mysqli_query($enlace, $sql_usuario)){
+$mensaje= '<b>Registro Satisfactorio.</b>';
+$accion="Inserta";
+$datosAuditoria= $usuario.", ".$clave."";
+}else $mensaje= '<b>Error al registrar</b>';
+}
+//fin del código//
+
+//código de inserción de usuario lider//
+if (isset($_POST['ci']) && isset($_POST['usuario_new'])) {
+$cedula = $_POST['ci'];
+$usuario= $_POST['usuario_new'];
+$clave= $_POST['clave_new'];
+$nivel="lider";
+$sql = "INSERT INTO usuarios_lideres(nom_usu,ci_lider,cont_usu,niv_usu) VALUES
+('$usuario', '$cedula', '$clave', '$nivel')";
+if(mysqli_query($enlace, $sql)){
+$mensaje= '<b>Registro Satisfactorio.</b>';
+$accion="Inserta";
+$datosAuditoria= "$usuario, $cedula, $clave, $nivel";
+}else $mensaje= '<b>Error al registrar</b>';
+
+}
+//fin del código//
+
 //código de eliminación//
 if(isset($_REQUEST['eliminar'])){
 $sql= "DELETE FROM lideres WHERE

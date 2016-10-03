@@ -121,6 +121,18 @@ if(isset($edita)) echo 'value="'.$datosEditar['dir_lider'].'"'; ?>></td>
 id="email" placeholder="Correo del líder" <?php if(isset($edita)) echo
 'value="'.$datosEditar['corr_lider'].'"'; ?>></td>
   </tr>
+    <td align="right"><b>Nombre de usuario (<a style="color:red">*</a>)</td>
+    <td>&nbsp;</td>
+    <td><input style="width:95%; border-radius:5px" type="text" required pattern="[0-9 a-z A-Z]+"
+name="usuario_new" id="nom" placeholder="Nombre de usuario del líder" <?php
+if(isset($edita)) echo 'value="'.$datosEditar['nom_usu'].'"'; ?>></td>
+  </tr>
+    <td align="right"><b>Contraseña (<a style="color:red">*</a>)</td>
+    <td>&nbsp;</td>
+    <td><input style="width:95%; border-radius:5px" type="password" required pattern="[0-9 a-z A-Z]{6,}"
+name="clave_new" id="nom" placeholder="Contraseña del líder (6 caracteres mínimo)" <?php
+if(isset($edita)) echo 'value="'.$datosEditar['cont_usu'].'"'; ?>></td>
+  </tr>
   
     <td align="right"><?php if(isset($edita)) $nom_boton="Modificar
 Registro"; else $nom_boton="Enviar Registro"; ?><input style="margin-top:20px;" name="button" type="submit" value="<?php echo $nom_boton ?>"></td>
@@ -218,7 +230,6 @@ echo "</td></tr>";
 			</div>
 		</div>
 </div>
-
 
 
 </body>

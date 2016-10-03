@@ -1,4 +1,4 @@
-<?php
+<?php 
 include("conex.php");
 session_start();
 include("formulario.php");

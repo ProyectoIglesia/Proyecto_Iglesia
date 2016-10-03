@@ -42,3 +42,6 @@ new_estudiante.php
 * Centrar botones y formulario
 * Dar border-radius al formulario para vista mas agradable
 * Cambiar menú igual que new_lider.php
+
+- Cambie cosas basicas en la base de datos como algunas mayusculas,
+nombre de de trismetre por nivel, etc.

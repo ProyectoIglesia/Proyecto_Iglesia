@@ -3,9 +3,9 @@
 -- http://www.phpmyadmin.net
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 02-10-2016 a las 05:12:33
--- Versión del servidor: 10.1.10-MariaDB
--- Versión de PHP: 5.6.19
+-- Tiempo de generación: 02-10-2016 a las 21:24:36
+-- Versión del servidor: 10.1.13-MariaDB
+-- Versión de PHP: 7.0.8
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 SET time_zone = "+00:00";
@@ -133,7 +133,7 @@ CREATE TABLE `notas_totales` (
   `total_materias` int(11) NOT NULL,
   `tareas_entregadas` int(11) NOT NULL,
   `ci_est` int(11) NOT NULL,
-  `ci_lid` int(11) NOT NULL,
+  `ci_lider` int(11) NOT NULL,
   `cod_nivel` int(11) NOT NULL,
   `estatus` enum('Aprobado','Reprobado') NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;

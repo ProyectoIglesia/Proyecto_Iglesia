@@ -74,7 +74,7 @@ $ci = $usuario['ci_lider'];
 <td align="right"><b>Seleccionar nivel(<a>*</a>)</b></td>
 <td>&nbsp;</td>
 <td>
-<?php 
+<?php
 $sql_nivel = "SELECT * FROM nivel WHERE ci_lider='$ci'";
 $consulta_nivel = mysqli_query($enlace, $sql_nivel);
 echo "<select name='codigo_nivel'>";

@@ -1,9 +1,10 @@
 <?php
+include('conex.php');
 $mensaje ="";
 if (isset($_POST['inscribirse'])) {
 	$nivel = $_POST['niveles'];
 $horario_inscrito = $_POST['horarios'];
-$sql_estudiante = "SELECT * FROM estudiantes where ci_est = '".$ci."'";
+$sql_estudiante = "SELECT * FROM estudiantes where ci_est='".$ci."'";
 $consulta_estudiante = mysqli_query($enlace, $sql_estudiante);
 $estudiante = mysqli_fetch_assoc($consulta_estudiante);
 $ultimo_nivel_aprobado = $estudiante['ultimo_nivel_aprobado'];
@@ -28,7 +29,10 @@ for ($i=0; $i < 3; $i++) {
 					mysqli_query($enlace, $sql_actualiza_cantidad_estudiantes);
 					$sql_inscripcion = "INSERT INTO inscripcion (cod_inscripcion,ci_est,cod_nivel,trimestre,ci_lider,fech_inicio,fech_final,estatus_nivel, horario) VALUES ('','$ci','$codigo','$nivel','$lider','$fecha_inicio','$fecha_final','$estatus_nivel','$horario_inscrito')";
 					if(mysqli_query($enlace, $sql_inscripcion)){
-						$mensaje= '<b>Registro Satisfactorio.</b>';
+						$sql_notas_totales = "INSERT INTO notas_totales (cod_nota,total_materia1,total_materia2,total_materias,tareas_entregadas,ci_est,ci_lider,cod_nivel,estatus) VALUES ('','0','0','0','0','$ci','$lider','$codigo','Reprobado')";
+						if (mysqli_query($enlace, $sql_notas_totales)) {
+							$mensaje= '<b>Registro Satisfactorio.</b>';
+						}
 					}
 					else $mensaje= '<b>Error al registrar</b>';
 

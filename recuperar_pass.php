@@ -10,24 +10,32 @@ include ("formulario.php");
 		<meta name="description" content="" />
 		<meta name="keywords" content="" />
 		<link href='http://fonts.googleapis.com/css?family=Oxygen:400,300,700' rel='stylesheet' type='text/css'>
+		<link rel="stylesheet" href="css/fonts.css" />
 		<link rel="stylesheet" type="text/css" href="css/demo.css" />
         <link rel="stylesheet" type="text/css" href="css/style3.css" />
 		<link rel="stylesheet" type="text/css" href="css/animate-custom.css" />
-		<!--[if lte IE 8]><script src="js/html5shiv.js"></script><![endif]-->
         <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
 		<script src="js/skel.min.js"></script>
-		<script src="js/skel-panels.min.js"></script>
 		<script src="js/init.js"></script>
 		<noscript>
 			<link rel="stylesheet" href="css/skel-noscript.css" />
 			<link rel="stylesheet" href="css/style.css" />
 		</noscript>
-		<!--[if lte IE 8]><link rel="stylesheet" href="css/ie/v8.css" /><![endif]-->
-		<!--[if lte IE 9]><link rel="stylesheet" href="css/ie/v9.css" /><![endif]-->
-
 
 	</head>
 	<body>
+
+		<!-- Redes sociales - Barra lateral -->
+<div class="social">
+    <ul>
+      <li><a href="https://www.facebook.com/restauramundial" target="_blank" class="icon-facebook"></a></li>
+      <li><a href="http://www.twitter.com/" target="_blank" class="icon-twitter"></a></li>
+      <li><a href="http://www.youtube.com/" target="_blank" class="icon-youtube"></a></li>
+      <li><a href="http://www.instagram.com/" target="_blank" class="icon-instagram"></a></li>
+      <li><a href="mailto:restauracionmundial@gmail.com" class="icon-mail"></a></li>
+    </ul>
+  </div>
+<!-- Fin Redes sociales - Barra lateral -->
 
 	<!-- Header -->
 		<div id="header">

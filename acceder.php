@@ -9,24 +9,34 @@ include ("formulario.php");
 		<meta name="description" content="" />
 		<meta name="keywords" content="" />
 		<link href='http://fonts.googleapis.com/css?family=Oxygen:400,300,700' rel='stylesheet' type='text/css'>
+		<link rel="shortcut icon" href="images/favicon.png">
+		<link rel="stylesheet" href="css/fonts.css" />
 		<link rel="stylesheet" type="text/css" href="css/demo.css" />
         <link rel="stylesheet" type="text/css" href="css/style3.css" />
 		<link rel="stylesheet" type="text/css" href="css/animate-custom.css" />
-		<!--[if lte IE 8]><script src="js/html5shiv.js"></script><![endif]-->
-        <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
+		<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
 		<script src="js/skel.min.js"></script>
-		<script src="js/skel-panels.min.js"></script>
 		<script src="js/init.js"></script>
 		<noscript>
 			<link rel="stylesheet" href="css/skel-noscript.css" />
 			<link rel="stylesheet" href="css/style.css" />
 		</noscript>
-		<!--[if lte IE 8]><link rel="stylesheet" href="css/ie/v8.css" /><![endif]-->
-		<!--[if lte IE 9]><link rel="stylesheet" href="css/ie/v9.css" /><![endif]-->
 
 
 	</head>
 	<body>
+
+	<!-- Redes sociales - Barra lateral -->
+<div class="social">
+    <ul>
+      <li><a href="https://www.facebook.com/restauramundial" target="_blank" class="icon-facebook"></a></li>
+      <li><a href="http://www.twitter.com/" target="_blank" class="icon-twitter"></a></li>
+      <li><a href="http://www.youtube.com/" target="_blank" class="icon-youtube"></a></li>
+      <li><a href="http://www.instagram.com/" target="_blank" class="icon-instagram"></a></li>
+      <li><a href="mailto:restauracionmundial@gmail.com" class="icon-mail"></a></li>
+    </ul>
+  </div>
+<!-- Fin Redes sociales - Barra lateral -->
 
 	<!-- Header -->
 		<header2>
@@ -53,20 +63,19 @@ include ("formulario.php");
 			<div class="container">
 				<div class="row">
 
-					<!-- Content -->
-						<div id="content" class="12u skel-cell-important">
-
-
-
-						<div class="container">
-
+		<!-- Content y container-->
+		<div id="content" class="12u skel-cell-important">
+		<div class="container">
+			<!-- Section -->
             <section>
                 <div id="container_demo" >
                     <!-- hidden anchor to stop jump http://www.css3create.com/Astuce-Empecher-le-scroll-avec-l-utilisation-de-target#wrap4  -->
                     <a class="hiddenanchor" id="toregister"></a>
                     <a class="hiddenanchor" id="tologin"></a>
                     <div id="wrapper">
+                    	<!-- Login -->
                         <div id="login" class="animate form">
+                        	<!-- Ingresar -->
                             <form method="post" action="autenticar.php" name="form1" id="form1">
                                 <h1>iniciar sessión</h1>
                                 	<?php
@@ -93,8 +102,14 @@ include ("formulario.php");
 									<a href="#toregister" class="to_register">Registrate</a>
 								</p>
                             </form>
+                            <!-- Fin Ingresar -->
                         </div>
+                        <!-- Fin Login -->
+
+
+                        <!-- Registrar -->
                         <div id="register" class="animate form">
+                        	<!-- Formulario Registrar -->
                             <form action="?m=1#tologin" method="post" name="form2" id="form2">
                                 <h1>registrarse</h1>
                                 <?php echo '<center>'.$mensaje.'</center>' ?>
@@ -160,21 +175,18 @@ include ("formulario.php");
 									<a href="#tologin" class="to_register"> Iniciar Sessión </a>
 								</p>
                             </form>
+                            <!-- Fin Formulario Registrar -->
                         </div>
+                        <!-- Fin Registrar -->
 
                     </div>
 
-
-
                 </div>
             </section>
+            <!-- Fin Section -->
         </div>
-
-
-
-
-						</div>
-					<!-- /Content -->
+		</div>
+		<!-- Fin Content y container-->
 
 				</div>
 
@@ -183,7 +195,7 @@ include ("formulario.php");
 	<!-- Main -->
 
 <!-- Footer -->
-		<div id="footer">
+		<div id="footer" >
 			<div class="container">
 				<div class="row">
 

@@ -79,7 +79,7 @@
 
 			<!-- Header Noticias -->
             <header>
-					<h2 align="center">Noticias</h2><br>
+					<h2 align="center">NOTICIAS</h2><br>
                     <p align="center">Descubra toda la actualidad y los testimonios de lo que Dios está haciendo alrededor del mundo a través de la Visión. Pastores y líderes que han experimentado en poco tiempo un avivamiento en sus iglesias.</p>
 			</header>
 			<!-- Fin Header Noticias -->
@@ -261,7 +261,6 @@
 
 		<br><br><br>
 	</div>
-</div>
 	<!-- Footer -->
 		<div id="footer">
 			<div class="container">

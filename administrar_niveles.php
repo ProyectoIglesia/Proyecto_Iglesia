@@ -16,8 +16,7 @@ exit();
 		<meta name="description" content="" />
 		<meta name="keywords" content="" />
 		<link href='http://fonts.googleapis.com/css?family=Oxygen:400,300,700' rel='stylesheet' type='text/css'>
-    <link rel="stylesheet" href="css/fonts.css" />
-		<!--[if lte IE 8]><script src="js/html5shiv.js"></script><![endif]-->
+    	<link rel="stylesheet" href="css/fonts.css" />
         <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
 		<script src="js/skel.min.js"></script>
 		<script src="js/init.js"></script>
@@ -85,17 +84,17 @@ exit();
 <td align="right"><b>Nivel a aperturar(<a>*</a>)</b></td>
 <td>&nbsp;</td>
 <td><select style="border-radius:5px" name="niveles" id="niveles" required>
-                        <option value="Nivel_1">Nivel 1</option>
-                        <option value="Nivel_2">Nivel 2</option>
-                        <option value="Nivel_3">Nivel 3</option>
+                        <option value="trimestre_1">Nivel 1</option>
+                        <option value="trimestre_2">Nivel 2</option>
+                        <option value="trimestre_3">Nivel 3</option>
                           </select></td>
 </tr>
 <tr>
 <td align="right"><b>Horario (<a>*</a>)</b></td>
 <td>&nbsp;</td>
 <td><select style="border-radius:5px" name="horarios" id="horarios" required>
-                        <option value="Horario 1">Turno 8:00 a 10:00 am</option>
-                        <option value="Horario 2">Turno 10:00 am a 12:00 pm</option>
+                        <option value="horario 1">Turno 8:00 a.m. - 10:00 a.m.</option>
+                        <option value="horario 2">Turno 10:00a.m. - 12:00 p.m.</option>
                           </select></td>
 </tr>
 <tr>
@@ -126,8 +125,8 @@ exit();
 </tr>
 </table>
 <center>
-    <?php if(isset($edita)) $nom_boton="Modificar
-Registro"; else $nom_boton="Enviar Registro"; ?><input style="margin-right: 20px;" class="boton" name="button" type="submit" value="<?php echo $nom_boton ?>">
+    
+    <input style="margin-right: 20px;" class="boton" name="agregar" type="submit" value="Aperturar Cap. Destino">
 
 <input style="margin-left:20px;" class="boton" name="res" type="reset" value="Reestablecer"></center>
 <br>

@@ -26,24 +26,20 @@ for ($i=0; $i < 3; $i++) {
 					$estatus_nivel = $trimestres['estatus_nivel'];
 					$cantidad_estudiantes = $trimestres['cantidad_estudiantes'] + 1;
 					$sql_actualiza_cantidad_estudiantes = "UPDATE nivel SET cantidad_estudiantes='$cantidad_estudiantes' WHERE cod_nivel='".$codigo."'";
-					mysqli_query($enlace, $sql_actualiza_cantidad_estudiantes);
-					$sql_inscripcion = "INSERT INTO inscripcion (cod_inscripcion,ci_est,cod_nivel,trimestre,ci_lider,fech_inicio,fech_final,estatus_nivel, horario) VALUES ('','$ci','$codigo','$nivel','$lider','$fecha_inicio','$fecha_final','$estatus_nivel','$horario_inscrito')";
-					if(mysqli_query($enlace, $sql_inscripcion)){
-						$sql_notas_totales = "INSERT INTO notas_totales (cod_nota,total_materia1,total_materia2,total_materias,tareas_entregadas_total,ci_est,ci_lider,cod_nivel,estatus) VALUES ('','0','0','0','0','$ci','$lider','$codigo','Reprobado')";
-						if (mysqli_query($enlace, $sql_notas_totales)) {
-							$mensaje= '<b>Registro Satisfactorio.</b>';
-						}
+					if (mysqli_query($enlace, $sql_actualiza_cantidad_estudiantes)) {
+						$sql_inscripcion = "INSERT INTO inscripcion (cod_inscripcion,ci_est,cod_nivel,trimestre,ci_lider,fech_inicio,fech_final,estatus_nivel, horario) VALUES ('','$ci','$codigo','$nivel','$lider','$fecha_inicio','$fecha_final','$estatus_nivel','$horario_inscrito')";
+						if(mysqli_query($enlace, $sql_inscripcion)){
+							$sql_notas_totales = "INSERT INTO notas_totales (cod_nota,total_materia1,total_materia2,total_materias,tareas_entregadas_total,ci_est,ci_lider,cod_nivel,estatus) VALUES ('','0','0','0','0','$ci','$lider','$codigo','Reprobado')";
+							if (mysqli_query($enlace, $sql_notas_totales)) {
+								$mensaje= '<b>Registro Satisfactorio.</b>';
+							}
+						}	else $mensaje= '<b>Error al registrar</b>';
+					}else $mensaje= '<b>Error al registrar</b>';
 					}
-					else $mensaje= '<b>Error al registrar</b>';
-
-				}
 			}
-
-
-		}
-		else {
-			# codigo que lo rebote
 		}
 	}
 }
-}?>
+echo "<META HTTP-EQUIV='REFRESH' CONTENT='0.1;URL=inscripcion.php'>";
+}
+?>

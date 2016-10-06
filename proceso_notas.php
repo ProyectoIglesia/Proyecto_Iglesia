@@ -30,8 +30,9 @@ if (mysqli_query($enlace, $cargar_nota)) {
 	$consulta_total_materia_actual = mysqli_query($enlace, $sql_total_materia_actual);
 	$total_materia_actual = mysqli_fetch_assoc($consulta_total_materia_actual);
 	$nota_total_materia = $total_materia_actual['total_materia'.$modulo] + $nota_total_materia;
-	$nota_total_sumadas = ($total_materia_actual['total_materia1'] + $total_materia_actual['total_materia2']) / 2;
-	$sql_cargar_total_materia = "UPDATE notas_totales SET total_materia".$modulo."='".$nota_total_materia."', total_materias='$nota_total_sumadas' where ci_est=$ci_estudiante and cod_nivel=$codigo_nivel";
+	$nota_total_materia2 = $nota_total_materia / 2;
+	$total = $total_materia_actual['total_materias'] + $nota_total_materia2;
+	$sql_cargar_total_materia = "UPDATE notas_totales SET total_materia".$modulo."='".$nota_total_materia."', total_materias='".$total."' where ci_est=$ci_estudiante and cod_nivel=$codigo_nivel";
 	mysqli_query($enlace, $sql_cargar_total_materia);
 } else $mensaje= 'Error al cargar nota';
 include("comprobacion_estatus.php");

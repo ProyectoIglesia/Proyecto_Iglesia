@@ -120,6 +120,26 @@ exit();
 
 
 </div>
+
+<div class="Consultas" align="center">
+<table width="37%" border="1" cellspacing="5" cellpadding="5" align="center">
+  <tr>
+    <td>&nbsp;</td>
+    <td>&nbsp;</td>
+    <td>&nbsp;</td>
+  </tr>
+  <tr>
+    <td align="center"><form action="?m=1" method="post" name="form2">
+<h2>Reporte:</h2>
+<td align="center"><a href="reporte/pdf_niveles.php" target="_blank"><img src="images/PDF_Descargar.png" width="50" height="50" alt="" /></a></td>
+</form></td>
+    <td>&nbsp;</td>
+  </tr>
+</table>
+
+
+  </div>
+
 <div class="Tablas" >
 <div class="CSSTableGenerator" >
 

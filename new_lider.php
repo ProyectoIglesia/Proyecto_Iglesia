@@ -1,7 +1,5 @@
 <?php
 include ("formulario_lider.php");
-session_start();
-// Valida si accede de forma indebida.
 if (empty($_SESSION["autentificado"])) {
 header("Location: index.php");
 exit();
@@ -23,12 +21,8 @@ exit();
 			<link rel="stylesheet" href="css/skel-noscript.css" />
 			<link rel="stylesheet" href="css/style.css" />
 		</noscript>
-
-
 	</head>
-
 <body>
-
 <!-- Redes sociales - Barra lateral -->
 <div class="social">
     <ul>
@@ -71,7 +65,7 @@ exit();
 
 					<!-- Content -->
 						<div id="content" class="12u skel-cell-important">
-								
+
                 <div class="Formularios" >
                 <?php echo "<b><center>$mensaje</center></b>"; ?>
 <form action="?m=1" method="post" name="form1" id="form1">

@@ -34,6 +34,13 @@ if (mysqli_query($enlace, $cargar_nota)) {
 	$total = $total_materia_actual['total_materias'] + $nota_total_materia2;
 	$sql_cargar_total_materia = "UPDATE notas_totales SET total_materia".$modulo."='".$nota_total_materia."', total_materias='".$total."' where ci_est=$ci_estudiante and cod_nivel=$codigo_nivel";
 	mysqli_query($enlace, $sql_cargar_total_materia);
+	$hora=date("h:i:s");
+	$dia=date("Y-m-d");
+	$usuario_audita = $_SESSION["nombre"];
+	$accion = "Carga de nota";
+	$datosAuditoria = $modulo_final.', '.$ci_estudiante.', '.$ci_lider.', '.$codigo_nivel.', '.$evaluacion.', '.$nota;
+	$sql="INSERT INTO auditoria VALUES ('','$dia','$hora','$accion','$datosAuditoria','$usuario_audita')";
+	mysqli_query($enlace, $sql);
 } else $mensaje= 'Error al cargar nota';
 include("comprobacion_estatus.php");
 }

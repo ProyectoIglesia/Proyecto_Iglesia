@@ -7,7 +7,12 @@ if ($datos=mysqli_fetch_assoc($consulta)){
 $_SESSION["autentificado"] = "SI";
 $_SESSION["nombre"]= $datos['nom_usu'];
 $_SESSION["nivel"]= $datos['niv_usu'];
-
+$accion = "Inicio de sesion";
+$hora=date("h:i:s");
+$dia=date("Y-m-d");
+$usuario_audita = $_SESSION['nombre'];
+$sql_auditoria = "INSERT INTO auditoria VALUES ('','$dia','$hora','$accion','', '$usuario_audita')";
+mysqli_query($enlace, $sql_auditoria);
 
 switch( $_SESSION['nivel'] ) {
 case 'administrador':

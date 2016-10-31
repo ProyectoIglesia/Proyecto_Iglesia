@@ -1,1 +1,0 @@
-administrar_niveles.php -> No elimina los niveles aperturados

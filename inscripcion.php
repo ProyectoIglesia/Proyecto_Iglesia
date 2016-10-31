@@ -1,25 +1,10 @@
 <?php
-include("conex.php");
-session_start();
+include("proceso_inscripcion.php");
 // Valida si accede de forma indebida.
 if (empty($_SESSION["autentificado"])) {
 header("Location: index.php");
 exit();
 }
-$sql = "SELECT * FROM usuarios_estudiantes where nom_usu = '".$_SESSION['nombre']."'";
-$consulta_usuario = mysqli_query($enlace, $sql);
-$usuario = mysqli_fetch_assoc($consulta_usuario);
-$ci = $usuario['ci_est'];
-$sql_revision = "SELECT * FROM inscripcion where ci_est ='".$ci."'";
-$revision = mysqli_query($enlace, $sql_revision);
-$permiso = "Si";
-while ($usuarios_inscritos = mysqli_fetch_assoc($revision)) {
-if ($usuarios_inscritos['estatus_nivel'] == 'Abierto' or $usuarios_inscritos['estatus_nivel'] == 'En_curso') {
-$permiso = "No";
-}
-else $permiso = "Si";
-}
-include("proceso_inscripcion.php");
 ?>
 
 <!DOCTYPE HTML>

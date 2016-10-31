@@ -1,6 +1,5 @@
 <?php
 include ("formulario.php");
-session_start();
 // Valida si accede de forma indebida.
 if (empty($_SESSION["autentificado"])) {
 header("Location: index.php");
@@ -129,7 +128,7 @@ id="email" placeholder="Correo del estudiante" <?php if(isset($edita)) echo
   <tr>
     <td align="right"><b>Nombre de usuario (<a style="color:red">*</a>)</b></td>
     <td>&nbsp;</td>
-    <td><input style="border-radius:5px" class="entrada_grande" type="text" required pattern="[a-z A-Z]+"
+    <td><input style="border-radius:5px" class="entrada_grande" type="text" required pattern="[0-9 a-z A-Z]+"
 name="usuario_new" id="nom" placeholder="Usuario del estudiante" <?php
 if(isset($edita)) echo 'value="'.$datosEditar['nom_usu'].'"'; ?>></td>
   </tr>

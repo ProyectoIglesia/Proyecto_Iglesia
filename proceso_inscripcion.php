@@ -1,8 +1,22 @@
 <?php
-include('conex.php');
+include("conex.php");
+session_start();
+$sql = "SELECT * FROM usuarios_estudiantes where nom_usu = '".$_SESSION['nombre']."'";
+$consulta_usuario = mysqli_query($enlace, $sql);
+$usuario = mysqli_fetch_assoc($consulta_usuario);
+$ci = $usuario['ci_est'];
+$sql_revision = "SELECT * FROM inscripcion where ci_est ='".$ci."'";
+$revision = mysqli_query($enlace, $sql_revision);
+$permiso = "Si";
+while ($usuarios_inscritos = mysqli_fetch_assoc($revision)) {
+if ($usuarios_inscritos['estatus_nivel'] == 'Abierto' or $usuarios_inscritos['estatus_nivel'] == 'En_curso') {
+$permiso = "No";
+}
+else $permiso = "Si";
+}
 $mensaje ="";
 if (isset($_POST['inscribirse'])) {
-	$nivel = $_POST['niveles'];
+$nivel = $_POST['niveles'];
 $horario_inscrito = $_POST['horarios'];
 $sql_estudiante = "SELECT * FROM estudiantes where ci_est='".$ci."'";
 $consulta_estudiante = mysqli_query($enlace, $sql_estudiante);
@@ -32,6 +46,13 @@ for ($i=0; $i < 3; $i++) {
 							$sql_notas_totales = "INSERT INTO notas_totales (cod_nota,total_materia1,total_materia2,total_materias,tareas_entregadas_total,ci_est,ci_lider,cod_nivel,estatus) VALUES ('','0','0','0','0','$ci','$lider','$codigo','Reprobado')";
 							if (mysqli_query($enlace, $sql_notas_totales)) {
 								$mensaje= '<b>Registro Satisfactorio.</b>';
+								$hora=date("h:i:s");
+								$dia=date("Y-m-d");
+								$accion = "Inscripcion";
+								$datosAuditoria = $ci.', '.$codigo.', '.$nivel.', '.$lider.', '.$fecha_inicio.', '.$fecha_final.', '.$estatus_nivel.', '.$horario_inscrito;
+								$usuario_audita = $_SESSION['nombre'];
+								$sql_auditoria = "INSERT INTO auditoria VALUES ('','$dia','$hora','$accion','$datosAuditoria', '$usuario_audita')";
+								mysqli_query($enlace, $sql_auditoria);
 							}
 						}	else $mensaje= '<b>Error al registrar</b>';
 					}else $mensaje= '<b>Error al registrar</b>';

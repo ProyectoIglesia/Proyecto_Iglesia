@@ -1,6 +1,5 @@
 <?php
 include ("formulario.php");
-session_start();
 // Valida si accede de forma indebida.
 if (empty($_SESSION["autentificado"])) {
 header("Location: index.php");
@@ -54,6 +53,7 @@ exit();
 			<li><a href="lider.php">Inicio</a></li>
 			<li><a href="subir_notas.php">Cargar notas</a></li>
 			<li><a href="tareas.php">Cargar devocional</a></li>
+			<li><a href="grafica_nota2.php">Graficos de notas</a></li>
 			<li><a href="cierre.php">Salir</a></li>
 		</ul>
 	</nav>

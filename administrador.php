@@ -1,6 +1,5 @@
 <?php
 include ("formulario.php");
-session_start();
 // Valida si accede de forma indebida.
 if (empty($_SESSION["autentificado"])) {
 header("Location: index.php");

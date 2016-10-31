@@ -10,7 +10,10 @@
 }
 
 [class^="icon-"], [class*=" icon-"] {
+<<<<<<< HEAD
   /* use !important to prevent issues with browser extensions that change fonts */
+=======
+>>>>>>> Eduardo
   font-family: 'icomoon' !important;
   speak: none;
   font-style: normal;
@@ -19,7 +22,10 @@
   text-transform: none;
   line-height: 1;
 
+<<<<<<< HEAD
   /* Better Font Rendering =========== */
+=======
+>>>>>>> Eduardo
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
@@ -39,4 +45,7 @@
 .icon-youtube:before {
   content: "\e904";
 }
+<<<<<<< HEAD
 
+=======
+>>>>>>> Eduardo

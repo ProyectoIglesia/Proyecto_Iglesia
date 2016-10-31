@@ -1,7 +1,6 @@
 <?php
-include("conex.php");
+include("formulario.php");
 include("agregar_nivel.php");
-session_start();
 // Valida si accede de forma indebida.
 if (empty($_SESSION["autentificado"])) {
 header("Location: index.php");
@@ -16,10 +15,9 @@ exit();
 		<meta name="description" content="" />
 		<meta name="keywords" content="" />
 		<link href='http://fonts.googleapis.com/css?family=Oxygen:400,300,700' rel='stylesheet' type='text/css'>
-		<!--[if lte IE 8]><script src="js/html5shiv.js"></script><![endif]-->
+    	<link rel="stylesheet" href="css/fonts.css" />
         <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
 		<script src="js/skel.min.js"></script>
-		<script src="js/skel-panels.min.js"></script>
 		<script src="js/init.js"></script>
 		<noscript>
 			<link rel="stylesheet" href="css/skel-noscript.css" />
@@ -30,6 +28,18 @@ exit();
 	</head>
 
 <body>
+<!-- Redes sociales - Barra lateral -->
+<div class="social">
+    <ul>
+      <li><a href="https://www.facebook.com/restauramundial" target="_blank" class="icon-facebook"></a></li>
+      <li><a href="http://www.twitter.com/" target="_blank" class="icon-twitter"></a></li>
+      <li><a href="http://www.youtube.com/" target="_blank" class="icon-youtube"></a></li>
+      <li><a href="http://www.instagram.com/" target="_blank" class="icon-instagram"></a></li>
+      <li><a href="mailto:restauracionmundial@gmail.com" class="icon-mail"></a></li>
+    </ul>
+  </div>
+<!-- Fin Redes sociales - Barra lateral -->
+
 <div id="header">
 			<div class="container">
 
@@ -60,20 +70,15 @@ exit();
 
 					<!-- Content -->
 						<div id="content" class="12u skel-cell-important">
-
-								<header align="center">
-									<h2></h2>
-								</header><br>
-
-                            <div class="Formularios" >
-                            <?php echo "<b>$mensaje</b>"; ?>
+                            <div align="center" class="Formularios" >
+                            <?php echo "<b><center>$mensaje</center></b>"; ?>
 <form action="?m=1" method="post" name="form1" id="form1">
 <table>
 
 <tr>
 <td align="right"><b>Nivel a aperturar(<a>*</a>)</b></td>
 <td>&nbsp;</td>
-<td><select name="niveles" id="niveles" required>
+<td><select style="border-radius:5px" name="niveles" id="niveles" required>
                         <option value="trimestre_1">Nivel 1</option>
                         <option value="trimestre_2">Nivel 2</option>
                         <option value="trimestre_3">Nivel 3</option>
@@ -82,20 +87,25 @@ exit();
 <tr>
 <td align="right"><b>Horario (<a>*</a>)</b></td>
 <td>&nbsp;</td>
-<td><select name="horarios" id="horarios" required>
-                        <option value="horario 1">turno 8:00 a 10:00 am</option>
-                        <option value="horario 2">turno 10:00 am a 12:00 pm</option>
+<td><select style="border-radius:5px" name="horarios" id="horarios" required>
+                        <option value="horario 1">Turno 8:00 a.m. - 10:00 a.m.</option>
+                        <option value="horario 2">Turno 10:00a.m. - 12:00 p.m.</option>
                           </select></td>
 </tr>
 <tr>
-<td align="right"><b>fecha de inicio(<a>*</a>)</b></td>
+<td align="right"><b>Fecha de inicio(<a>*</a>)</b></td>
 <td>&nbsp;</td>
-<td><input type="date" name="fecha_inicio" id="fecha_inicio" required></td>
+<td><input style="border-radius:5px" type="date" name="fecha_inicio" id="fecha_inicio" required></td>
+</tr>
+<tr>
+<td align="right"><b>Fecha de fin(<a>*</a>)</b></td>
+<td>&nbsp;</td>
+<td><input style="border-radius:5px" type="date" name="fecha_fin" id="fecha_fin" required></td>
 </tr>
 <tr>
 <td align="right"><b>Selecciona lider (<a>*</a>)</b></td>
 <td>&nbsp;</td>
-<td><select name="ci_lider" required>
+<td><select style="border-radius:5px" name="ci_lider" required>
                           <?php
                           $sql_lider = "SELECT * FROM lideres";
                           $consulta_lideres =  mysqli_query($enlace,$sql_lider);
@@ -108,18 +118,40 @@ exit();
                           ?>
                           </select></td>
 </tr>
-<tr>
-    <td align="right"><input type="submit" name="agregar" value="enviar"></td>
-    <td width="5%">&nbsp;</td>
-    <td><input name="res" type="reset" value="reestablecer"></td>
-  </tr>
 </table>
-<a style="margin-left:440px;"><b> (<a>*</a>) : Campos Obligatios</b></a>
+<center>
+
+    <input style="margin-right: 20px;" class="boton" name="agregar" type="submit" value="Aperturar Cap. Destino">
+
+<input style="margin-left:20px;" class="boton" name="res" type="reset" value="Reestablecer"></center>
+<br>
+<center><a><b> (<a style="color:red">*</a>) : Campos Obligatios</b></a></center>
 
 </form>
 
 
 </div>
+<div class="Consultas" align="center">
+<table width="37%" border="1" cellspacing="5" cellpadding="5" align="center">
+  <tr>
+    <td>&nbsp;</td>
+    <td>&nbsp;</td>
+    <td>&nbsp;</td>
+  </tr>
+  <tr>
+    <td align="center"><form action="?m=1" method="post" name="form2">
+<h2>Reporte:</h2>
+<td align="center"><a href="reporte/pdf_niveles.php" target="_blank"><img src="images/PDF_Descargar.png" width="50" height="50" alt="" /></a></td>
+</form></td>
+    <td>&nbsp;</td>
+  </tr>
+</table>
+
+
+  </div>
+
+<br><br>
+
 <div class="Tablas" >
 <div class="CSSTableGenerator" >
 
@@ -148,18 +180,18 @@ $sql="Select * from nivel ".$where;
 $cons=mysqli_query($enlace, $sql);
 echo '<table>
 <tr>
-<td>Código</td><td>Trimestre</td><td>Lider</td><td>Fecha inicio</td><td>Fecha fin</td><td>Estatus</td><td>Horario</td><td colspan="2">Opciones</td>
+<td>Código</td><td>Nivel</td><td>Horario</td><td>Lider</td><td>Fecha inicio</td><td>Fecha fin</td><td>Estatus</td><td colspan="2">Opciones</td>
 </tr>';
 while($datos=mysqli_fetch_assoc($cons)){
 $primario= $datos['cod_nivel'];
 echo "<tr>";
 echo "<td><center>".$datos['cod_nivel']."</center></td>";
 echo "<td><center>".$datos['trimestre']."</center></td>";
+echo "<td><center>".$datos['horario']."</center></td>";
 echo "<td><center>".$datos['ci_lider']."</center></td>";
 echo "<td><center>".$datos['fech_inicio']."</center></td>";
 echo "<td><center>".$datos['fech_final']."</center></td>";
 echo "<td><center>".$datos['estatus_nivel']."</center></td>";
-echo "<td><center>".$datos['horario']."</center></td>";
 echo "<td><center><a class='tooltip' alt='Eliminar Registro' href='?m=1&eliminar=$primario'><img src='images/eliminar.png'></a></center></td>";
 echo "<td><center><a class='tooltip' alt='Editar Registro ' href='?m=1&editar=$primario'><img src='images/editar.png'></a></center></td>";
 echo "</tr>";

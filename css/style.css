@@ -607,3 +607,17 @@ nav ul li :hover {
   background: #d9d9d9;
   text-decoration: none;
 }
+<<<<<<< HEAD
+=======
+#TituloGrafica{
+	text-align: center;
+	font-size: 2em;
+	color: #6ca866;
+}
+#FormularioGrafica{
+	color: #FFFFFF;
+	width: 80%;
+	margin: 20px auto;
+	text-align: center;
+}
+>>>>>>> Eduardo

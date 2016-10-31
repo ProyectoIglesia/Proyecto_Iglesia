@@ -1,54 +1,32 @@
 <?php
 //codigo de inserción de datos//
 include("conex.php");
+session_start();
 $mensaje= "";
 if(isset($_POST['ci'])){
-$cedula = $_POST['ci'];
-$nombre = $_POST['nom'];
-$apellido = $_POST['ape'];
-$fn = $_POST['fec_nac'];
-$direccion = $_POST['dir'];
-$telefono = $_POST['tel'];
-$email = $_POST['email'];
-$sql = "INSERT INTO lideres(ci_lider,nom_lider,ape_lider,fec_nac_lider,dir_lider,tel_lider,corr_lider) VALUES
-($cedula, '$nombre','$apellido', '$fn', '$direccion', '$telefono', '$email')";
-if(mysqli_query($enlace, $sql)){
-$mensaje= '<b>Registro Satisfactorio.</b>';
-$accion="Inserta";
-$datosAuditoria= $cedula.", ".$nombre.", ".$apellido.", ".$fn.", ".$direccion.", ".$telefono.", ".$email."";
-}else $mensaje= '<b>Error al registrar</b>';
-}
-//fin del código//
-
-//código de inserción de usuario//
-$mensaje ="";
-if(isset($_POST['usuario_new'])){
-$usuario = $_POST['usuario_new'];
-$clave = $_POST['clave_new'];
-$sql_usuario = "INSERT INTO usuarios(cod_usu,nom_usu,cont_usu,niv_usu,ps_usu,rps_usu) VALUES
-('','$usuario', '$clave', 'lider', '', '')";
-if(mysqli_query($enlace, $sql_usuario)){
-$mensaje= '<b>Registro Satisfactorio.</b>';
-$accion="Inserta";
-$datosAuditoria= $usuario.", ".$clave."";
-}else $mensaje= '<b>Error al registrar</b>';
-}
-//fin del código//
-
-//código de inserción de usuario lider//
-if (isset($_POST['ci']) && isset($_POST['usuario_new'])) {
-$cedula = $_POST['ci'];
-$usuario= $_POST['usuario_new'];
-$clave= $_POST['clave_new'];
-$nivel="lider";
-$sql = "INSERT INTO usuarios_lideres(nom_usu,ci_lider,cont_usu,niv_usu) VALUES
-('$usuario', '$cedula', '$clave', '$nivel')";
-if(mysqli_query($enlace, $sql)){
-$mensaje= '<b>Registro Satisfactorio.</b>';
-$accion="Inserta";
-$datosAuditoria= "$usuario, $cedula, $clave, $nivel";
-}else $mensaje= '<b>Error al registrar</b>';
-
+	$cedula = $_POST['ci'];
+	$nombre = $_POST['nom'];
+	$apellido = $_POST['ape'];
+	$fn = $_POST['fec_nac'];
+	$direccion = $_POST['dir'];
+	$telefono = $_POST['tel'];
+	$email = $_POST['email'];
+	$usuario = $_POST['usuario_new'];
+	$clave = $_POST['clave_new'];
+	$nivel="lider";
+	$sql = "INSERT INTO lideres(ci_lider,nom_lider,ape_lider,fec_nac_lider,dir_lider,tel_lider,corr_lider) VALUES
+	($cedula, '$nombre','$apellido', '$fn', '$direccion', '$telefono', '$email')";
+	if(mysqli_query($enlace, $sql)){
+		$sql_usuario = "INSERT INTO usuarios(cod_usu,nom_usu,cont_usu,niv_usu,ps_usu,rps_usu) VALUES ('','$usuario', '$clave', '$nivel', '', '')";
+		if(mysqli_query($enlace, $sql_usuario)){
+			$sql_mixto = "INSERT INTO usuarios_lideres(nom_usu,ci_lider,cont_usu,niv_usu) VALUES ('$usuario', '$cedula', '$clave', '$nivel')";
+			if(mysqli_query($enlace, $sql_mixto)){
+				$mensaje= '<b>Datos subidos satisfactoriamente</b>';
+				$accion="Inserta";
+				$datosAuditoria= $cedula.", ".$nombre.", ".$apellido.", ".$fn.", ".$direccion.", ".$telefono.", ".$email.", ".$usuario.", ".$clave;
+			}else $mensaje= '<b>Ocurrió un error mientras se cargaban los datos</b>';
+		}else $mensaje= '<b>Ocurrió un error mientras se cargaban los datos</b>';
+	}else $mensaje= '<b>Ocurrió un error mientras se cargaban los datos</b>';
 }
 //fin del código//
 
@@ -93,15 +71,13 @@ $edita="si";
 //fin del código//
 
 //codigo de auditoria//
-if(isset($accion)){
+if($mensaje == '<b>Datos subidos satisfactoriamente</b>'){
 $hora=date("h:i:s");
 $dia=date("Y-m-d");
-$sql="INSERT INTO auditoria VALUES
-('','$dia','$hora','$accion','$datosAuditoria')";
-mysqli_query($enlace, $sql);
+$usuario_audita = $_SESSION['nombre'];
+$sql_auditoria = "INSERT INTO auditoria VALUES ('','$dia','$hora','$accion','$datosAuditoria', '$usuario_audita')";
+mysqli_query($enlace, $sql_auditoria);
 }
 $where="";
 //fin del código//
-
-
 ?>

@@ -1,9 +1,7 @@
-<?php 
+<?php
 $mensaje = "";
 include("conex.php");
 if (isset($_POST['cargar_tarea'])) {
-	# code...
-
 $codigo_nivel = $_POST['codigo_nivel'];
 $ci_estudiante = $_POST['ci_estudiante'];
 $sql = "SELECT * FROM usuarios_lideres where nom_usu = '".$_SESSION['nombre']."'";
@@ -25,6 +23,13 @@ if (mysqli_query($enlace,$sql_tarea)) {
 	$cantidad_tareas = $total_tareas['tareas_entregadas_total'] + $tareas_entregadas;
 	$sql_actualizacion_tareas = "UPDATE notas_totales SET tareas_entregadas_total='".$cantidad_tareas."' WHERE ci_est='$ci_estudiante' and cod_nivel='$codigo_nivel'";
 	mysqli_query($enlace, $sql_actualizacion_tareas);
+	$hora=date("h:i:s");
+	$dia=date("Y-m-d");
+	$usuario_audita = $_SESSION["nombre"];
+	$accion = "Carga de devocional";
+	$datosAuditoria = $codigo_nivel.', '.$ci_estudiante.', '.$ci_lider.', '.$semana.', '.$tareas_entregadas;
+	$sql="INSERT INTO auditoria VALUES ('','$dia','$hora','$accion','$datosAuditoria','$usuario_audita')";
+	mysqli_query($enlace, $sql);
 } else $mensaje = "Error de carga";
 include("comprobacion_estatus.php");
 }

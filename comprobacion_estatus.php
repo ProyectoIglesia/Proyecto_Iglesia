@@ -1,4 +1,4 @@
-<?php  
+<?php
 	include("conex.php");
 	$sql_estatus = "SELECT * FROM notas_totales WHERE ci_est='$ci_estudiante' and cod_nivel='$codigo_nivel'";
 	$consulta_estatus = mysqli_query($enlace, $sql_estatus);
@@ -7,7 +7,6 @@
 		$sql_cambio_estatus = "UPDATE notas_totales SET estatus='Aprobado'";
 	}else {
 		$sql_cambio_estatus = "UPDATE notas_totales SET estatus='Reprobado'";
-	} 
-			mysqli_query($enlace,$sql_cambio_estatus);		
-
+	}
+	mysqli_query($enlace,$sql_cambio_estatus);
 ?>

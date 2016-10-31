@@ -1,6 +1,5 @@
 <?php
 include("conex.php");
-session_start();
 include("formulario.php");
 include("proceso_notas.php");
 // Valida si accede de forma indebida.
@@ -49,6 +48,8 @@ $ci = $usuario['ci_lider'];
 					<nav id="nav">
 						<ul>
               				<li><a href="lider.php">Inicio</a></li>
+                      <li><a href="tareas.php">Cargar Devocional</a></li>
+                      <li><a href="grafica_nota2.php">Gráficos de notas</a></li>
 							<li><a href="cierre.php">Salir</a></li>
             </ul>
 					</nav>
@@ -136,6 +137,26 @@ while ($nivel = mysqli_fetch_assoc($consulta_nivel)) {
 
 
 </div>
+
+<div class="Consultas" align="center">
+<table width="37%" border="1" cellspacing="5" cellpadding="5" align="center">
+  <tr>
+    <td>&nbsp;</td>
+    <td>&nbsp;</td>
+    <td>&nbsp;</td>
+  </tr>
+  <tr>
+    <td align="center"><form action="?m=1" method="post" name="form2">
+<h2>Reporte:</h2>
+<td align="center"><a href="reporte/reporte_notas.php" target="_blank"><img src="images/PDF_Descargar.png" width="50" height="50" alt="" /></a></td>
+</form></td>
+    <td>&nbsp;</td>
+  </tr>
+</table>
+
+
+  </div>
+
 <div class="Tablas" >
 <div class="CSSTableGenerator" >
 
@@ -150,32 +171,32 @@ if (!isset($_REQUEST['pg'])) $n_pag = 1; else $n_pag=$_REQUEST['pg'];
 $cantidad=20;
 $inicial = ($n_pag-1) * $cantidad;
 //Fin del Limite
-$sql = "SELECT * FROM nivel ".$where;
+$sql = "SELECT * FROM notas_evaluaciones ".$where;
 $consulta = mysqli_query($enlace, $sql) or die ("Error");
 $cant_registros =mysqli_num_rows($consulta);
 $paginado = intval($cant_registros / $cantidad);
 //hasta aqui es la consulta total de registros
-$sql = "SELECT * FROM nivel ".$where." LIMIT $inicial,$cantidad ";
+$sql = "SELECT * FROM notas_evaluaciones ".$where." LIMIT $inicial,$cantidad ";
 $consulta = mysqli_query($enlace, $sql) or die ("Error");
 $cant_registros2 =mysqli_num_rows($consulta);
 //hasta aqui es la consulta limitada
 echo "</br><center>Cantidad de registros: ".$cant_registros." - Límite Mostrado: Del ".($inicial+1)." al ".($inicial + $cant_registros2)."</center><br>";
-$sql="Select * from nivel ".$where;
+$sql="Select * from notas_evaluaciones ".$where;
 $cons=mysqli_query($enlace, $sql);
 echo '<table>
 <tr>
-<td>Código</td><td>Trimestre</td><td>Lider</td><td>Fecha inicio</td><td>Fecha fin</td><td>Estatus</td><td>Horario</td><td colspan="2">Opciones</td>
+<td>Código</td><td>Nivel</td><td>Módulo</td><td>Evaluación</td><td>Cédula estudiante</td><td>Nota</td><td>Fecha</td><td colspan="2">Opciones</td>
 </tr>';
 while($datos=mysqli_fetch_assoc($cons)){
-$primario= $datos['cod_nivel'];
+$primario= $datos['cod_nota'];
 echo "<tr>";
-echo "<td><center>".$datos['cod_nivel']."</center></td>";
-echo "<td><center>".$datos['trimestre']."</center></td>";
-echo "<td><center>".$datos['ci_lider']."</center></td>";
-echo "<td><center>".$datos['fech_inicio']."</center></td>";
-echo "<td><center>".$datos['fech_final']."</center></td>";
-echo "<td><center>".$datos['estatus_nivel']."</center></td>";
-echo "<td><center>".$datos['horario']."</center></td>";
+echo "<td><center>".$datos['cod_nota']."</center></td>";
+echo "<td><center>".$datos['asignatura']."</center></td>";
+echo "<td><center>".$datos['asignatura']."</center></td>";
+echo "<td><center>".$datos['evaluacion']."</center></td>";
+echo "<td><center>".$datos['ci_est']."</center></td>";
+echo "<td><center>".$datos['nota']."</center></td>";
+echo "<td><center>".$datos['fecha']."</center></td>";
 echo "<td><center><a class='tooltip' alt='Eliminar Registro' href='?m=1&eliminar=$primario'><img src='images/eliminar.png'></a></center></td>";
 echo "<td><center><a class='tooltip' alt='Editar Registro ' href='?m=1&editar=$primario'><img src='images/editar.png'></a></center></td>";
 echo "</tr>";

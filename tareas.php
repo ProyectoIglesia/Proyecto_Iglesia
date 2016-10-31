@@ -1,6 +1,5 @@
-<?php 
+<?php
 include("conex.php");
-session_start();
 include("formulario.php");
 include("proceso_tareas.php");
 // Valida si accede de forma indebida.
@@ -49,6 +48,8 @@ $ci = $usuario['ci_lider'];
 					<nav id="nav">
 						<ul>
               				<li><a href="lider.php">Inicio</a></li>
+              				<li><a href="subir_notas.php">Subir notas</a></li>
+              				<li><a href="grafica_nota2.php">Gráficos de notas</a></li>
 							<li><a href="cierre.php">Salir</a></li>
             </ul>
 					</nav>
@@ -74,7 +75,7 @@ $ci = $usuario['ci_lider'];
 <td align="right"><b>Seleccionar nivel(<a>*</a>)</b></td>
 <td>&nbsp;</td>
 <td>
-<?php 
+<?php
 $sql_nivel = "SELECT * FROM nivel WHERE ci_lider='$ci'";
 $consulta_nivel = mysqli_query($enlace, $sql_nivel);
 echo "<select name='codigo_nivel'>";

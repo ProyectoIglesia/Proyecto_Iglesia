@@ -3,9 +3,10 @@
 -- http://www.phpmyadmin.net
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 03-10-2016 a las 06:04:14
--- Versión del servidor: 10.1.10-MariaDB
--- Versión de PHP: 5.6.19
+
+-- Tiempo de generación: 06-10-2016 a las 04:19:37
+-- Versión del servidor: 10.1.13-MariaDB
+-- Versión de PHP: 7.0.8
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 SET time_zone = "+00:00";
@@ -178,7 +179,7 @@ CREATE TABLE `usuarios_estudiantes` (
   `nom_usu` varchar(50) NOT NULL,
   `ci_est` int(11) NOT NULL,
   `cont_usu` varchar(100) NOT NULL,
-  `niv_usu` enum('administrador','estudiante','profesor') NOT NULL DEFAULT 'estudiante'
+  `niv_usu` enum('administrador','estudiante','lider') NOT NULL DEFAULT 'estudiante'
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 -- --------------------------------------------------------
@@ -251,22 +252,20 @@ ALTER TABLE `tareas`
 --
 ALTER TABLE `usuarios`
   ADD PRIMARY KEY (`cod_usu`),
-  ADD UNIQUE KEY `nom_usu` (`nom_usu`),
-  ADD KEY `niv_usu` (`niv_usu`);
+  ADD UNIQUE KEY `nom_usu` (`nom_usu`);
 
 --
 -- Indices de la tabla `usuarios_estudiantes`
 --
 ALTER TABLE `usuarios_estudiantes`
-  ADD PRIMARY KEY (`ci_est`),
-  ADD KEY `nom_usu` (`nom_usu`),
-  ADD KEY `niv_usu` (`niv_usu`);
+  ADD UNIQUE KEY `ci_est` (`ci_est`),
+  ADD KEY `nom_usu` (`nom_usu`);
 
 --
 -- Indices de la tabla `usuarios_lideres`
 --
 ALTER TABLE `usuarios_lideres`
-  ADD PRIMARY KEY (`ci_lider`),
+  ADD UNIQUE KEY `ci_lider` (`ci_lider`),
   ADD KEY `nom_usu` (`nom_usu`);
 
 --
